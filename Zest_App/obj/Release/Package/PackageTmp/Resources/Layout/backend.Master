@@ -1,0 +1,574 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="backend.master.cs" Inherits="Zest_App.Resources.Layout.backend" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from radixtouch.in/templates/admin/aegis/source/light/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Sep 2019 15:59:28 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" />
+     
+    <title>Zest Backend</title>
+    <!-- General CSS Files -->
+    <link href="<%=ResolveClientUrl("~/Assets/backend/css/app.min.css") %>" rel="stylesheet" type="text/css" />
+    <!-- Template CSS -->
+    <link href="<%=ResolveClientUrl("~/Assets/backend/css/style.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Assets/backend/css/components.css") %>" rel="stylesheet" type="text/css" />
+
+    <!-- Toast CSS Files -->
+    <link href="<%=ResolveClientUrl("~/Assets/backend/bundles/izitoast/css/iziToast.min.css") %>" rel="stylesheet" type="text/css" />
+    <!-- Custom style CSS -->
+    <link href="<%=ResolveClientUrl("~/Assets/backend/css/custom.cs") %>" rel="stylesheet" type="text/css" />
+    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- General JS Scripts -->
+    <script src="<%=ResolveClientUrl("~/Assets/backend/js/app.min.js") %>" type="text/javascript"></script>
+    <!-- Template JS File -->
+    <script src="<%=ResolveClientUrl("~/Assets/backend/js/scripts.js") %>" type="text/javascript"></script>
+    <!-- Custom JS File -->
+    <script src="<%=ResolveClientUrl("~/Assets/backend/js/custom.js") %>" type="text/javascript"></script>
+    <!-- Toast JS File -->
+    <script src="<%=ResolveClientUrl("~/Assets/backend/bundles/izitoast/js/iziToast.min.js") %>" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function ShowMessage(message, messagetype) {
+            switch (messagetype) {
+                case 'Success':
+                    iziToast.success({
+                        title: message
+                    });
+                    break;
+                case 'Error':
+                    iziToast.error({
+                        title: message
+                    });
+                    break;
+                case 'Warning':
+                    iziToast.warning({
+                        title: message
+                    });
+                    break;
+                default:
+                    iziToast.info({
+                        title: message
+                    });
+            }
+        }
+        function open_images() {
+            $("#modalImages").modal('show');
+        }
+    </script>
+    <style>
+        .LoadingModal {
+            position: fixed;
+            z-index: 999999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .Loadingcenter {
+            z-index: 1000;
+            margin: 250px auto;
+            padding: 10px;
+            width: 350px;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .Loadingcenter img {
+                width: 100%;
+            }
+
+        .table-pagination table tbody tr td {
+            border: none !important;
+            padding: 10px !important;
+        }
+
+            .table-pagination table tbody tr td span,
+            .table-pagination table tbody tr td a {
+                padding: 3px 6px;
+                border-radius: 5px;
+                display: block;
+                font-size: 15px;
+            }
+
+            .table-pagination table tbody tr td span {
+                background: #d5b904;
+                color: #fff;
+            }
+
+            .table-pagination table tbody tr td a {
+                background: #CBD1CC;
+                color: #000;
+            }
+
+        .card-header-action > div {
+            display: inline-flex;
+        }
+        .modal {
+          overflow-y:auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+    
+    <form id="app" runat="server">
+        <button type="submit" onclick="return false;" style="display: none"></button>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
+        <asp:UpdateProgress runat="server" ID="UpdateProgress1">
+            <ProgressTemplate>
+                <div class="LoadingModal">
+                    <div class="Loadingcenter">
+                        <asp:Image ImageUrl="~/Assets/img/loading.gif" runat="server" ID="ImagenLoader" />
+                    </div>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+        <div style="position: fixed; bottom: 0; right: 0;background:#000;border-top-left-radius:10px;z-index:6000">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:LinkButton ID="LinkButton1" CssClass="nav-link nav-link-lg" runat="server" OnClick="btnImages_Click">
+                            <i class="far fa-images" style="font-size: 20px; color: #fff;cursor:pointer"></i>
+                </asp:LinkButton>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
+        <div class="main-wrapper main-wrapper-1 ">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar fixed-top" style="background: #1a1a1a !important">
+                <div class="form-inline mr-auto">
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"><i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                            <i data-feather="maximize"></i>
+                        </a></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+                    <li class="">
+                        <asp:UpdatePanel ID="up_images_btn" runat="server">
+                            <ContentTemplate>
+                                <asp:LinkButton ID="btnImages" CssClass="nav-link nav-link-lg" runat="server" OnClick="btnImages_Click">
+                            <i class="far fa-images" style="font-size: 20px; color: #fff;cursor:pointer"></i>
+                                </asp:LinkButton>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
+                    </li>
+                    <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+                        class="nav-link notification-toggle nav-link-lg"><i data-feather="bell"></i>
+                        <span class="badge headerBadge2">0 </span></a>
+                        <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                            <div class="dropdown-header">
+                                Notifications
+                                <div class="float-right">
+                                    <a href="#">Mark All As Read</a>
+                                </div>
+                            </div>
+                            <div class="dropdown-list-content dropdown-list-icons">
+                            </div>
+                            <div class="dropdown-footer text-center">
+                                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="#" data-toggle="dropdown"
+                        class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                        <span class="user-img-radious-style" style="padding: 4px 2px; border: 1px #fff solid">
+                            <asp:Literal ID="ltUserMin" runat="server"></asp:Literal>
+                        </span>
+                        <span
+                            class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">
+                                <asp:Literal ID="ltUserWelcome" runat="server"></asp:Literal>
+                            </div>
+                            <a href="~/Resources/Views/Backend/Profile/Profile.aspx" class="dropdown-item has-icon" runat="server"><i class="far
+										fa-user"></i>Profile
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <asp:LinkButton ID="btnLogout" OnClick="btnLogout_Click" runat="server" CssClass="dropdown-item has-icon text-danger">
+                                <i
+                                class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </asp:LinkButton>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+                    <div class="sidebar-brand">
+                        <a href="/Resources/Views/Backend/welcome.aspx">
+                            <asp:Image ID="img_logo" CssClass="header-logo" AlternateText="Zest" ImageUrl="~/Assets/img/logos/logo main.svg" runat="server" />
+
+                        </a>
+                    </div>
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-picture">
+                            <asp:Image ID="profile_img" AlternateText="Profile" runat="server" />
+                        </div>
+                        <div class="sidebar-user-details">
+                            <div class="user-name">
+                                <asp:Literal ID="ltUserName" runat="server"></asp:Literal>
+                            </div>
+                            <div class="user-role">
+                                <asp:Literal ID="ltUserRol" runat="server"></asp:Literal>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Principal</li>
+                        <li class="dropdown active">
+                            <a href="#" class="nav-link has-dropdown">
+                                <i class="fas fa-chart-pie"></i><span>Analytics</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a class="nav-link" href="/Resources/Views/Backend/welcome.aspx">Web Analytic</a></li>
+                                <li><a class="nav-link" href="/Resources/Views/Backend/welcome.aspx">App Analytics</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-header">Mantenimiento</li>
+                        <li class="dropdown active">
+                            <a href="#" class="nav-link has-dropdown">
+                                <i class="fas fa-mobile-alt"></i><span>Zest App</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/News.aspx">Noticias Zest</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/NewsCorp.aspx">Noticias Compañias</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/NewsMacro.aspx">Noticias Macro</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/Catalog.aspx">Servicios Zest</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/Reviews.aspx">Notas Análisis</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/Logos.aspx">Logos Activos</a></li>
+                                <li style="display: none"><a class="nav-link" href="#">App Landing</a></li>
+                                <li style="display: none"><a class="nav-link" href="#">Notificaciones</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/CellCode.aspx">Código de ingreso</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown active">
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-desktop"></i><span>Zest Web</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestweb/Events/Events.aspx">Eventos</a></li>
+
+                                <li class="dropdown">
+                                    <a href="#" class="has-dropdown">Secciones</a>
+                                    <ul class="dropdown-menu" style="display: block;">
+                                        <li><a runat="server" href="~/Resources/Views/Backend/Zestweb/Sections/Titulos.aspx">Editar Cifras</a></li>
+                                        <li><a runat="server" href="~/Resources/Views/Backend/Zestweb/Aboutus/Team.aspx">Equipo Zest</a></li>
+                                        <li><a runat="server" href="~/Resources/Views/Backend/Zestweb/Aboutus/Publi25k1k.aspx">25k1k Publicaciones</a></li>
+                                        <li><a runat="server" href="~/Resources/Views/Backend/Zestweb/Faqs.aspx">Faqs</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestweb/Blog.aspx">Educación Financiera</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestweb/Banner.aspx">EF Publicidad</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-header">General</li>
+                        <li class="dropdown active">
+                            <a href="#" class="nav-link has-dropdown">
+                                <i class="fas fa-chart-pie"></i><span>General</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/Investors.aspx">Inversores</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Leads/List.aspx">Web Leads</a></li>
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Users/Users.aspx">Usuarios</a></li>
+                            </ul>
+                        </li>
+                        <!--<li class="menu-header">UI Elements</li>
+                        <li><a class="nav-link" href="blank.html"><i data-feather="file"></i><span>Blank Page</span></a>
+                        </li>-->
+                    </ul>
+                </aside>
+            </div>
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <asp:ContentPlaceHolder ID="Content" runat="server">
+                    </asp:ContentPlaceHolder>
+                </section>
+            </div>
+
+            
+            <asp:ContentPlaceHolder ID="Modal" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Large modal -->
+
+
+
+            <!-- New modal -->
+            <div class="modal fade" id="modalImages" tabindex="-1" role="dialog"
+                aria-hidden="true">
+                <div class="modal-dialog" style="max-width: 90%">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Imagenes</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <asp:UpdatePanel ID="upTable" runat="server">
+                                <ContentTemplate>
+                                    <asp:LinkButton ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Style="display: none">update</asp:LinkButton>
+                                    <div class="row justify-content-md-center">
+                                        <div class="col-12 col-md-12 col-lg-12">
+                                            <div class="card" style="background: rgba(255,255,255,0)">
+                                                <div class="card-header">
+                                                    <h4>
+                                                        <asp:LinkButton ID="btnPrev" runat="server" CommandArgument="0" OnClick="btnGoFolder_Click" Style="float: left"><i class="fas fa-arrow-circle-left"></i></asp:LinkButton>
+                                                        <asp:TextBox ID="txtFolderName" CssClass="form-control" Width="300" runat="server" AutoPostBack="true" OnTextChanged="txtFolderName_TextChanged" Style="float: left"></asp:TextBox>
+                                                    </h4>
+                                                    <div class="card-header-action">
+
+                                                        <asp:TextBox ID="txtSearch" placeholder="Buscar" onFocus="this.select()" CssClass="form-control" Width="300" OnTextChanged="txtSearch_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <asp:Repeater ID="rpFolders" runat="server">
+                                                            <ItemTemplate>
+                                                                <div class="col-md-2 col-sm-3">
+                                                                    <asp:LinkButton ID="btnFolder" runat="server" OnClick="btnGoFolder_Click" CommandArgument='<%# Eval("id") %>'>
+                                                                <div  style='background:<%# Eval("color") %> ;width:100%;min-height:100px;display:flex;border-radius:10px;border:1px solid #d5b904'>
+                                                                    <div style="margin-top:auto;width:100%;text-align:center;padding:10px 15px;color:#333333;font-weight:bold;background:rgba(255,255,255,.4);border-radius:10px">
+                                                                        <%# Eval("title") %>
+                                                                    </div>
+                                                                </div>
+                                                                    </asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnTrashFolder" CommandArgument='<%# Eval("id") %>' runat="server" OnClick="btnTrashFolder_Click"><i class="far fa-trash-alt" style="color:#000;font-size:18px;float:right"></i></asp:LinkButton>
+                                                                </div>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        <div class="col-md-2 col-sm-3">
+                                                            <a class="col-md-12 bg-white text-center" style="padding-top: 30px; display: block; cursor: pointer; border-radius: 10px; width: 100%; min-height: 100px; background: #efefef !important" data-toggle="modal" data-target="#newFolderModal">
+                                                                <i class="fas fa-folder-plus" style="font-size: 35px;"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" style="margin-top: 20px">
+                                                        <asp:Repeater ID="rpImages" runat="server">
+                                                            <ItemTemplate>
+                                                                <div class="col-md-2 col-sm-3">
+                                                                    <asp:LinkButton ID="btnImage" runat="server" OnClick="btnImage_Click" CommandArgument='<%# Eval("url_img") %>'>
+                                                                <div  style='background:url(<%# Eval("url_img") %>);width:100%;min-height:150px;display:flex;border-radius:10px;background-size: 100% 150px;border:1px solid #fff' '>
+                                                                    <div style="margin-top:auto;width:100%;text-align:center;padding:10px 15px;color:#333333;font-weight:bold;background:rgba(255,255,255,.6);border-radius:10px">
+                                                                        <%# Eval("alt_text") %>
+                                                                    </div>
+                                                                </div>
+                                                                    </asp:LinkButton>
+                                                                    <asp:LinkButton ID="btnTrashImage" CommandArgument='<%# Eval("id") %>' runat="server" OnClick="btnTrashImage_Click"><i class="far fa-trash-alt" style="color:#000;font-size:18px;float:right"></i></asp:LinkButton>
+                                                                </div>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        <asp:TextBox ID="txtCopyLink" runat="server" style="display:none"></asp:TextBox>
+                                                        <div class="col-md-2 col-sm-3">
+                                                            <a class="col-md-12 bg-white text-center" style="padding-top: 50px; display: block; cursor: pointer; border-radius: 10px; width: 100%; min-height: 150px; background: #efefef !important" data-toggle="modal" data-target="#newImageModal">
+                                                                <i class="far fa-images" style="font-size: 35px;"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- New modal -->
+            <div class="modal fade" id="newFolderModal" tabindex="-1" role="dialog"
+                aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Nuevo Folder</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <asp:UpdatePanel ID="upNewFolder" runat="server">
+                                <ContentTemplate>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>titulo</label>
+                                                <asp:TextBox ID="txtFolderTitulo" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Color</label>
+                                                <asp:TextBox ID="txtFolderColor" TextMode="Color" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" align="right">
+                                            <button data-dismiss="modal" aria-label="Close" class="btn btn-default">Cancelar</button>
+                                            <asp:Button ID="btnsaveFolder" runat="server" Text="Guardar" OnClick="btnsaveFolder_Click" CssClass="btn btn-light" />
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New modal -->
+            <div class="modal fade" id="newImageModal" tabindex="-1" role="dialog"
+                aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Nueva imagen</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <asp:UpdatePanel ID="upNewImage" runat="server">
+                                <ContentTemplate>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Titulo imagen</label>
+                                                <asp:TextBox ID="txtAltText" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Archivo</label>
+                                                <cc1:AsyncFileUpload OnClientUploadError="uploadError" OnClientUploadComplete="uploadComplete"
+                                                    runat="server" ID="AsyncFileUpload1" Width="400px" UploaderStyle="Modern" CompleteBackColor="White"
+                                                    UploadingBackColor="#CCFFFF" ThrobberID="imgLoader" OnUploadedComplete="FileUploadComplete" />
+                                                <asp:Label ID="lblMesg" runat="server" Text="" />
+                                            </div>
+                                            <div class="form-group">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" align="right">
+                                            <button data-dismiss="modal" aria-label="Close" class="btn btn-default">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    Copyright &copy; <%# DateTime.Now.Year %>
+                    <div class="bullet"></div>
+                    Design By <a href="#">Finnerve</a>
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </form>
+
+
+
+    <asp:ContentPlaceHolder ID="Script" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+
+        function CopyToClipboard() {
+            $("#txtCopyLink").show();
+            $("#txtCopyLink").select();
+            document.execCommand("copy");
+            $("#txtCopyLink").hide();
+        }
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endReq);
+        function endReq(sender, args) {
+            $(function () {
+                var cw = $('.same-height').width();
+                $('.same-height').css({ 'height': cw + 'px' });
+
+            });
+
+        }
+
+        $(function () {
+            var cw = $('.same-height').width();
+            $('.same-height').css({ 'height': cw + 'px' });
+
+        });
+
+
+
+        function getval(sel) {
+            if (sel.value == 'c') {
+                $('#divNotas').show();
+            }
+            else {
+
+                $('#divNotas').hide();
+            }
+        }
+
+        function uploadComplete(sender) {
+            $("#newImageModal").modal('hide');
+
+            var btn = document.getElementById('<%=btnUpdate.ClientID%>');
+            btn.click();
+        }
+
+        function uploadError(sender) {
+            $get("<%=lblMesg.ClientID%>").innerHTML = "File upload failed.";
+        }
+
+    </script>
+    <script type='text/javascript'>  
+
+        $(function () {
+            setInterval(function () {
+                HeartBeat();
+            }, 60 * 1000);
+        });
+
+        function HeartBeat() {
+            PageMethods.heartbeat(Success, Failure);
+        }
+
+        function Success(result) {
+            console.log(result);
+        }
+
+        function Failure(error) {
+            console.log(error);
+        }
+
+    </script>
+</body>
+
+</html>

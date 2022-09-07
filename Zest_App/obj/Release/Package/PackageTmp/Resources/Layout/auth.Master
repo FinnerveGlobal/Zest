@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="auth.master.cs" Inherits="Zest_App.Resources.Layout.auth" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Zest App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!--Font Family -->
+    <link href="<%=ResolveClientUrl("https://fonts.googleapis.com/css?family=Open+Sans:400,600,300") %>" rel="stylesheet" type="text/css" />
+
+    <!--Zest App Styles -->
+    <link href="<%=ResolveClientUrl("~/Assets/css/zestauth.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%=ResolveClientUrl("~/Assets/css/bootstrap.min.css") %>" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+    <script src="<%=ResolveClientUrl("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js") %>" type="text/javascript"></script>
+    <script src="<%=ResolveClientUrl("~/Assets/js/bootstrap.min.js") %>" type="text/javascript"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+          #mensaje {
+                display: none;
+            }
+      
+        
+                 .LoadingModal {
+            position: fixed;
+            z-index: 999999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+        .Loadingcenter {
+            z-index: 1000;
+            margin: 250px auto;
+            padding: 10px;
+            width: 350px;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .Loadingcenter img {
+                width: 100%;
+            }
+    </style>
+</head>
+<body class="bg_black">
+    <div id="mensaje">
+        EL USO DE ESTE LINK ESTA RESTRINGIDO <br /> UNICAMENTE A DISPOSITIVOS MÓVILES 
+    </div>
+    <form id="AuthForm" runat="server" autocomplete="off">
+        <button type="submit" onclick="return false;" style="display: none"></button>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdateProgress runat="server" ID="UpdateProgress1">
+            <ProgressTemplate>
+                <div class="LoadingModal">
+                    <div class="Loadingcenter">
+                        <asp:Image ImageUrl="~/Assets/img/loading.gif" runat="server" ID="ImagenLoader" />
+                    </div>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+        <asp:ContentPlaceHolder ID="content" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+<asp:ContentPlaceHolder ID="script" runat="server"></asp:ContentPlaceHolder>
+</html>
+

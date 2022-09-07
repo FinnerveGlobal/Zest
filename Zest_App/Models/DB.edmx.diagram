@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="abc51de9835d4db498f2634c45a61536" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="zestapp_dbModel.adviser" Width="1.5" PointX="14.75" PointY="6" />
+        <EntityTypeShape EntityType="zestapp_dbModel.asset_prices" Width="1.5" PointX="7.5" PointY="6.25" />
+        <EntityTypeShape EntityType="zestapp_dbModel.asset" Width="1.5" PointX="5.25" PointY="5.375" />
+        <EntityTypeShape EntityType="zestapp_dbModel.assets_logos" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.bloomberg_asset_prices" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.catalog_item_details" Width="1.5" PointX="12" PointY="4.25" />
+        <EntityTypeShape EntityType="zestapp_dbModel.catalog_items" Width="1.5" PointX="9.75" PointY="1.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.event" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="zestapp_dbModel.general" Width="1.5" PointX="16.75" PointY="9.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.interes_investor_catalogs" Width="1.5" PointX="12" PointY="1.125" />
+        <EntityTypeShape EntityType="zestapp_dbModel.interes_investors" Width="1.5" PointX="12.75" PointY="16.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.investor_advisers" Width="1.5" PointX="17" PointY="6" />
+        <EntityTypeShape EntityType="zestapp_dbModel.investor_reviews" Width="1.5" PointX="15" PointY="13.375" />
+        <EntityTypeShape EntityType="zestapp_dbModel.landing" Width="1.5" PointX="14.75" PointY="16.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.logo" Width="1.5" PointX="16.75" PointY="16.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.messages_investor" Width="1.5" PointX="9.75" PointY="17.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.note" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.notification" Width="1.5" PointX="17.75" PointY="12.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.osp_crm_interactions" Width="1.5" PointX="17" PointY="1.625" />
+        <EntityTypeShape EntityType="zestapp_dbModel.osp_crm_leads" Width="1.5" PointX="14.75" PointY="1" />
+        <EntityTypeShape EntityType="zestapp_dbModel.portfolio" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="zestapp_dbModel.rent_months" Width="1.5" PointX="3" PointY="14.375" />
+        <EntityTypeShape EntityType="zestapp_dbModel.review" Width="1.5" PointX="12.75" PointY="13" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_25k1k_publis" Width="1.5" PointX="2.75" PointY="18.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_banners" Width="1.5" PointX="4.75" PointY="18.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_entry_blogs" Width="1.5" PointX="7.75" PointY="13" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_entry_comments" Width="1.5" PointX="10" PointY="14.125" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_events" Width="1.5" PointX="6.75" PointY="18.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_faq" Width="1.5" PointX="18.75" PointY="9.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_folders" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_images" Width="1.5" PointX="3" PointY="1.125" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_leads" Width="1.5" PointX="18.75" PointY="15.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_menu" Width="1.5" PointX="9.75" PointY="8.125" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_sections" Width="1.5" PointX="12" PointY="8" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_team_members" Width="1.5" PointX="19.75" PointY="0.75" />
+        <AssociationConnector Association="zestapp_dbModel.fk_inv_adv_adv" />
+        <AssociationConnector Association="zestapp_dbModel.fk_asset_price" />
+        <AssociationConnector Association="zestapp_dbModel.fk_asset_note" />
+        <AssociationConnector Association="zestapp_dbModel.fk_catalog_detail" />
+        <AssociationConnector Association="zestapp_dbModel.fk_int_catalog" />
+        <AssociationConnector Association="zestapp_dbModel.fk_events_note" />
+        <AssociationConnector Association="zestapp_dbModel.fk_review_review" />
+        <AssociationConnector Association="zestapp_dbModel.fk_note_portfolio" />
+        <AssociationConnector Association="zestapp_dbModel.fk_osp_crm_lead_interaction" />
+        <AssociationConnector Association="zestapp_dbModel.fk_rent_month_porfoltio" />
+        <AssociationConnector Association="zestapp_dbModel.web_entry_blog_comment" />
+        <AssociationConnector Association="zestapp_dbModel.fk_folder_folder" />
+        <AssociationConnector Association="zestapp_dbModel.fk_image_folder" />
+        <AssociationConnector Association="zestapp_dbModel.fk_web_sections_menu" />
+        <EntityTypeShape EntityType="zestapp_dbModel.investors" Width="1.5" PointX="0.75" PointY="8.625" />
+        <EntityTypeShape EntityType="zestapp_dbModel.users" Width="1.5" PointX="7.75" PointY="15" />
+        <AssociationConnector Association="zestapp_dbModel.fk_int_investor" />
+        <AssociationConnector Association="zestapp_dbModel.fk_inv_adv_inv" />
+        <AssociationConnector Association="zestapp_dbModel.fk_review_investor" />
+        <AssociationConnector Association="zestapp_dbModel.fk_investor_mensaje" />
+        <AssociationConnector Association="zestapp_dbModel.fk_investor_portfolio" />
+        <AssociationConnector Association="zestapp_dbModel.fk_blog_user" />
+        <EntityTypeShape EntityType="zestapp_dbModel.news" Width="1.5" PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.web_25k1k" Width="1.5" PointX="17.375" PointY="19.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,943 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zestapp_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="zestapp_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="advisers" EntityType="zestapp_dbModel.adviser" />
+    <EntitySet Name="asset_prices" EntityType="zestapp_dbModel.asset_prices" />
+    <EntitySet Name="assets" EntityType="zestapp_dbModel.asset" />
+    <EntitySet Name="assets_logos" EntityType="zestapp_dbModel.assets_logos" />
+    <EntitySet Name="bloomberg_asset_prices" EntityType="zestapp_dbModel.bloomberg_asset_prices" />
+    <EntitySet Name="catalog_item_details" EntityType="zestapp_dbModel.catalog_item_details" />
+    <EntitySet Name="catalog_items" EntityType="zestapp_dbModel.catalog_items" />
+    <EntitySet Name="events" EntityType="zestapp_dbModel.event" />
+    <EntitySet Name="generals" EntityType="zestapp_dbModel.general" />
+    <EntitySet Name="interes_investor_catalogs" EntityType="zestapp_dbModel.interes_investor_catalogs" />
+    <EntitySet Name="interes_investors" EntityType="zestapp_dbModel.interes_investors" />
+    <EntitySet Name="investor_advisers" EntityType="zestapp_dbModel.investor_advisers" />
+    <EntitySet Name="investor_reviews" EntityType="zestapp_dbModel.investor_reviews" />
+    <EntitySet Name="landings" EntityType="zestapp_dbModel.landing" />
+    <EntitySet Name="logos" EntityType="zestapp_dbModel.logo" />
+    <EntitySet Name="messages_investor" EntityType="zestapp_dbModel.messages_investor" />
+    <EntitySet Name="notes" EntityType="zestapp_dbModel.note" />
+    <EntitySet Name="notifications" EntityType="zestapp_dbModel.notification" />
+    <EntitySet Name="osp_crm_interactions" EntityType="zestapp_dbModel.osp_crm_interactions" />
+    <EntitySet Name="osp_crm_leads" EntityType="zestapp_dbModel.osp_crm_leads" />
+    <EntitySet Name="portfolios" EntityType="zestapp_dbModel.portfolio" />
+    <EntitySet Name="rent_months" EntityType="zestapp_dbModel.rent_months" />
+    <EntitySet Name="reviews" EntityType="zestapp_dbModel.review" />
+    <EntitySet Name="web_25k1k_publis" EntityType="zestapp_dbModel.web_25k1k_publis" />
+    <EntitySet Name="web_banners" EntityType="zestapp_dbModel.web_banners" />
+    <EntitySet Name="web_entry_blogs" EntityType="zestapp_dbModel.web_entry_blogs" />
+    <EntitySet Name="web_entry_comments" EntityType="zestapp_dbModel.web_entry_comments" />
+    <EntitySet Name="web_events" EntityType="zestapp_dbModel.web_events" />
+    <EntitySet Name="web_faq" EntityType="zestapp_dbModel.web_faq" />
+    <EntitySet Name="web_folders" EntityType="zestapp_dbModel.web_folders" />
+    <EntitySet Name="web_images" EntityType="zestapp_dbModel.web_images" />
+    <EntitySet Name="web_leads" EntityType="zestapp_dbModel.web_leads" />
+    <EntitySet Name="web_menu" EntityType="zestapp_dbModel.web_menu" />
+    <EntitySet Name="web_sections" EntityType="zestapp_dbModel.web_sections" />
+    <EntitySet Name="web_team_members" EntityType="zestapp_dbModel.web_team_members" />
+    <AssociationSet Name="fk_inv_adv_adv" Association="zestapp_dbModel.fk_inv_adv_adv">
+      <End Role="adviser" EntitySet="advisers" />
+      <End Role="investor_advisers" EntitySet="investor_advisers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_asset_price" Association="zestapp_dbModel.fk_asset_price">
+      <End Role="asset" EntitySet="assets" />
+      <End Role="asset_prices" EntitySet="asset_prices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_asset_note" Association="zestapp_dbModel.fk_asset_note">
+      <End Role="note" EntitySet="notes" />
+      <End Role="asset" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="fk_catalog_detail" Association="zestapp_dbModel.fk_catalog_detail">
+      <End Role="catalog_items" EntitySet="catalog_items" />
+      <End Role="catalog_item_details" EntitySet="catalog_item_details" />
+    </AssociationSet>
+    <AssociationSet Name="fk_int_catalog" Association="zestapp_dbModel.fk_int_catalog">
+      <End Role="catalog_items" EntitySet="catalog_items" />
+      <End Role="interes_investor_catalogs" EntitySet="interes_investor_catalogs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_events_note" Association="zestapp_dbModel.fk_events_note">
+      <End Role="note" EntitySet="notes" />
+      <End Role="event" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_review" Association="zestapp_dbModel.fk_review_review">
+      <End Role="review" EntitySet="reviews" />
+      <End Role="investor_reviews" EntitySet="investor_reviews" />
+    </AssociationSet>
+    <AssociationSet Name="fk_note_portfolio" Association="zestapp_dbModel.fk_note_portfolio">
+      <End Role="portfolio" EntitySet="portfolios" />
+      <End Role="note" EntitySet="notes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_osp_crm_lead_interaction" Association="zestapp_dbModel.fk_osp_crm_lead_interaction">
+      <End Role="osp_crm_leads" EntitySet="osp_crm_leads" />
+      <End Role="osp_crm_interactions" EntitySet="osp_crm_interactions" />
+    </AssociationSet>
+    <AssociationSet Name="fk_rent_month_porfoltio" Association="zestapp_dbModel.fk_rent_month_porfoltio">
+      <End Role="portfolio" EntitySet="portfolios" />
+      <End Role="rent_months" EntitySet="rent_months" />
+    </AssociationSet>
+    <AssociationSet Name="web_entry_blog_comment" Association="zestapp_dbModel.web_entry_blog_comment">
+      <End Role="web_entry_blogs" EntitySet="web_entry_blogs" />
+      <End Role="web_entry_comments" EntitySet="web_entry_comments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_folder_folder" Association="zestapp_dbModel.fk_folder_folder">
+      <End Role="web_folders" EntitySet="web_folders" />
+      <End Role="web_folders1" EntitySet="web_folders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_image_folder" Association="zestapp_dbModel.fk_image_folder">
+      <End Role="web_folders" EntitySet="web_folders" />
+      <End Role="web_images" EntitySet="web_images" />
+    </AssociationSet>
+    <AssociationSet Name="fk_web_sections_menu" Association="zestapp_dbModel.fk_web_sections_menu">
+      <End Role="web_menu" EntitySet="web_menu" />
+      <End Role="web_sections" EntitySet="web_sections" />
+    </AssociationSet>
+    <EntitySet Name="investors" EntityType="zestapp_dbModel.investors" />
+    <EntitySet Name="users" EntityType="zestapp_dbModel.users" />
+    <AssociationSet Name="fk_int_investor" Association="zestapp_dbModel.fk_int_investor">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="interes_investor_catalogs" EntitySet="interes_investor_catalogs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_inv_adv_inv" Association="zestapp_dbModel.fk_inv_adv_inv">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="investor_advisers" EntitySet="investor_advisers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_investor" Association="zestapp_dbModel.fk_review_investor">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="investor_reviews" EntitySet="investor_reviews" />
+    </AssociationSet>
+    <AssociationSet Name="fk_investor_mensaje" Association="zestapp_dbModel.fk_investor_mensaje">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="messages_investor" EntitySet="messages_investor" />
+    </AssociationSet>
+    <AssociationSet Name="fk_investor_portfolio" Association="zestapp_dbModel.fk_investor_portfolio">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="portfolio" EntitySet="portfolios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_blog_user" Association="zestapp_dbModel.fk_blog_user">
+      <End Role="users" EntitySet="users" />
+      <End Role="web_entry_blogs" EntitySet="web_entry_blogs" />
+    </AssociationSet>
+    <EntitySet Name="news" EntityType="zestapp_dbModel.news" />
+    <EntitySet Name="web_25k1k" EntityType="zestapp_dbModel.web_25k1k" />
+  </EntityContainer>
+  <EntityType Name="adviser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="investor_advisers" Relationship="zestapp_dbModel.fk_inv_adv_adv" FromRole="adviser" ToRole="investor_advisers" />
+  </EntityType>
+  <EntityType Name="asset_prices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="fecha" Type="DateTime" />
+    <Property Name="precio" Type="Double" />
+    <Property Name="asset_id" Type="Int32" />
+    <NavigationProperty Name="asset" Relationship="zestapp_dbModel.fk_asset_price" FromRole="asset_prices" ToRole="asset" />
+  </EntityType>
+  <EntityType Name="asset">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="symbol" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="bloomberg_code" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ISIN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="precio_entrada" Type="Double" />
+    <Property Name="precio_salida" Type="Double" />
+    <Property Name="valoracion" Type="Double" />
+    <Property Name="barrera" Type="Double" />
+    <Property Name="fecha_default" Type="DateTime" />
+    <Property Name="note_id" Type="Int32" />
+    <Property Name="url_img" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="asset_prices" Relationship="zestapp_dbModel.fk_asset_price" FromRole="asset" ToRole="asset_prices" />
+    <NavigationProperty Name="note" Relationship="zestapp_dbModel.fk_asset_note" FromRole="asset" ToRole="note" />
+  </EntityType>
+  <EntityType Name="assets_logos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="asset_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="asset_code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="img_url" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="bloomberg_asset_prices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="symbol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="initial_price" Type="Decimal" />
+    <Property Name="current_price" Type="Decimal" />
+    <Property Name="final_price" Type="Decimal" />
+  </EntityType>
+  <EntityType Name="catalog_item_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="adicional" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="url_imt" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="catalog_item_id" Type="Int32" />
+    <NavigationProperty Name="catalog_items" Relationship="zestapp_dbModel.fk_catalog_detail" FromRole="catalog_item_details" ToRole="catalog_items" />
+  </EntityType>
+  <EntityType Name="catalog_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="codigo_nota" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="vencimiento" Type="DateTime" />
+    <Property Name="inv_minima" Type="Double" />
+    <Property Name="riesgo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="emisor" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="barrera" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="moneda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="adicional" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="isin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="barrera_capital" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rentabilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="catalog_item_details" Relationship="zestapp_dbModel.fk_catalog_detail" FromRole="catalog_items" ToRole="catalog_item_details" />
+    <NavigationProperty Name="interes_investor_catalogs" Relationship="zestapp_dbModel.fk_int_catalog" FromRole="catalog_items" ToRole="interes_investor_catalogs" />
+  </EntityType>
+  <EntityType Name="event">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="periodo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="f_observacion" Type="DateTime" />
+    <Property Name="f_pago" Type="DateTime" />
+    <Property Name="cupon" Type="Double" />
+    <Property Name="autocall" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="importe_bruto" Type="Double" />
+    <Property Name="importe_retencion" Type="Double" />
+    <Property Name="pago" Type="Int32" />
+    <Property Name="note_id" Type="Int32" />
+    <NavigationProperty Name="note" Relationship="zestapp_dbModel.fk_events_note" FromRole="event" ToRole="note" />
+  </EntityType>
+  <EntityType Name="general">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="value" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="interes_investor_catalogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="catalog_item_id" Type="Int32" />
+    <Property Name="investor_id" Type="Int32" />
+    <NavigationProperty Name="catalog_items" Relationship="zestapp_dbModel.fk_int_catalog" FromRole="interes_investor_catalogs" ToRole="catalog_items" />
+    <NavigationProperty Name="investors" Relationship="zestapp_dbModel.fk_int_investor" FromRole="interes_investor_catalogs" ToRole="investors" />
+  </EntityType>
+  <EntityType Name="interes_investors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="investor_code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="nota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="investor_advisers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="adviser_id" Type="Int32" />
+    <Property Name="investor_id" Type="Int32" />
+    <NavigationProperty Name="adviser" Relationship="zestapp_dbModel.fk_inv_adv_adv" FromRole="investor_advisers" ToRole="adviser" />
+    <NavigationProperty Name="investors" Relationship="zestapp_dbModel.fk_inv_adv_inv" FromRole="investor_advisers" ToRole="investors" />
+  </EntityType>
+  <EntityType Name="investor_reviews">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="investor_id" Type="Int32" />
+    <Property Name="review_id" Type="Int32" />
+    <NavigationProperty Name="review" Relationship="zestapp_dbModel.fk_review_review" FromRole="investor_reviews" ToRole="review" />
+    <NavigationProperty Name="investors" Relationship="zestapp_dbModel.fk_review_investor" FromRole="investor_reviews" ToRole="investors" />
+  </EntityType>
+  <EntityType Name="landing">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="adicional" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="btn_tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="btn_text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="btn_action" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="logo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="dominio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="company" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="messages_investor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="investor_id" Type="Int32" />
+    <Property Name="mensaje" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" />
+    <NavigationProperty Name="investors" Relationship="zestapp_dbModel.fk_investor_mensaje" FromRole="messages_investor" ToRole="investors" />
+  </EntityType>
+  <EntityType Name="note">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="vencimiento" Type="DateTime" />
+    <Property Name="valor" Type="Double" />
+    <Property Name="rentabilidad" Type="Double" />
+    <Property Name="codigo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_nota" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_inicio" Type="DateTime" />
+    <Property Name="fecha_fin" Type="DateTime" />
+    <Property Name="moneda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="emisor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ISN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="riesgo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="barrera_europea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="adicional" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="portfolio_id" Type="Int32" />
+    <Property Name="dividendos" Type="Decimal" />
+    <Property Name="impuestos" Type="Decimal" />
+    <Property Name="redencion" Type="Decimal" />
+    <NavigationProperty Name="assets" Relationship="zestapp_dbModel.fk_asset_note" FromRole="note" ToRole="asset" />
+    <NavigationProperty Name="events" Relationship="zestapp_dbModel.fk_events_note" FromRole="note" ToRole="event" />
+    <NavigationProperty Name="portfolio" Relationship="zestapp_dbModel.fk_note_portfolio" FromRole="note" ToRole="portfolio" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="notification1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="investor_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="osp_crm_interactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="desc" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="osp_crm_lead_id" Type="Int32" />
+    <NavigationProperty Name="osp_crm_leads" Relationship="zestapp_dbModel.fk_osp_crm_lead_interaction" FromRole="osp_crm_interactions" ToRole="osp_crm_leads" />
+  </EntityType>
+  <EntityType Name="osp_crm_leads">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="first_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="last_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="source" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="aum" Type="Decimal" />
+    <Property Name="risk_profile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="onboarding_status" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="m_saving" Type="Decimal" />
+    <NavigationProperty Name="osp_crm_interactions" Relationship="zestapp_dbModel.fk_osp_crm_lead_interaction" FromRole="osp_crm_leads" ToRole="osp_crm_interactions" />
+  </EntityType>
+  <EntityType Name="portfolio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="valor" Type="Double" />
+    <Property Name="rentabilidad" Type="Double" />
+    <Property Name="usd_rentabilidad" Type="Double" />
+    <Property Name="investor_id" Type="Int32" />
+    <Property Name="subida" Type="Int32" />
+    <NavigationProperty Name="notes" Relationship="zestapp_dbModel.fk_note_portfolio" FromRole="portfolio" ToRole="note" />
+    <NavigationProperty Name="rent_months" Relationship="zestapp_dbModel.fk_rent_month_porfoltio" FromRole="portfolio" ToRole="rent_months" />
+    <NavigationProperty Name="investors" Relationship="zestapp_dbModel.fk_investor_portfolio" FromRole="portfolio" ToRole="investors" />
+  </EntityType>
+  <EntityType Name="rent_months">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="periodo" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="periodo_nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="rentabilidad" Type="Double" />
+    <Property Name="portfolio_id" Type="Int32" />
+    <Property Name="usd_rentabilidad" Type="Double" />
+    <Property Name="retencion" Type="Double" />
+    <Property Name="dividendo" Type="Double" />
+    <NavigationProperty Name="portfolio" Relationship="zestapp_dbModel.fk_rent_month_porfoltio" FromRole="rent_months" ToRole="portfolio" />
+  </EntityType>
+  <EntityType Name="review">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="titulo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="texto" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="note_id" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="note_code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="investor_reviews" Relationship="zestapp_dbModel.fk_review_review" FromRole="review" ToRole="investor_reviews" />
+  </EntityType>
+  <EntityType Name="web_25k1k_publis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cta" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="rrss" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="prioridad" Type="Int32" />
+  </EntityType>
+  <EntityType Name="web_banners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="cta" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_entry_blogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="entrada" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="user_id" Type="Int32" />
+    <Property Name="tags" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="facebook" Type="Int32" />
+    <Property Name="instagram" Type="Int32" />
+    <Property Name="linkedin" Type="Int32" />
+    <Property Name="keywords" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="img_url" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="descrip" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="entry_url" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="views" Type="Int32" />
+    <Property Name="shares" Type="Int32" />
+    <Property Name="reading_time" Type="Int32" />
+    <NavigationProperty Name="web_entry_comments" Relationship="zestapp_dbModel.web_entry_blog_comment" FromRole="web_entry_blogs" ToRole="web_entry_comments" />
+    <NavigationProperty Name="users" Relationship="zestapp_dbModel.fk_blog_user" FromRole="web_entry_blogs" ToRole="users" />
+  </EntityType>
+  <EntityType Name="web_entry_comments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="web_user_id" Type="Int32" />
+    <Property Name="comment" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="web_entry_blog_id" Type="Int32" />
+    <NavigationProperty Name="web_entry_blogs" Relationship="zestapp_dbModel.web_entry_blog_comment" FromRole="web_entry_comments" ToRole="web_entry_blogs" />
+  </EntityType>
+  <EntityType Name="web_events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titulo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="event_date" Type="DateTime" />
+    <Property Name="duracion" Type="Int32" />
+    <Property Name="h_min" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="lugar" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="event_default" Type="Int32" />
+    <Property Name="cta" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="url_img_banner" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_faq">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="question" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="answer" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_folders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="title" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="color" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="web_folder_id" Type="Int32" />
+    <NavigationProperty Name="web_folders1" Relationship="zestapp_dbModel.fk_folder_folder" FromRole="web_folders" ToRole="web_folders1" />
+    <NavigationProperty Name="web_folders2" Relationship="zestapp_dbModel.fk_folder_folder" FromRole="web_folders1" ToRole="web_folders" />
+    <NavigationProperty Name="web_images" Relationship="zestapp_dbModel.fk_image_folder" FromRole="web_folders" ToRole="web_images" />
+  </EntityType>
+  <EntityType Name="web_images">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="alt_text" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="web_folder_id" Type="Int32" />
+    <NavigationProperty Name="web_folders" Relationship="zestapp_dbModel.fk_image_folder" FromRole="web_images" ToRole="web_folders" />
+  </EntityType>
+  <EntityType Name="web_leads">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="mensaje" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="parent" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="descrip" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="keywords" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="web_sections" Relationship="zestapp_dbModel.fk_web_sections_menu" FromRole="web_menu" ToRole="web_sections" />
+  </EntityType>
+  <EntityType Name="web_sections">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="web_menu_id" Type="Int32" />
+    <Property Name="preview" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="desc1" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="desc2" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="desc3" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="web_menu" Relationship="zestapp_dbModel.fk_web_sections_menu" FromRole="web_sections" ToRole="web_menu" />
+  </EntityType>
+  <EntityType Name="web_team_members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="cargo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="linkedin" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="fk_inv_adv_adv">
+    <End Type="zestapp_dbModel.adviser" Role="adviser" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.investor_advisers" Role="investor_advisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="adviser">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_advisers">
+        <PropertyRef Name="adviser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_asset_price">
+    <End Type="zestapp_dbModel.asset" Role="asset" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.asset_prices" Role="asset_prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="asset">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asset_prices">
+        <PropertyRef Name="asset_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_asset_note">
+    <End Type="zestapp_dbModel.note" Role="note" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.asset" Role="asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="note">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asset">
+        <PropertyRef Name="note_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_catalog_detail">
+    <End Type="zestapp_dbModel.catalog_items" Role="catalog_items" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.catalog_item_details" Role="catalog_item_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catalog_items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="catalog_item_details">
+        <PropertyRef Name="catalog_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_int_catalog">
+    <End Type="zestapp_dbModel.catalog_items" Role="catalog_items" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.interes_investor_catalogs" Role="interes_investor_catalogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catalog_items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interes_investor_catalogs">
+        <PropertyRef Name="catalog_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_events_note">
+    <End Type="zestapp_dbModel.note" Role="note" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.event" Role="event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="note">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="event">
+        <PropertyRef Name="note_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_review">
+    <End Type="zestapp_dbModel.review" Role="review" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.investor_reviews" Role="investor_reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="review">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_reviews">
+        <PropertyRef Name="review_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_note_portfolio">
+    <End Type="zestapp_dbModel.portfolio" Role="portfolio" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.note" Role="note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="portfolio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="note">
+        <PropertyRef Name="portfolio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_osp_crm_lead_interaction">
+    <End Type="zestapp_dbModel.osp_crm_leads" Role="osp_crm_leads" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.osp_crm_interactions" Role="osp_crm_interactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="osp_crm_leads">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="osp_crm_interactions">
+        <PropertyRef Name="osp_crm_lead_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_rent_month_porfoltio">
+    <End Type="zestapp_dbModel.portfolio" Role="portfolio" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.rent_months" Role="rent_months" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="portfolio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rent_months">
+        <PropertyRef Name="portfolio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="web_entry_blog_comment">
+    <End Type="zestapp_dbModel.web_entry_blogs" Role="web_entry_blogs" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.web_entry_comments" Role="web_entry_comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_entry_blogs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_entry_comments">
+        <PropertyRef Name="web_entry_blog_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_folder_folder">
+    <End Type="zestapp_dbModel.web_folders" Role="web_folders" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.web_folders" Role="web_folders1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_folders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_folders1">
+        <PropertyRef Name="web_folder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_image_folder">
+    <End Type="zestapp_dbModel.web_folders" Role="web_folders" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.web_images" Role="web_images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_folders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_images">
+        <PropertyRef Name="web_folder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_web_sections_menu">
+    <End Type="zestapp_dbModel.web_menu" Role="web_menu" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.web_sections" Role="web_sections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_sections">
+        <PropertyRef Name="web_menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="investors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="nombre" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="investor_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PIN" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="token" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="interes_investor_catalogs" Relationship="zestapp_dbModel.fk_int_investor" FromRole="investors" ToRole="interes_investor_catalogs" />
+    <NavigationProperty Name="investor_advisers" Relationship="zestapp_dbModel.fk_inv_adv_inv" FromRole="investors" ToRole="investor_advisers" />
+    <NavigationProperty Name="investor_reviews" Relationship="zestapp_dbModel.fk_review_investor" FromRole="investors" ToRole="investor_reviews" />
+    <NavigationProperty Name="messages_investor" Relationship="zestapp_dbModel.fk_investor_mensaje" FromRole="investors" ToRole="messages_investor" />
+    <NavigationProperty Name="portfolios" Relationship="zestapp_dbModel.fk_investor_portfolio" FromRole="investors" ToRole="portfolio" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="rol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="web_entry_blogs" Relationship="zestapp_dbModel.fk_blog_user" FromRole="users" ToRole="web_entry_blogs" />
+  </EntityType>
+  <Association Name="fk_int_investor">
+    <End Type="zestapp_dbModel.investors" Role="investors" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.interes_investor_catalogs" Role="interes_investor_catalogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interes_investor_catalogs">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_inv_adv_inv">
+    <End Type="zestapp_dbModel.investors" Role="investors" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.investor_advisers" Role="investor_advisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_advisers">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_investor">
+    <End Type="zestapp_dbModel.investors" Role="investors" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.investor_reviews" Role="investor_reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_reviews">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_investor_mensaje">
+    <End Type="zestapp_dbModel.investors" Role="investors" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.messages_investor" Role="messages_investor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="messages_investor">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_investor_portfolio">
+    <End Type="zestapp_dbModel.investors" Role="investors" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.portfolio" Role="portfolio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="portfolio">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_blog_user">
+    <End Type="zestapp_dbModel.users" Role="users" Multiplicity="0..1" />
+    <End Type="zestapp_dbModel.web_entry_blogs" Role="web_entry_blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_entry_blogs">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="created_at" Type="DateTime" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="titular" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+    <Property Name="url_img" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="tags" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="nota_codigo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="web_mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cta" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="web_25k1k">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="updated_at" Type="DateTime" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

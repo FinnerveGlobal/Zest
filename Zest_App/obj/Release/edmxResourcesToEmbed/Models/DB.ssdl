@@ -1,0 +1,903 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zestapp_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="advisers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="telefono" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="asset_prices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="fecha" Type="datetime" Precision="0" />
+    <Property Name="precio" Type="double" />
+    <Property Name="asset_id" Type="int" />
+  </EntityType>
+  <EntityType Name="assets">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="symbol" Type="varchar" MaxLength="150" />
+    <Property Name="bloomberg_code" Type="varchar" MaxLength="150" />
+    <Property Name="ISIN" Type="varchar" MaxLength="150" />
+    <Property Name="precio_entrada" Type="double" />
+    <Property Name="precio_salida" Type="double" />
+    <Property Name="valoracion" Type="double" />
+    <Property Name="barrera" Type="double" />
+    <Property Name="fecha_default" Type="datetime" Precision="0" />
+    <Property Name="note_id" Type="int" />
+    <Property Name="url_img" Type="longtext" />
+  </EntityType>
+  <EntityType Name="assets_logos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="asset_name" Type="varchar" MaxLength="100" />
+    <Property Name="asset_code" Type="varchar" MaxLength="100" />
+    <Property Name="img_url" Type="longtext" />
+  </EntityType>
+  <EntityType Name="bloomberg_asset_prices">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="symbol" Type="varchar" MaxLength="45" />
+    <Property Name="initial_price" Type="decimal" Precision="10" Scale="10" />
+    <Property Name="current_price" Type="decimal" Precision="10" Scale="10" />
+    <Property Name="final_price" Type="decimal" Precision="10" Scale="10" />
+  </EntityType>
+  <EntityType Name="catalog_item_details">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="300" />
+    <Property Name="adicional" Type="text" />
+    <Property Name="url_imt" Type="text" />
+    <Property Name="catalog_item_id" Type="int" />
+  </EntityType>
+  <EntityType Name="catalog_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="codigo_nota" Type="varchar" MaxLength="500" />
+    <Property Name="vencimiento" Type="date" />
+    <Property Name="inv_minima" Type="double" />
+    <Property Name="riesgo" Type="varchar" MaxLength="500" />
+    <Property Name="emisor" Type="varchar" MaxLength="500" />
+    <Property Name="barrera" Type="varchar" MaxLength="50" />
+    <Property Name="moneda" Type="varchar" MaxLength="15" />
+    <Property Name="adicional" Type="text" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="isin" Type="varchar" MaxLength="50" />
+    <Property Name="barrera_capital" Type="varchar" MaxLength="50" />
+    <Property Name="rentabilidad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="periodo" Type="varchar" MaxLength="10" />
+    <Property Name="f_observacion" Type="datetime" Precision="0" />
+    <Property Name="f_pago" Type="datetime" Precision="0" />
+    <Property Name="cupon" Type="double" />
+    <Property Name="autocall" Type="varchar" MaxLength="10" />
+    <Property Name="importe_bruto" Type="double" />
+    <Property Name="importe_retencion" Type="double" />
+    <Property Name="pago" Type="int" />
+    <Property Name="note_id" Type="int" />
+  </EntityType>
+  <EntityType Name="general">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="45" />
+    <Property Name="value" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="interes_investor_catalogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="catalog_item_id" Type="int" />
+    <Property Name="investor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="interes_investors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="investor_code" Type="varchar" MaxLength="45" />
+    <Property Name="nota" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="investor_advisers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="adviser_id" Type="int" />
+    <Property Name="investor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="investor_reviews">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="investor_id" Type="int" />
+    <Property Name="review_id" Type="int" />
+  </EntityType>
+  <EntityType Name="investors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="nombre" Type="varchar" MaxLength="500" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="investor_code" Type="varchar" MaxLength="50" />
+    <Property Name="PIN" Type="varchar" MaxLength="4" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="telefono" Type="varchar" MaxLength="150" />
+    <Property Name="token" Type="text" />
+  </EntityType>
+  <EntityType Name="landings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titulo" Type="varchar" MaxLength="300" />
+    <Property Name="adicional" Type="text" />
+    <Property Name="btn_tipo" Type="varchar" MaxLength="100" />
+    <Property Name="btn_text" Type="varchar" MaxLength="100" />
+    <Property Name="btn_action" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="logos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="dominio" Type="varchar" MaxLength="200" />
+    <Property Name="company" Type="varchar" MaxLength="200" />
+    <Property Name="url_img" Type="text" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="messages_investor">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="investor_id" Type="int" />
+    <Property Name="mensaje" Type="text" />
+    <Property Name="status" Type="varchar" MaxLength="5" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titular" Type="text" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="longtext" />
+    <Property Name="url_img" Type="text" />
+    <Property Name="tags" Type="varchar" MaxLength="500" />
+    <Property Name="nota_codigo" Type="varchar" MaxLength="150" />
+    <Property Name="web_mobile" Type="varchar" MaxLength="20" />
+    <Property Name="cta" Type="text" />
+  </EntityType>
+  <EntityType Name="notes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="vencimiento" Type="datetime" Precision="0" />
+    <Property Name="valor" Type="double" />
+    <Property Name="rentabilidad" Type="double" />
+    <Property Name="codigo" Type="varchar" MaxLength="150" />
+    <Property Name="tipo_nota" Type="varchar" MaxLength="5" />
+    <Property Name="fecha_inicio" Type="datetime" Precision="0" />
+    <Property Name="fecha_fin" Type="datetime" Precision="0" />
+    <Property Name="moneda" Type="varchar" MaxLength="15" />
+    <Property Name="emisor" Type="varchar" MaxLength="150" />
+    <Property Name="ISN" Type="varchar" MaxLength="100" />
+    <Property Name="riesgo" Type="varchar" MaxLength="500" />
+    <Property Name="barrera_europea" Type="varchar" MaxLength="100" />
+    <Property Name="adicional" Type="text" />
+    <Property Name="portfolio_id" Type="int" />
+    <Property Name="dividendos" Type="decimal" Precision="10" Scale="10" />
+    <Property Name="impuestos" Type="decimal" Precision="10" Scale="10" />
+    <Property Name="redencion" Type="decimal" Precision="10" Scale="10" />
+  </EntityType>
+  <EntityType Name="notifications">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="notification" Type="varchar" MaxLength="300" />
+    <Property Name="investor_id" Type="int" />
+  </EntityType>
+  <EntityType Name="osp_crm_interactions">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" />
+    <Property Name="desc" Type="text" />
+    <Property Name="osp_crm_lead_id" Type="int" />
+  </EntityType>
+  <EntityType Name="osp_crm_leads">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="first_name" Type="varchar" MaxLength="300" />
+    <Property Name="last_name" Type="varchar" MaxLength="300" />
+    <Property Name="source" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="40" />
+    <Property Name="aum" Type="decimal" Precision="25" Scale="5" />
+    <Property Name="risk_profile" Type="varchar" MaxLength="100" />
+    <Property Name="onboarding_status" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="300" />
+    <Property Name="m-saving" Type="decimal" Precision="25" Scale="5" />
+  </EntityType>
+  <EntityType Name="portfolios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="valor" Type="double" />
+    <Property Name="rentabilidad" Type="double" />
+    <Property Name="usd_rentabilidad" Type="double" />
+    <Property Name="investor_id" Type="int" />
+    <Property Name="subida" Type="int" />
+  </EntityType>
+  <EntityType Name="rent_months">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="periodo" Type="varchar" MaxLength="7" />
+    <Property Name="periodo_nombre" Type="varchar" MaxLength="20" />
+    <Property Name="rentabilidad" Type="double" />
+    <Property Name="portfolio_id" Type="int" />
+    <Property Name="usd_rentabilidad" Type="double" />
+    <Property Name="retencion" Type="double" />
+    <Property Name="dividendo" Type="double" />
+  </EntityType>
+  <EntityType Name="reviews">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="titulo" Type="text" />
+    <Property Name="texto" Type="longtext" />
+    <Property Name="url" Type="text" />
+    <Property Name="note_id" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="note_code" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="email" Type="varchar" MaxLength="150" />
+    <Property Name="password" Type="varchar" MaxLength="300" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="rol" Type="varchar" MaxLength="45" />
+    <Property Name="url_img" Type="text" />
+    <Property Name="name" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="web_25k1k">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="updated_at" Type="datetime" Precision="0" />
+    <Property Name="title" Type="varchar" MaxLength="250" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="web_25k1k_publis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titulo" Type="varchar" MaxLength="20" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="cta" Type="longtext" />
+    <Property Name="rrss" Type="text" />
+    <Property Name="prioridad" Type="int" />
+  </EntityType>
+  <EntityType Name="web_banners">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titulo" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="80" />
+    <Property Name="url_img" Type="longtext" />
+    <Property Name="cta" Type="longtext" />
+  </EntityType>
+  <EntityType Name="web_entry_blogs">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titulo" Type="varchar" MaxLength="500" />
+    <Property Name="entrada" Type="longtext" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="tags" Type="varchar" MaxLength="500" />
+    <Property Name="facebook" Type="int" />
+    <Property Name="instagram" Type="int" />
+    <Property Name="linkedin" Type="int" />
+    <Property Name="keywords" Type="text" />
+    <Property Name="img_url" Type="text" />
+    <Property Name="descrip" Type="varchar" MaxLength="300" />
+    <Property Name="entry_url" Type="varchar" MaxLength="150" />
+    <Property Name="views" Type="int" />
+    <Property Name="shares" Type="int" />
+    <Property Name="reading_time" Type="int" />
+  </EntityType>
+  <EntityType Name="web_entry_comments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="web_user_id" Type="int" />
+    <Property Name="comment" Type="longtext" />
+    <Property Name="web_entry_blog_id" Type="int" />
+  </EntityType>
+  <EntityType Name="web_events">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="titulo" Type="varchar" MaxLength="300" />
+    <Property Name="descripcion" Type="longtext" />
+    <Property Name="event_date" Type="datetime" Precision="0" />
+    <Property Name="duracion" Type="int" />
+    <Property Name="h_min" Type="varchar" MaxLength="5" />
+    <Property Name="lugar" Type="varchar" MaxLength="200" />
+    <Property Name="url_img" Type="text" />
+    <Property Name="event_default" Type="int" />
+    <Property Name="cta" Type="text" />
+    <Property Name="url_img_banner" Type="text" />
+  </EntityType>
+  <EntityType Name="web_faq">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="question" Type="varchar" MaxLength="300" />
+    <Property Name="answer" Type="text" />
+  </EntityType>
+  <EntityType Name="web_folders">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="title" Type="longtext" />
+    <Property Name="color" Type="varchar" MaxLength="255" />
+    <Property Name="web_folder_id" Type="int" />
+  </EntityType>
+  <EntityType Name="web_images">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="url_img" Type="longtext" />
+    <Property Name="alt_text" Type="longtext" />
+    <Property Name="web_folder_id" Type="int" />
+  </EntityType>
+  <EntityType Name="web_leads">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" />
+    <Property Name="apellido" Type="varchar" MaxLength="200" />
+    <Property Name="email" Type="varchar" MaxLength="200" />
+    <Property Name="telefono" Type="varchar" MaxLength="200" />
+    <Property Name="mensaje" Type="text" />
+  </EntityType>
+  <EntityType Name="web_menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="parent" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="150" />
+    <Property Name="descrip" Type="varchar" MaxLength="350" />
+    <Property Name="keywords" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="web_sections">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="web_menu_id" Type="int" />
+    <Property Name="preview" Type="text" />
+    <Property Name="desc1" Type="longtext" />
+    <Property Name="desc2" Type="longtext" />
+    <Property Name="desc3" Type="longtext" />
+  </EntityType>
+  <EntityType Name="web_team_members">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="nombre" Type="varchar" MaxLength="150" />
+    <Property Name="cargo" Type="varchar" MaxLength="150" />
+    <Property Name="linkedin" Type="longtext" />
+    <Property Name="url_img" Type="longtext" />
+  </EntityType>
+  <Association Name="fk_asset_note">
+    <End Role="notes" Type="Self.notes" Multiplicity="0..1" />
+    <End Role="assets" Type="Self.assets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assets">
+        <PropertyRef Name="note_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_asset_price">
+    <End Role="assets" Type="Self.assets" Multiplicity="0..1" />
+    <End Role="asset_prices" Type="Self.asset_prices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assets">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="asset_prices">
+        <PropertyRef Name="asset_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_blog_user">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="web_entry_blogs" Type="Self.web_entry_blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_entry_blogs">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_catalog_detail">
+    <End Role="catalog_items" Type="Self.catalog_items" Multiplicity="0..1" />
+    <End Role="catalog_item_details" Type="Self.catalog_item_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catalog_items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="catalog_item_details">
+        <PropertyRef Name="catalog_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_events_note">
+    <End Role="notes" Type="Self.notes" Multiplicity="0..1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="note_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_folder_folder">
+    <End Role="web_folders" Type="Self.web_folders" Multiplicity="0..1" />
+    <End Role="web_folders1" Type="Self.web_folders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_folders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_folders1">
+        <PropertyRef Name="web_folder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_image_folder">
+    <End Role="web_folders" Type="Self.web_folders" Multiplicity="0..1" />
+    <End Role="web_images" Type="Self.web_images" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_folders">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_images">
+        <PropertyRef Name="web_folder_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_int_catalog">
+    <End Role="catalog_items" Type="Self.catalog_items" Multiplicity="0..1" />
+    <End Role="interes_investor_catalogs" Type="Self.interes_investor_catalogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="catalog_items">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interes_investor_catalogs">
+        <PropertyRef Name="catalog_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_int_investor">
+    <End Role="investors" Type="Self.investors" Multiplicity="0..1" />
+    <End Role="interes_investor_catalogs" Type="Self.interes_investor_catalogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="interes_investor_catalogs">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_inv_adv_adv">
+    <End Role="advisers" Type="Self.advisers" Multiplicity="0..1" />
+    <End Role="investor_advisers" Type="Self.investor_advisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="advisers">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_advisers">
+        <PropertyRef Name="adviser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_inv_adv_inv">
+    <End Role="investors" Type="Self.investors" Multiplicity="0..1" />
+    <End Role="investor_advisers" Type="Self.investor_advisers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_advisers">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_investor_mensaje">
+    <End Role="investors" Type="Self.investors" Multiplicity="0..1" />
+    <End Role="messages_investor" Type="Self.messages_investor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="messages_investor">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_investor_portfolio">
+    <End Role="investors" Type="Self.investors" Multiplicity="0..1" />
+    <End Role="portfolios" Type="Self.portfolios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="portfolios">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_note_portfolio">
+    <End Role="portfolios" Type="Self.portfolios" Multiplicity="0..1" />
+    <End Role="notes" Type="Self.notes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="portfolios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="notes">
+        <PropertyRef Name="portfolio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_osp_crm_lead_interaction">
+    <End Role="osp_crm_leads" Type="Self.osp_crm_leads" Multiplicity="0..1" />
+    <End Role="osp_crm_interactions" Type="Self.osp_crm_interactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="osp_crm_leads">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="osp_crm_interactions">
+        <PropertyRef Name="osp_crm_lead_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_rent_month_porfoltio">
+    <End Role="portfolios" Type="Self.portfolios" Multiplicity="0..1" />
+    <End Role="rent_months" Type="Self.rent_months" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="portfolios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="rent_months">
+        <PropertyRef Name="portfolio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_investor">
+    <End Role="investors" Type="Self.investors" Multiplicity="0..1" />
+    <End Role="investor_reviews" Type="Self.investor_reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="investors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_reviews">
+        <PropertyRef Name="investor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_review_review">
+    <End Role="reviews" Type="Self.reviews" Multiplicity="0..1" />
+    <End Role="investor_reviews" Type="Self.investor_reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="reviews">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="investor_reviews">
+        <PropertyRef Name="review_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_web_sections_menu">
+    <End Role="web_menu" Type="Self.web_menu" Multiplicity="0..1" />
+    <End Role="web_sections" Type="Self.web_sections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_sections">
+        <PropertyRef Name="web_menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="web_entry_blog_comment">
+    <End Role="web_entry_blogs" Type="Self.web_entry_blogs" Multiplicity="0..1" />
+    <End Role="web_entry_comments" Type="Self.web_entry_comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="web_entry_blogs">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="web_entry_comments">
+        <PropertyRef Name="web_entry_blog_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="zestapp_dbModelStoreContainer">
+    <EntitySet Name="advisers" EntityType="Self.advisers" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="asset_prices" EntityType="Self.asset_prices" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="assets" EntityType="Self.assets" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="assets_logos" EntityType="Self.assets_logos" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="bloomberg_asset_prices" EntityType="Self.bloomberg_asset_prices" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="catalog_item_details" EntityType="Self.catalog_item_details" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="catalog_items" EntityType="Self.catalog_items" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="events" EntityType="Self.events" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="general" EntityType="Self.general" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="interes_investor_catalogs" EntityType="Self.interes_investor_catalogs" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="interes_investors" EntityType="Self.interes_investors" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="investor_advisers" EntityType="Self.investor_advisers" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="investor_reviews" EntityType="Self.investor_reviews" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="investors" EntityType="Self.investors" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="landings" EntityType="Self.landings" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="logos" EntityType="Self.logos" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="messages_investor" EntityType="Self.messages_investor" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="news" EntityType="Self.news" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="notes" EntityType="Self.notes" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="notifications" EntityType="Self.notifications" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="osp_crm_interactions" EntityType="Self.osp_crm_interactions" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="osp_crm_leads" EntityType="Self.osp_crm_leads" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="portfolios" EntityType="Self.portfolios" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="rent_months" EntityType="Self.rent_months" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="reviews" EntityType="Self.reviews" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_25k1k" EntityType="Self.web_25k1k" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_25k1k_publis" EntityType="Self.web_25k1k_publis" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_banners" EntityType="Self.web_banners" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_entry_blogs" EntityType="Self.web_entry_blogs" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_entry_comments" EntityType="Self.web_entry_comments" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_events" EntityType="Self.web_events" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_faq" EntityType="Self.web_faq" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_folders" EntityType="Self.web_folders" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_images" EntityType="Self.web_images" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_leads" EntityType="Self.web_leads" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_menu" EntityType="Self.web_menu" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_sections" EntityType="Self.web_sections" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="web_team_members" EntityType="Self.web_team_members" Schema="zestapp_db" store:Type="Tables" />
+    <AssociationSet Name="fk_asset_note" Association="Self.fk_asset_note">
+      <End Role="notes" EntitySet="notes" />
+      <End Role="assets" EntitySet="assets" />
+    </AssociationSet>
+    <AssociationSet Name="fk_asset_price" Association="Self.fk_asset_price">
+      <End Role="assets" EntitySet="assets" />
+      <End Role="asset_prices" EntitySet="asset_prices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_blog_user" Association="Self.fk_blog_user">
+      <End Role="users" EntitySet="users" />
+      <End Role="web_entry_blogs" EntitySet="web_entry_blogs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_catalog_detail" Association="Self.fk_catalog_detail">
+      <End Role="catalog_items" EntitySet="catalog_items" />
+      <End Role="catalog_item_details" EntitySet="catalog_item_details" />
+    </AssociationSet>
+    <AssociationSet Name="fk_events_note" Association="Self.fk_events_note">
+      <End Role="notes" EntitySet="notes" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="fk_folder_folder" Association="Self.fk_folder_folder">
+      <End Role="web_folders" EntitySet="web_folders" />
+      <End Role="web_folders1" EntitySet="web_folders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_image_folder" Association="Self.fk_image_folder">
+      <End Role="web_folders" EntitySet="web_folders" />
+      <End Role="web_images" EntitySet="web_images" />
+    </AssociationSet>
+    <AssociationSet Name="fk_int_catalog" Association="Self.fk_int_catalog">
+      <End Role="catalog_items" EntitySet="catalog_items" />
+      <End Role="interes_investor_catalogs" EntitySet="interes_investor_catalogs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_int_investor" Association="Self.fk_int_investor">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="interes_investor_catalogs" EntitySet="interes_investor_catalogs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_inv_adv_adv" Association="Self.fk_inv_adv_adv">
+      <End Role="advisers" EntitySet="advisers" />
+      <End Role="investor_advisers" EntitySet="investor_advisers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_inv_adv_inv" Association="Self.fk_inv_adv_inv">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="investor_advisers" EntitySet="investor_advisers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_investor_mensaje" Association="Self.fk_investor_mensaje">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="messages_investor" EntitySet="messages_investor" />
+    </AssociationSet>
+    <AssociationSet Name="fk_investor_portfolio" Association="Self.fk_investor_portfolio">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="portfolios" EntitySet="portfolios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_note_portfolio" Association="Self.fk_note_portfolio">
+      <End Role="portfolios" EntitySet="portfolios" />
+      <End Role="notes" EntitySet="notes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_osp_crm_lead_interaction" Association="Self.fk_osp_crm_lead_interaction">
+      <End Role="osp_crm_leads" EntitySet="osp_crm_leads" />
+      <End Role="osp_crm_interactions" EntitySet="osp_crm_interactions" />
+    </AssociationSet>
+    <AssociationSet Name="fk_rent_month_porfoltio" Association="Self.fk_rent_month_porfoltio">
+      <End Role="portfolios" EntitySet="portfolios" />
+      <End Role="rent_months" EntitySet="rent_months" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_investor" Association="Self.fk_review_investor">
+      <End Role="investors" EntitySet="investors" />
+      <End Role="investor_reviews" EntitySet="investor_reviews" />
+    </AssociationSet>
+    <AssociationSet Name="fk_review_review" Association="Self.fk_review_review">
+      <End Role="reviews" EntitySet="reviews" />
+      <End Role="investor_reviews" EntitySet="investor_reviews" />
+    </AssociationSet>
+    <AssociationSet Name="fk_web_sections_menu" Association="Self.fk_web_sections_menu">
+      <End Role="web_menu" EntitySet="web_menu" />
+      <End Role="web_sections" EntitySet="web_sections" />
+    </AssociationSet>
+    <AssociationSet Name="web_entry_blog_comment" Association="Self.web_entry_blog_comment">
+      <End Role="web_entry_blogs" EntitySet="web_entry_blogs" />
+      <End Role="web_entry_comments" EntitySet="web_entry_comments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

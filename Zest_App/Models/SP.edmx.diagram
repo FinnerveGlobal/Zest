@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b77eb40fd65462494c095a8a8ad15b8" Name="Diagram1" >
+        <EntityTypeShape EntityType="PivZestDevModel.Contact" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="PivZestDevModel.ContactEmail" Width="1.5" PointX="3" PointY="11" />
+        <EntityTypeShape EntityType="PivZestDevModel.ContactPhone" Width="1.5" PointX="3" PointY="13.875" />
+        <AssociationConnector Association="PivZestDevModel.FK_dbo_ContactEmail_dbo_Contact_ContactId" />
+        <AssociationConnector Association="PivZestDevModel.FK_dbo_ContactPhone_dbo_Contact_ContactId" />
+        <EntityTypeShape EntityType="PivZestDevModel.Investor" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="PivZestDevModel.User" Width="1.5" PointX="5.25" PointY="5.125" />
+        <AssociationConnector Association="PivZestDevModel.FK_dbo_Investor_dbo_Contact_ContactId" />
+        <AssociationConnector Association="PivZestDevModel.FK_dbo_Investor_dbo_User_UserId" />
+        <AssociationConnector Association="PivZestDevModel.FK_dbo_User_dbo_Investor_InvestorId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

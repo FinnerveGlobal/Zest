@@ -1,0 +1,2081 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA5995A8-CA5A-4933-82E0-236404AEDF2D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zest_App</RootNamespace>
+    <AssemblyName>Zest_App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44335</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="jose-jwt, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\jose-jwt.2.3.0\lib\net461\jose-jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.1.1.2\lib\netstandard1.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.1.1.2\lib\net451\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.1.1.2\lib\net451\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.1.1.1\lib\net451\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.1.1.1\lib\net45\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.1.1\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFramework.8.0.26\lib\net452\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nexmo.Api, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nexmo.Csharp.Client.5.2.0\lib\net46\Nexmo.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\backend\blog\css\medium-editor.css" />
+    <Content Include="Assets\backend\blog\css\medium-editor.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\beagle.css" />
+    <Content Include="Assets\backend\blog\css\themes\beagle.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\bootstrap.css" />
+    <Content Include="Assets\backend\blog\css\themes\bootstrap.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\default.css" />
+    <Content Include="Assets\backend\blog\css\themes\default.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\flat.css" />
+    <Content Include="Assets\backend\blog\css\themes\flat.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\mani.css" />
+    <Content Include="Assets\backend\blog\css\themes\mani.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\roman.css" />
+    <Content Include="Assets\backend\blog\css\themes\roman.min.css" />
+    <Content Include="Assets\backend\blog\css\themes\tim.css" />
+    <Content Include="Assets\backend\blog\css\themes\tim.min.css" />
+    <Content Include="Assets\backend\blog\js\custom-html.min.js" />
+    <Content Include="Assets\backend\blog\js\medium-editor.js" />
+    <Content Include="Assets\backend\blog\js\medium-editor.min.js" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\css\medium-editor-images-plugin.css" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\images\remove.png" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\images\resize-bigger.png" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\images\resize-smaller.png" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\js\jquery-1.10.2.min.js" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\js\medium-editor-images-plugin.js" />
+    <Content Include="Assets\backend\bundles\amcharts4\animated.js" />
+    <Content Include="Assets\backend\bundles\amcharts4\charts.js" />
+    <Content Include="Assets\backend\bundles\amcharts4\core.js" />
+    <Content Include="Assets\backend\bundles\amcharts4\maps.js" />
+    <Content Include="Assets\backend\bundles\amcharts4\worldLow.js" />
+    <Content Include="Assets\backend\bundles\apexcharts\apexcharts.min.js" />
+    <Content Include="Assets\backend\bundles\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Assets\backend\bundles\bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Assets\backend\bundles\bootstrap-daterangepicker\daterangepicker.css" />
+    <Content Include="Assets\backend\bundles\bootstrap-daterangepicker\daterangepicker.js" />
+    <Content Include="Assets\backend\bundles\bootstrap-social\bootstrap-social.css" />
+    <Content Include="Assets\backend\bundles\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="Assets\backend\bundles\bootstrap-tagsinput\dist\bootstrap-tagsinput.min.js" />
+    <Content Include="Assets\backend\bundles\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="Assets\backend\bundles\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Assets\backend\bundles\chartjs\chart.min.js" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\css\chocolat.css" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\images\close.png" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\images\fullscreen.png" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\images\left.png" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\images\loader.gif" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\images\right.png" />
+    <Content Include="Assets\backend\bundles\chocolat\dist\js\jquery.chocolat.min.js" />
+    <Content Include="Assets\backend\bundles\ckeditor\ckeditor.js" />
+    <Content Include="Assets\backend\bundles\cleave-js\dist\addons\cleave-phone.us.js" />
+    <Content Include="Assets\backend\bundles\cleave-js\dist\cleave.min.js" />
+    <Content Include="Assets\backend\bundles\codemirror\lib\codemirror.css" />
+    <Content Include="Assets\backend\bundles\codemirror\lib\codemirror.js" />
+    <Content Include="Assets\backend\bundles\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Assets\backend\bundles\codemirror\theme\duotone-dark.css" />
+    <Content Include="Assets\backend\bundles\datatables\DataTables-1.10.16\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Assets\backend\bundles\datatables\DataTables-1.10.16\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\datatables.min.css" />
+    <Content Include="Assets\backend\bundles\datatables\datatables.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\buttons.flash.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\buttons.print.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\dataTables.buttons.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\jszip.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\pdfmake.min.js" />
+    <Content Include="Assets\backend\bundles\datatables\export-tables\vfs_fonts.js" />
+    <Content Include="Assets\backend\bundles\datatables\Select-1.2.4\css\select.bootstrap4.min.css" />
+    <Content Include="Assets\backend\bundles\dropzonejs\dropzone.css" />
+    <Content Include="Assets\backend\bundles\dropzonejs\min\dropzone.min.js" />
+    <Content Include="Assets\backend\bundles\echart\echarts.js" />
+    <Content Include="Assets\backend\bundles\editable-table\mindmup-editabletable.js" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\css\flag-icon.min.css" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ad.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ae.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\af.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ag.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ai.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\al.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\am.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ao.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\aq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ar.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\as.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\at.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\au.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\aw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ax.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\az.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ba.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\be.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\br.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\by.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\bz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ca.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ch.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ci.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ck.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\co.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\cz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\de.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\dj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\dk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\dm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\do.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\dz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ec.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ee.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\eg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\eh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\er.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\es-ct.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\es.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\et.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\eu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\fr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ga.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gb-eng.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gb-nir.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gb-sct.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gb-wls.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ge.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\gy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\hk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\hm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\hn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\hr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ht.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\hu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\id.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ie.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\il.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\im.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\in.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\io.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\iq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ir.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\is.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\it.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\je.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\jm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\jo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\jp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ke.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ki.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\km.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ky.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\kz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\la.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\li.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ls.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\lv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ly.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ma.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\md.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\me.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ml.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ms.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\my.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\mz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\na.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ne.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ng.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ni.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\no.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\np.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\nz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\om.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pe.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ph.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ps.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\pw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\py.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\qa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\re.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ro.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\rs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ru.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\rw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\se.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\si.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\so.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ss.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\st.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\sz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\td.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\th.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\to.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\tz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ua.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ug.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\um.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\un.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\us.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\uy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\uz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\va.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\vc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ve.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\vg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\vi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\vn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\vu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\wf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ws.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\ye.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\yt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\za.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\zm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\1x1\zw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ad.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ae.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\af.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ag.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ai.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\al.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\am.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ao.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\aq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ar.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\as.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\at.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\au.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\aw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ax.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\az.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ba.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\be.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\br.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\by.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\bz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ca.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ch.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ci.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ck.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\co.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\cz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\de.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\dj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\dk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\dm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\do.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\dz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ec.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ee.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\eg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\eh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\er.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\es-ct.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\es.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\et.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\eu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\fr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ga.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gb-eng.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gb-nir.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gb-sct.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gb-wls.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ge.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\gy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\hk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\hm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\hn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\hr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ht.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\hu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\id.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ie.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\il.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\im.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\in.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\io.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\iq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ir.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\is.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\it.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\je.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\jm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\jo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\jp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ke.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ki.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\km.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ky.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\kz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\la.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\li.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ls.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\lv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ly.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ma.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\md.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\me.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ml.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mo.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mp.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mq.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ms.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\my.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\mz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\na.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ne.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ng.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ni.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\no.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\np.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\nz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\om.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pe.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ph.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ps.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\pw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\py.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\qa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\re.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ro.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\rs.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ru.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\rw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sa.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sb.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sd.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\se.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sh.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\si.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\so.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ss.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\st.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sx.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\sz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\td.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\th.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tj.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tk.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tl.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\to.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tr.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tv.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tw.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\tz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ua.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ug.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\um.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\un.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\us.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\uy.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\uz.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\va.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\vc.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ve.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\vg.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\vi.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\vn.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\vu.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\wf.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ws.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\ye.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\yt.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\za.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\zm.svg" />
+    <Content Include="Assets\backend\bundles\flag-icon-css\flags\4x3\zw.svg" />
+    <Content Include="Assets\backend\bundles\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Assets\backend\bundles\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Assets\backend\bundles\gmaps.js" />
+    <Content Include="Assets\backend\bundles\ionicons\css\ionicons.min.css" />
+    <Content Include="Assets\backend\bundles\ionicons\fonts\ionicons28b5.svg" />
+    <Content Include="Assets\backend\bundles\izitoast\css\iziToast.min.css" />
+    <Content Include="Assets\backend\bundles\izitoast\js\iziToast.min.js" />
+    <Content Include="Assets\backend\bundles\jquery-pwstrength\jquery.pwstrength.min.js" />
+    <Content Include="Assets\backend\bundles\jquery-selectric\jquery.selectric.min.js" />
+    <Content Include="Assets\backend\bundles\jquery-selectric\selectric.css" />
+    <Content Include="Assets\backend\bundles\jquery-steps\jquery.steps.min.js" />
+    <Content Include="Assets\backend\bundles\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Assets\backend\bundles\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Assets\backend\bundles\jquery.sparkline.min.js" />
+    <Content Include="Assets\backend\bundles\jqvmap\dist\jquery.vmap.min.js" />
+    <Content Include="Assets\backend\bundles\jqvmap\dist\jqvmap.min.css" />
+    <Content Include="Assets\backend\bundles\jqvmap\dist\maps\jquery.vmap.indonesia.js" />
+    <Content Include="Assets\backend\bundles\jqvmap\dist\maps\jquery.vmap.world.js" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\css\lightgallery.css" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\fonts\lgd641.svg" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\img\loading.gif" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\img\video-play.png" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\img\vimeo-play.png" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\img\youtube-play.png" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\js\lightgallery-all.js" />
+    <Content Include="Assets\backend\bundles\morris\morris.css" />
+    <Content Include="Assets\backend\bundles\morris\morris.min.js" />
+    <Content Include="Assets\backend\bundles\morris\raphael-min.js" />
+    <Content Include="Assets\backend\bundles\owlcarousel2\dist\assets\owl.carousel.min.css" />
+    <Content Include="Assets\backend\bundles\owlcarousel2\dist\assets\owl.theme.default.min.css" />
+    <Content Include="Assets\backend\bundles\owlcarousel2\dist\assets\owl.video.play.png" />
+    <Content Include="Assets\backend\bundles\owlcarousel2\dist\owl.carousel.min.js" />
+    <Content Include="Assets\backend\bundles\pretty-checkbox\pretty-checkbox.min.css" />
+    <Content Include="Assets\backend\bundles\prism\prism.css" />
+    <Content Include="Assets\backend\bundles\prism\prism.js" />
+    <Content Include="Assets\backend\bundles\select2\dist\css\select2.min.css" />
+    <Content Include="Assets\backend\bundles\select2\dist\js\select2.full.min.js" />
+    <Content Include="Assets\backend\bundles\summernote\summernote-bs4.css" />
+    <Content Include="Assets\backend\bundles\summernote\summernote-bs4.js" />
+    <Content Include="Assets\backend\bundles\sweetalert\sweetalert.min.js" />
+    <Content Include="Assets\backend\bundles\upload-preview\assets\js\jquery.uploadPreview.min.js" />
+    <Content Include="Assets\backend\bundles\weather-icon\css\weather-icons-wind.min.css" />
+    <Content Include="Assets\backend\bundles\weather-icon\css\weather-icons.min.css" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfont.svg" />
+    <Content Include="Assets\backend\css\app.min.css" />
+    <Content Include="Assets\backend\css\components.css" />
+    <Content Include="Assets\backend\css\custom.css" />
+    <Content Include="Assets\backend\css\MaterialIcons-Regular.html" />
+    <Content Include="Assets\backend\css\style.css" />
+    <Content Include="Assets\backend\fonts\fonts\webfonts\fa-brands-400.html" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600.svg" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700.svg" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800.svg" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regular.svg" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-brands-400.svg" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400.svg" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900.svg" />
+    <Content Include="Assets\backend\js\app.min.js" />
+    <Content Include="Assets\backend\js\custom.js" />
+    <Content Include="Assets\backend\js\page\advance-table.js" />
+    <Content Include="Assets\backend\js\page\auth-register.js" />
+    <Content Include="Assets\backend\js\page\calendar.js" />
+    <Content Include="Assets\backend\js\page\chart-amchart.js" />
+    <Content Include="Assets\backend\js\page\chart-apexcharts.js" />
+    <Content Include="Assets\backend\js\page\chart-chartjs.js" />
+    <Content Include="Assets\backend\js\page\chart-echarts.js" />
+    <Content Include="Assets\backend\js\page\chart-morris.js" />
+    <Content Include="Assets\backend\js\page\chat.js" />
+    <Content Include="Assets\backend\js\page\ckeditor.js" />
+    <Content Include="Assets\backend\js\page\contact.js" />
+    <Content Include="Assets\backend\js\page\create-post.js" />
+    <Content Include="Assets\backend\js\page\datatables.js" />
+    <Content Include="Assets\backend\js\page\editable-table.js" />
+    <Content Include="Assets\backend\js\page\form-wizard.js" />
+    <Content Include="Assets\backend\js\page\forms-advanced-forms.js" />
+    <Content Include="Assets\backend\js\page\gallery1.js" />
+    <Content Include="Assets\backend\js\page\gmaps-advanced-route.js" />
+    <Content Include="Assets\backend\js\page\gmaps-draggable-marker.js" />
+    <Content Include="Assets\backend\js\page\gmaps-geocoding.js" />
+    <Content Include="Assets\backend\js\page\gmaps-geolocation.js" />
+    <Content Include="Assets\backend\js\page\gmaps-marker.js" />
+    <Content Include="Assets\backend\js\page\gmaps-multiple-marker.js" />
+    <Content Include="Assets\backend\js\page\gmaps-route.js" />
+    <Content Include="Assets\backend\js\page\gmaps-simple.js" />
+    <Content Include="Assets\backend\js\page\index.js" />
+    <Content Include="Assets\backend\js\page\index2.js" />
+    <Content Include="Assets\backend\js\page\ion-icons.js" />
+    <Content Include="Assets\backend\js\page\light-gallery.js" />
+    <Content Include="Assets\backend\js\page\multiple-upload.js" />
+    <Content Include="Assets\backend\js\page\owl-carousel.js" />
+    <Content Include="Assets\backend\js\page\portfolio.js" />
+    <Content Include="Assets\backend\js\page\posts.js" />
+    <Content Include="Assets\backend\js\page\sparkline.js" />
+    <Content Include="Assets\backend\js\page\sweetalert.js" />
+    <Content Include="Assets\backend\js\page\toastr.js" />
+    <Content Include="Assets\backend\js\page\todo.js" />
+    <Content Include="Assets\backend\js\page\vector-map.js" />
+    <Content Include="Assets\backend\js\page\widget-chart.js" />
+    <Content Include="Assets\backend\js\page\widget-data.js" />
+    <Content Include="Assets\backend\js\scripts.js" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\carousel.css" />
+    <Content Include="Assets\css\playstore.png" />
+    <Content Include="Assets\img\loading1.gif" />
+    <Content Include="Assets\img\logos\isotipo.svg" />
+    <Content Include="Assets\img\menu\bell 0.svg" />
+    <Content Include="Assets\img\menu\bell 1.svg" />
+    <Content Include="Assets\img\menu\list 0.svg" />
+    <Content Include="Assets\img\menu\list 1.svg" />
+    <Content Include="Assets\img\menu\mail 0.svg" />
+    <Content Include="Assets\img\menu\mail 1.svg" />
+    <Content Include="Assets\img\website\app\app1.png" />
+    <Content Include="Assets\img\website\app\app2.png" />
+    <Content Include="Assets\img\website\app\app3.png" />
+    <Content Include="Assets\img\website\app\app4.png" />
+    <Content Include="Assets\img\website\app\app5.png" />
+    <Content Include="Assets\img\website\app\app6.png" />
+    <Content Include="Assets\img\website\app\app8_2.png" />
+    <Content Include="Assets\img\website\app\catalog.png" />
+    <Content Include="Assets\img\website\app\contacto.png" />
+    <Content Include="Assets\img\website\app\landing_app.png" />
+    <Content Include="Assets\img\website\app\news.png" />
+    <Content Include="Assets\img\website\app\pagos.png" />
+    <Content Include="Assets\img\website\app\pin.png" />
+    <Content Include="Assets\img\website\app\port.png" />
+    <Content Include="Assets\img\website\arrow.svg" />
+    <Content Include="Assets\img\website\arrow2.svg" />
+    <Content Include="Assets\img\website\banner.svg" />
+    <Content Include="Assets\img\website\banner2.svg" />
+    <Content Include="Assets\img\website\banner3.svg" />
+    <Content Include="Assets\img\website\cinta.svg" />
+    <Content Include="Assets\img\website\hex_black1.svg" />
+    <Content Include="Assets\img\website\hex_black2.svg" />
+    <Content Include="Assets\img\website\hex_black3.svg" />
+    <Content Include="Assets\img\website\iconos\icon_blog.svg" />
+    <Content Include="Assets\img\website\iconos\icon_blog_white.svg" />
+    <Content Include="Assets\img\website\iconos\icon_comment.svg" />
+    <Content Include="Assets\img\website\iconos\icon_like.svg" />
+    <Content Include="Assets\img\website\iconos\icon_cafe.svg" />
+    <Content Include="Assets\img\website\iconos\icon_calendar.svg" />
+    <Content Include="Assets\img\website\iconos\icon_calendar_white.svg" />
+    <Content Include="Assets\img\website\iconos\icon_email.svg" />
+    <Content Include="Assets\img\website\iconos\icon_facebook.svg" />
+    <Content Include="Assets\img\website\iconos\icon_mapa.svg" />
+    <Content Include="Assets\img\website\iconos\icon_mapa_white.svg" />
+    <Content Include="Assets\img\website\iconos\icon_news.svg" />
+    <Content Include="Assets\img\website\iconos\icon_news_white.svg" />
+    <Content Include="Assets\img\website\iconos\icon_reloj.svg" />
+    <Content Include="Assets\img\website\iconos\icon_reloj_white.svg" />
+    <Content Include="Assets\img\website\iconos\icon_save.svg" />
+    <Content Include="Assets\img\website\iconos\icon_telefono.svg" />
+    <Content Include="Assets\img\website\iconos\icon_twiter.svg" />
+    <Content Include="Assets\img\website\iconos\icon_linkedin.svg" />
+    <Content Include="Assets\img\website\mobile\25k_mobile.png" />
+    <Content Include="Assets\img\website\mobile\cafe_mobile.png" />
+    <Content Include="Assets\img\website\mobile\fundacion_mobile.png" />
+    <Content Include="Assets\img\website\mobile\venture_mobile.png" />
+    <Content Include="Assets\img\website\nosotros\sello.svg" />
+    <Content Include="Assets\img\website\nosotros\sello_white.svg" />
+    <Content Include="Assets\img\website\publi.svg" />
+    <Content Include="Assets\css\zestapp.css" />
+    <Content Include="Assets\css\zestauth.css" />
+    <Content Include="Assets\css\zestweb.css" />
+    <Content Include="Assets\img\assets\back_land.jpg" />
+    <Content Include="Assets\img\assets\citi.png" />
+    <Content Include="Assets\img\assets\cs.png" />
+    <Content Include="Assets\img\assets\franjas-yellow.svg" />
+    <Content Include="Assets\img\assets\franjas2.svg" />
+    <Content Include="Assets\img\assets\franjas-black.svg" />
+    <Content Include="Assets\img\assets\franjas.svg" />
+    <Content Include="Assets\img\assets\hasbro.png" />
+    <Content Include="Assets\img\assets\salesforce.png" />
+    <Content Include="Assets\img\backend\sections\cifras.PNG" />
+    <Content Include="Assets\img\backend\sections\contact.PNG" />
+    <Content Include="Assets\img\backend\sections\crecer.PNG" />
+    <Content Include="Assets\img\backend\sections\crecercifras.PNG" />
+    <Content Include="Assets\img\backend\sections\desc1.PNG" />
+    <Content Include="Assets\img\backend\sections\lading.PNG" />
+    <Content Include="Assets\img\backend\sections\motivo.PNG" />
+    <Content Include="Assets\img\backend\sections\nacio.PNG" />
+    <Content Include="Assets\img\backend\sections\oldabout.png" />
+    <Content Include="Assets\img\backend\sections\oldzestcafe.png" />
+    <Content Include="Assets\img\backend\sections\proyectocajas.png" />
+    <Content Include="Assets\img\backend\sections\zestapp.PNG" />
+    <Content Include="Assets\img\backend\sections\zestcafe.PNG" />
+    <Content Include="Assets\img\backend\sections\zestfundation.PNG" />
+    <Content Include="Assets\img\backend\sections\zestventure.PNG" />
+    <Content Include="Assets\img\logos\logo.gif" />
+    <Content Include="Assets\img\logos\logo.mov" />
+    <Content Include="Assets\img\logos\logo2.gif" />
+    <Content Include="Assets\img\logos\zestCafe.svg" />
+    <Content Include="Assets\img\logos\zestFundation.svg" />
+    <Content Include="Assets\img\logos\zestVenture.svg" />
+    <Content Include="Assets\img\logos\zest_animate2.gif" />
+    <Content Include="Assets\img\website\faqoff.svg" />
+    <Content Include="Assets\img\website\faqon.png" />
+    <Content Include="Assets\img\website\faqon.svg" />
+    <Content Include="Assets\img\website\hex_black.svg" />
+    <Content Include="Assets\img\website\leftSectionb.svg" />
+    <Content Include="Assets\img\website\leftSectionc.svg" />
+    <Content Include="Assets\img\website\linkedin.svg" />
+    <Content Include="Assets\img\website\nosotros\25k1k.png" />
+    <Content Include="Assets\img\website\nosotros\nosotros_grafico1.png" />
+    <Content Include="Assets\img\website\nosotros\nosotros_grafico2.png" />
+    <Content Include="Assets\img\website\nosotros\nosotros_grafico3.png" />
+    <Content Include="Assets\img\website\nosotros\nosotros_grafico4.png" />
+    <Content Include="Assets\img\website\nosotros\nosotros_grafico5.png" />
+    <Content Include="Assets\img\website\partner.svg" />
+    <Content Include="Assets\img\website\partners\bloomberg.png" />
+    <Content Include="Assets\img\website\partners\britech.png" />
+    <Content Include="Assets\img\website\partners\cavali.png" />
+    <Content Include="Assets\img\website\partners\endeavor.png" />
+    <Content Include="Assets\img\website\partners\muniz.svg" />
+    <Content Include="Assets\img\website\partners\salesforce.png" />
+    <Content Include="Assets\img\website\partner_white.svg" />
+    <Content Include="Assets\img\website\partner_white_transition.svg" />
+    <Content Include="Assets\img\website\playstore.png" />
+    <Content Include="Assets\img\website\rightSection.svg" />
+    <Content Include="Assets\img\website\rightSectionb.svg" />
+    <Content Include="Assets\img\website\team\crop.png" />
+    <Content Include="Assets\img\website\team\crop2.png" />
+    <Content Include="Assets\img\website\team\crop3.png" />
+    <Content Include="Assets\img\website\team\crop4.png" />
+    <Content Include="Assets\img\website\team\joseb.png" />
+    <Content Include="Assets\img\website\zestfund.jpg" />
+    <Content Include="Assets\img\website\zestventure.jpeg" />
+    <Content Include="Assets\img\website\zestventure2.jpeg" />
+    <Content Include="Assets\img\website\zest_app.png" />
+    <Content Include="Assets\img\website\zest_cafe_back.jpg" />
+    <Content Include="Assets\img\website\zest_fund.png" />
+    <Content Include="Assets\img\website\zest_venture.jpg" />
+    <Content Include="Assets\img\website\zest_venture.png" />
+    <Content Include="Assets\img\website\zest_venture2.jpg" />
+    <Content Include="Assets\js\carousel.js" />
+    <Content Include="Files\Backend\banner\laptopman.jpg" />
+    <Content Include="Files\Backend\User\estif.svg" />
+    <Content Include="Assets\img\landing.svg" />
+    <Content Include="Assets\img\loading.gif" />
+    <Content Include="Assets\img\loading.mov" />
+    <Content Include="Assets\img\logos\logo a pedido.svg" />
+    <Content Include="Assets\img\logos\logo blanco.svg" />
+    <Content Include="Assets\img\logos\logo main.svg" />
+    <Content Include="Assets\img\logos\logo negativo.svg" />
+    <Content Include="Assets\img\menu\catalog 0.svg" />
+    <Content Include="Assets\img\menu\catalog 1.svg" />
+    <Content Include="Assets\img\menu\dashboard 0.svg" />
+    <Content Include="Assets\img\menu\dashboard 1.svg" />
+    <Content Include="Assets\img\menu\more 0.svg" />
+    <Content Include="Assets\img\menu\more 1.svg" />
+    <Content Include="Assets\img\menu\news 0.svg" />
+    <Content Include="Assets\img\menu\news 1.svg" />
+    <Content Include="Assets\img\menu\TecladoOff.svg" />
+    <Content Include="Assets\img\menu\TecladoBorder.svg" />
+    <Content Include="Assets\img\menu\TecladoOn.svg" />
+    <Content Include="Assets\img\news\news_1.jpg" />
+    <Content Include="Assets\img\news\news_2.jpg" />
+    <Content Include="Assets\img\website\app-back.png" />
+    <Content Include="Assets\img\website\app-resumen.png" />
+    <Content Include="Assets\img\website\appstore.png" />
+    <Content Include="Assets\img\website\appstore.svg" />
+    <Content Include="Assets\img\website\bonita.png" />
+    <Content Include="Assets\img\website\bonita_logo.jpg" />
+    <Content Include="Assets\img\website\foundation.jpeg" />
+    <Content Include="Assets\img\website\home-venture.png" />
+    <Content Include="Assets\img\website\nosotros_grafico.png" />
+    <Content Include="Assets\img\website\oak_berry.png" />
+    <Content Include="Assets\img\website\playstore.svg" />
+    <Content Include="Assets\img\website\team\arthur.png" />
+    <Content Include="Assets\img\website\team\eduardo.png" />
+    <Content Include="Assets\img\website\team\steve.png" />
+    <Content Include="Assets\img\website\zest-app.png" />
+    <Content Include="Assets\img\website\zest-cafe.png" />
+    <Content Include="Assets\img\website\zest-home-cifras.svg" />
+    <Content Include="Assets\img\website\zest-home-linaes1.svg" />
+    <Content Include="Assets\img\website\zest-home-linaes2.svg" />
+    <Content Include="Assets\img\website\zest-home-lineas3.svg" />
+    <Content Include="Assets\img\website\zestfund.png" />
+    <Content Include="Assets\img\website\zest_cafe.png" />
+    <Content Include="Assets\img\website\zest_cafe_back.png" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Assets\css\iphone.css" />
+    <Content Include="Models\DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB.edmx</DependentUpon>
+      <LastGenOutput>DB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SP.edmx</DependentUpon>
+      <LastGenOutput>SP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SP.edmx</DependentUpon>
+      <LastGenOutput>SP.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\Views\Assesor\ListInvestor.aspx" />
+    <Content Include="Resources\Views\Assesor\Messages.aspx" />
+    <Content Include="Resources\Views\Assesor\Prospects.aspx" />
+    <Content Include="Resources\Views\Auth\Code.aspx" />
+    <Content Include="Resources\Views\Auth\Home.aspx" />
+    <Content Include="Resources\Views\Auth\Login.aspx" />
+    <Content Include="Resources\Views\Auth\Phone.aspx" />
+    <Content Include="Resources\Views\Auth\Pin.aspx" />
+    <Content Include="Resources\Views\Auth\Pin_security.aspx" />
+    <Content Include="Resources\Views\Auth\Pin_validation.aspx" />
+    <Content Include="Resources\Views\Backend\Images\List.aspx" />
+    <Content Include="Resources\Views\Backend\Leads\List.aspx" />
+    <Content Include="Resources\Views\Backend\Login.aspx" />
+    <Content Include="Resources\Views\Backend\Profile\Profile.aspx" />
+    <Content Include="Resources\Views\Backend\Users\Users.aspx" />
+    <Content Include="Resources\Views\Backend\Welcome.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Catalog.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Catalog_item.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\CellCode.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Dashboard.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Investors.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Logos.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\News.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\NewsCorp.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\NewsMacro.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\Reviews.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Aboutus\Publi25k1k.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Aboutus\Team.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Banner.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Blog.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\BlogEditor.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\BlogNew.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Events\Events.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Faqs.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Sections\About.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Sections\Home.aspx" />
+    <Content Include="Resources\Views\Backend\Zestweb\Sections\Titulos.aspx" />
+    <Content Include="Resources\Views\Catalog\ZestCatalog.aspx" />
+    <Content Include="Resources\Views\Catalog\ZestItem.aspx" />
+    <Content Include="Resources\Views\Dashboard\ActivosCLN.aspx" />
+    <Content Include="Resources\Views\Dashboard\ActivosELN.aspx" />
+    <Content Include="Resources\Views\Dashboard\AnalisisELN.aspx" />
+    <Content Include="Resources\Views\Dashboard\EventosCLN.aspx" />
+    <Content Include="Resources\Views\Dashboard\EventosELN.aspx" />
+    <Content Include="Resources\Views\Dashboard\Resumen.aspx" />
+    <Content Include="Resources\Views\More\Algoparati.aspx" />
+    <Content Include="Resources\Views\More\Contacto.aspx" />
+    <Content Include="Resources\Views\More\externalViewer.aspx" />
+    <Content Include="Resources\Views\More\pdfViewer.aspx" />
+    <Content Include="Resources\Views\News\NewsCorp.aspx" />
+    <Content Include="Resources\Views\News\NewsMercado.aspx" />
+    <Content Include="Resources\Views\News\NewsZest.aspx" />
+    <Content Include="Resources\Views\Website\Aboutus.aspx" />
+    <Content Include="Resources\Views\Website\App.aspx" />
+    <Content Include="Resources\Views\Website\Efinanciera.aspx" />
+    <Content Include="Resources\Views\Website\EfinancieraEntry.aspx" />
+    <Content Include="Resources\Views\Website\Events.aspx" />
+    <Content Include="Resources\Views\Website\FaQ.aspx" />
+    <Content Include="Resources\Views\Website\Home.aspx" />
+    <Content Include="Resources\Views\Website\Legalinfo.aspx" />
+    <Content Include="Resources\Views\Website\News.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Authentication.cs" />
+    <Compile Include="Common\Nota.cs" />
+    <Compile Include="Common\SendMail.cs" />
+    <Compile Include="Common\SendNotification.cs" />
+    <Compile Include="Common\ShowMessage.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\adviser.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asset.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\assets_logos.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\asset_prices.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bloomberg_asset_prices.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catalog_items.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catalog_item_details.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactEmail.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactPhone.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\event.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\general.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\getInvestorAccess_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\interes_investors.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\interes_investor_catalogs.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Investor.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\investors.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\investor_advisers.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\investor_reviews.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\landing.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\logo.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\messages_investor.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\news.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\note.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\notification.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\osp_crm_interactions.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\osp_crm_leads.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\portfolio.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rent_months.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\review.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SearchAdvisor_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB.Context.cs">
+      <DependentUpon>DB.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\DB.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\DB.Designer.cs">
+      <DependentUpon>DB.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\SP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_MonthResume_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PosicionAcciones_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_PosicionFondos_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ReturnEstructureNote_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ReturnNoteEventCLN_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_ReturnNoteEventELN_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_Subyacentes_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_TasaDescuentoNota_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\users.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_25k1k.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_25k1k_publis.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_banners.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_entry_blogs.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_entry_comments.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_events.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_faq.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_folders.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_images.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_leads.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_menu.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_sections.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\web_team_members.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Layout\app.Master.cs">
+      <DependentUpon>app.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Layout\app.Master.designer.cs">
+      <DependentUpon>app.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Layout\appAssesor.Master.cs">
+      <DependentUpon>appAssesor.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Layout\appAssesor.Master.designer.cs">
+      <DependentUpon>appAssesor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Layout\auth.Master.cs">
+      <DependentUpon>auth.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Layout\auth.Master.designer.cs">
+      <DependentUpon>auth.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Layout\backend.Master.cs">
+      <DependentUpon>backend.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Layout\backend.Master.designer.cs">
+      <DependentUpon>backend.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Layout\web.Master.cs">
+      <DependentUpon>web.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Layout\web.Master.designer.cs">
+      <DependentUpon>web.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\ListInvestor.aspx.cs">
+      <DependentUpon>ListInvestor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\ListInvestor.aspx.designer.cs">
+      <DependentUpon>ListInvestor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\Prospects.aspx.cs">
+      <DependentUpon>Prospects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Assesor\Prospects.aspx.designer.cs">
+      <DependentUpon>Prospects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Code.aspx.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Code.aspx.designer.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Phone.aspx.cs">
+      <DependentUpon>Phone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Phone.aspx.designer.cs">
+      <DependentUpon>Phone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin.aspx.cs">
+      <DependentUpon>Pin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin.aspx.designer.cs">
+      <DependentUpon>Pin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin_security.aspx.cs">
+      <DependentUpon>Pin_security.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin_security.aspx.designer.cs">
+      <DependentUpon>Pin_security.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin_validation.aspx.cs">
+      <DependentUpon>Pin_validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Auth\Pin_validation.aspx.designer.cs">
+      <DependentUpon>Pin_validation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Images\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Images\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Leads\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Leads\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Profile\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Profile\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Users\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Users\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Catalog.aspx.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Catalog.aspx.designer.cs">
+      <DependentUpon>Catalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Catalog_item.aspx.cs">
+      <DependentUpon>Catalog_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Catalog_item.aspx.designer.cs">
+      <DependentUpon>Catalog_item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CellCode.aspx.cs">
+      <DependentUpon>CellCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CellCode.aspx.designer.cs">
+      <DependentUpon>CellCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Investors.aspx.cs">
+      <DependentUpon>Investors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Investors.aspx.designer.cs">
+      <DependentUpon>Investors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Logos.aspx.cs">
+      <DependentUpon>Logos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Logos.aspx.designer.cs">
+      <DependentUpon>Logos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsCorp.aspx.cs">
+      <DependentUpon>NewsCorp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsCorp.aspx.designer.cs">
+      <DependentUpon>NewsCorp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsMacro.aspx.cs">
+      <DependentUpon>NewsMacro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsMacro.aspx.designer.cs">
+      <DependentUpon>NewsMacro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Reviews.aspx.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\Reviews.aspx.designer.cs">
+      <DependentUpon>Reviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Aboutus\Publi25k1k.aspx.cs">
+      <DependentUpon>Publi25k1k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Aboutus\Publi25k1k.aspx.designer.cs">
+      <DependentUpon>Publi25k1k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Aboutus\Team.aspx.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Aboutus\Team.aspx.designer.cs">
+      <DependentUpon>Team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Banner.aspx.cs">
+      <DependentUpon>Banner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Banner.aspx.designer.cs">
+      <DependentUpon>Banner.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Blog.aspx.designer.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\BlogEditor.aspx.cs">
+      <DependentUpon>BlogEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\BlogEditor.aspx.designer.cs">
+      <DependentUpon>BlogEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\BlogNew.aspx.cs">
+      <DependentUpon>BlogNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\BlogNew.aspx.designer.cs">
+      <DependentUpon>BlogNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Events\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Events\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Faqs.aspx.cs">
+      <DependentUpon>Faqs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Faqs.aspx.designer.cs">
+      <DependentUpon>Faqs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\Titulos.aspx.cs">
+      <DependentUpon>Titulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestweb\Sections\Titulos.aspx.designer.cs">
+      <DependentUpon>Titulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestCatalog.aspx.cs">
+      <DependentUpon>ZestCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestCatalog.aspx.designer.cs">
+      <DependentUpon>ZestCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestItem.aspx.cs">
+      <DependentUpon>ZestItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestItem.aspx.designer.cs">
+      <DependentUpon>ZestItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\ActivosCLN.aspx.cs">
+      <DependentUpon>ActivosCLN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\ActivosCLN.aspx.designer.cs">
+      <DependentUpon>ActivosCLN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\ActivosELN.aspx.cs">
+      <DependentUpon>ActivosELN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\ActivosELN.aspx.designer.cs">
+      <DependentUpon>ActivosELN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\AnalisisELN.aspx.cs">
+      <DependentUpon>AnalisisELN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\AnalisisELN.aspx.designer.cs">
+      <DependentUpon>AnalisisELN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\EventosCLN.aspx.cs">
+      <DependentUpon>EventosCLN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\EventosCLN.aspx.designer.cs">
+      <DependentUpon>EventosCLN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\EventosELN.aspx.cs">
+      <DependentUpon>EventosELN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\EventosELN.aspx.designer.cs">
+      <DependentUpon>EventosELN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\Resumen.aspx.cs">
+      <DependentUpon>Resumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Dashboard\Resumen.aspx.designer.cs">
+      <DependentUpon>Resumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\Algoparati.aspx.cs">
+      <DependentUpon>Algoparati.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\Algoparati.aspx.designer.cs">
+      <DependentUpon>Algoparati.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalViewer.aspx.cs">
+      <DependentUpon>externalViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalViewer.aspx.designer.cs">
+      <DependentUpon>externalViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\pdfViewer.aspx.cs">
+      <DependentUpon>pdfViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\pdfViewer.aspx.designer.cs">
+      <DependentUpon>pdfViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsCorp.aspx.cs">
+      <DependentUpon>NewsCorp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsCorp.aspx.designer.cs">
+      <DependentUpon>NewsCorp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsMercado.aspx.cs">
+      <DependentUpon>NewsMercado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsMercado.aspx.designer.cs">
+      <DependentUpon>NewsMercado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsZest.aspx.cs">
+      <DependentUpon>NewsZest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\News\NewsZest.aspx.designer.cs">
+      <DependentUpon>NewsZest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Aboutus.aspx.cs">
+      <DependentUpon>Aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Aboutus.aspx.designer.cs">
+      <DependentUpon>Aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\App.aspx.cs">
+      <DependentUpon>App.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\App.aspx.designer.cs">
+      <DependentUpon>App.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Efinanciera.aspx.cs">
+      <DependentUpon>Efinanciera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Efinanciera.aspx.designer.cs">
+      <DependentUpon>Efinanciera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\EfinancieraEntry.aspx.cs">
+      <DependentUpon>EfinancieraEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\EfinancieraEntry.aspx.designer.cs">
+      <DependentUpon>EfinancieraEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Events.aspx.designer.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\FaQ.aspx.cs">
+      <DependentUpon>FaQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\FaQ.aspx.designer.cs">
+      <DependentUpon>FaQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Legalinfo.aspx.cs">
+      <DependentUpon>Legalinfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Legalinfo.aspx.designer.cs">
+      <DependentUpon>Legalinfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\backend\bundles\ionicons\fonts\ionicons28b5.eot" />
+    <Content Include="Assets\backend\bundles\ionicons\fonts\ionicons28b5.ttf" />
+    <Content Include="Assets\backend\bundles\ionicons\fonts\ionicons28b5.woff" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\fonts\lgd41d.eot" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\fonts\lgd641.eot" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\fonts\lgd641.ttf" />
+    <Content Include="Assets\backend\bundles\lightgallery\dist\fonts\lgd641.woff" />
+    <Content Include="Assets\backend\bundles\material-icons\MaterialIcons-Regular.ttf" />
+    <Content Include="Assets\backend\bundles\material-icons\MaterialIcons-Regular.woff" />
+    <Content Include="Assets\backend\bundles\material-icons\MaterialIcons-Regular.woff2" />
+    <Content Include="Assets\backend\bundles\summernote\font\summernote4c4d.eot" />
+    <Content Include="Assets\backend\bundles\summernote\font\summernote4c4d.ttf" />
+    <Content Include="Assets\backend\bundles\summernote\font\summernote4c4d.woff" />
+    <Content Include="Assets\backend\bundles\summernote\font\summernoted41d.eot" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfont.eot" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfont.ttf" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfont.woff" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfont.woff2" />
+    <Content Include="Assets\backend\bundles\weather-icon\font\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600.ttf" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600.woff" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600.woff2" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-600d41d.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700.ttf" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700.woff" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700.woff2" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-700d41d.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800.ttf" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800.woff" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800.woff2" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-800d41d.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regular.eot" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regular.ttf" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regular.woff" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regular.woff2" />
+    <Content Include="Assets\backend\fonts\nunito-v9-latin-regulard41d.eot" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-brands-400.ttf" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-brands-400.woff" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-brands-400.woff2" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400.eot" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400.ttf" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400.woff" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400.woff2" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900.eot" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900.ttf" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900.woff" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900.woff2" />
+    <Content Include="Assets\backend\fonts\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="Assets\fonts\Gotham-Black.otf" />
+    <Content Include="Assets\fonts\Gotham-Bold.otf" />
+    <Content Include="Assets\fonts\Gotham-BookItalic.otf" />
+    <Content Include="Assets\fonts\Gotham-Light.otf" />
+    <Content Include="Assets\fonts\Gotham-Thin.otf" />
+    <Content Include="Assets\fonts\Gotham-ThinItalic.otf" />
+    <Content Include="Assets\fonts\Gotham-UltraItalic.otf" />
+    <Content Include="Assets\fonts\Gotham-XLight.otf" />
+    <Content Include="Assets\fonts\Gotham-XLightItalic.otf" />
+    <Content Include="Assets\fonts\GothamBold.ttf" />
+    <Content Include="Assets\fonts\GothamBoldItalic.ttf" />
+    <Content Include="Assets\fonts\GothamBook.ttf" />
+    <Content Include="Assets\fonts\GothamBookItalic.ttf" />
+    <Content Include="Assets\fonts\GothamLight.ttf" />
+    <Content Include="Assets\fonts\GothamLightItalic.ttf" />
+    <Content Include="Assets\fonts\GothamMedium.ttf" />
+    <Content Include="Assets\fonts\GothamMediumItalic.ttf" />
+    <Content Include="Assets\fonts\GothamMedium_1.ttf" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\config.rb" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\js\jquery-1.10.2.min.map" />
+    <Content Include="Assets\backend\blog\medium-editor-images-plugin\sass\medium-editor-images-plugin.scss" />
+    <EntityDeploy Include="Models\SP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SP.edmx.diagram">
+      <DependentUpon>SP.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DB.edmx.diagram">
+      <DependentUpon>DB.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Resources\Layout\app.Master" />
+    <Content Include="Resources\Layout\auth.Master" />
+    <Content Include="Resources\Layout\web.Master" />
+    <Content Include="Resources\Layout\backend.Master" />
+    <Content Include="Resources\Layout\appAssesor.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\img\backend\reviews\" />
+    <Folder Include="Assets\img\backend\users\" />
+    <Folder Include="Files\asset_logo\" />
+    <Folder Include="Files\Backend\imgs\" />
+    <Folder Include="Files\Backend\reviews\" />
+    <Folder Include="Files\events\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50830</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44335/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

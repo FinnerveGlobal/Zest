@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PivZestDevModelStoreContainer" CdmEntityContainer="PivZestDevEntities">
+    <FunctionImportMapping FunctionImportName="SearchAdvisor" FunctionName="PivZestDevModel.Store.SearchAdvisor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SearchAdvisor_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchInvestor" FunctionName="PivZestDevModel.Store.SearchInvestor" />
+    <FunctionImportMapping FunctionImportName="SP_MonthResume" FunctionName="PivZestDevModel.Store.SP_MonthResume">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_MonthResume_Result">
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+          <ScalarProperty Name="Ano" ColumnName="Ano" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ValorPortafolio" ColumnName="ValorPortafolio" />
+          <ScalarProperty Name="RentabilidadMensualPer" ColumnName="RentabilidadMensualPer" />
+          <ScalarProperty Name="RentabilidadMensualPerAcum" ColumnName="RentabilidadMensualPerAcum" />
+          <ScalarProperty Name="RentabilidadAcumMesUSD" ColumnName="RentabilidadAcumMesUSD" />
+          <ScalarProperty Name="Dividendos" ColumnName="Dividendos" />
+          <ScalarProperty Name="Retenciones" ColumnName="Retenciones" />
+          <ScalarProperty Name="ValorMesNet" ColumnName="ValorMesNet" />
+          <ScalarProperty Name="ValorMesAntNet" ColumnName="ValorMesAntNet" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PosicionAcciones" FunctionName="PivZestDevModel.Store.SP_PosicionAcciones">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_PosicionAcciones_Result">
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+          <ScalarProperty Name="EquityId" ColumnName="EquityId" />
+          <ScalarProperty Name="EquityTradeId" ColumnName="EquityTradeId" />
+          <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="CostoNetoPromedio" ColumnName="CostoNetoPromedio" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="PrecioMercado" ColumnName="PrecioMercado" />
+          <ScalarProperty Name="ValorMercado" ColumnName="ValorMercado" />
+          <ScalarProperty Name="Rentabilidad" ColumnName="Rentabilidad" />
+          <ScalarProperty Name="DividendosIntereses" ColumnName="DividendosIntereses" />
+          <ScalarProperty Name="Retenciones" ColumnName="Retenciones" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PosicionFondos" FunctionName="PivZestDevModel.Store.SP_PosicionFondos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_PosicionFondos_Result">
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="FundTradeId" ColumnName="FundTradeId" />
+          <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="CostoNetoPromedio" ColumnName="CostoNetoPromedio" />
+          <ScalarProperty Name="Costo" ColumnName="Costo" />
+          <ScalarProperty Name="PrecioMercado" ColumnName="PrecioMercado" />
+          <ScalarProperty Name="ValorMercado" ColumnName="ValorMercado" />
+          <ScalarProperty Name="Rentabilidad" ColumnName="Rentabilidad" />
+          <ScalarProperty Name="DividendosIntereses" ColumnName="DividendosIntereses" />
+          <ScalarProperty Name="Retenciones" ColumnName="Retenciones" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ReturnEstructureNote" FunctionName="PivZestDevModel.Store.SP_ReturnEstructureNote">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_ReturnEstructureNote_Result">
+          <ScalarProperty Name="FincomeID" ColumnName="FincomeID" />
+          <ScalarProperty Name="NoteSymbol" ColumnName="NoteSymbol" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="Nominal" ColumnName="Nominal" />
+          <ScalarProperty Name="Cusip" ColumnName="Cusip" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Bloomberg" ColumnName="Bloomberg" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="AssetClassId" ColumnName="AssetClassId" />
+          <ScalarProperty Name="AssetClassName" ColumnName="AssetClassName" />
+          <ScalarProperty Name="CouponFrequency" ColumnName="CouponFrequency" />
+          <ScalarProperty Name="ResetFrequency" ColumnName="ResetFrequency" />
+          <ScalarProperty Name="FixedRate" ColumnName="FixedRate" />
+          <ScalarProperty Name="CouponBarrier" ColumnName="CouponBarrier" />
+          <ScalarProperty Name="AutoCallBarrier" ColumnName="AutoCallBarrier" />
+          <ScalarProperty Name="KnockInBarrier" ColumnName="KnockInBarrier" />
+          <ScalarProperty Name="DefaultDate" ColumnName="DefaultDate" />
+          <ScalarProperty Name="UnderlyingType" ColumnName="UnderlyingType" />
+          <ScalarProperty Name="ProtectedCapital" ColumnName="ProtectedCapital" />
+          <ScalarProperty Name="Rebate" ColumnName="Rebate" />
+          <ScalarProperty Name="ResetCouponDate" ColumnName="ResetCouponDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PuRescate" ColumnName="PuRescate" />
+          <ScalarProperty Name="Emisor" ColumnName="Emisor" />
+          <ScalarProperty Name="InterestCommissionRate" ColumnName="InterestCommissionRate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ReturnNoteEventCLN" FunctionName="PivZestDevModel.Store.SP_ReturnNoteEventCLN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_ReturnNoteEventCLN_Result">
+          <ScalarProperty Name="FincomeEventId" ColumnName="FincomeEventId" />
+          <ScalarProperty Name="FincomeId" ColumnName="FincomeId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Fecha_Observación" ColumnName="Fecha Observación" />
+          <ScalarProperty Name="Fecha_Cupón" ColumnName="Fecha Cupón" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+          <ScalarProperty Name="TipoRedondeo" ColumnName="TipoRedondeo" />
+          <ScalarProperty Name="NroDefaults" ColumnName="NroDefaults" />
+          <ScalarProperty Name="PorcentajePagado" ColumnName="PorcentajePagado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ReturnNoteEventELN" FunctionName="PivZestDevModel.Store.SP_ReturnNoteEventELN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_ReturnNoteEventELN_Result">
+          <ScalarProperty Name="FincomeEventId" ColumnName="FincomeEventId" />
+          <ScalarProperty Name="FincomeId" ColumnName="FincomeId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Fecha_Observación" ColumnName="Fecha Observación" />
+          <ScalarProperty Name="Fecha_Cupón" ColumnName="Fecha Cupón" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Tasa" ColumnName="Tasa" />
+          <ScalarProperty Name="TipoRedondeo" ColumnName="TipoRedondeo" />
+          <ScalarProperty Name="PorcentajePagado" ColumnName="PorcentajePagado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Subyacentes" FunctionName="PivZestDevModel.Store.SP_Subyacentes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_Subyacentes_Result">
+          <ScalarProperty Name="FincomeUnderlyingId" ColumnName="FincomeUnderlyingId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="InitialPrice" ColumnName="InitialPrice" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MaturityDate" ColumnName="MaturityDate" />
+          <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
+          <ScalarProperty Name="Nominal" ColumnName="Nominal" />
+          <ScalarProperty Name="Cusip" ColumnName="Cusip" />
+          <ScalarProperty Name="Isin" ColumnName="Isin" />
+          <ScalarProperty Name="Bloomberg" ColumnName="Bloomberg" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="IndustryId" ColumnName="IndustryId" />
+          <ScalarProperty Name="AssetClassId" ColumnName="AssetClassId" />
+          <ScalarProperty Name="AssetClassName" ColumnName="AssetClassName" />
+          <ScalarProperty Name="DefaultDate" ColumnName="DefaultDate" />
+          <ScalarProperty Name="CuponPriceBarrier" ColumnName="CuponPriceBarrier" />
+          <ScalarProperty Name="AutocallPriceBarrier" ColumnName="AutocallPriceBarrier" />
+          <ScalarProperty Name="MaturityPriceBarrier" ColumnName="MaturityPriceBarrier" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="lprice" ColumnName="lprice" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_TasaDescuentoNota" FunctionName="PivZestDevModel.Store.SP_TasaDescuentoNota">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_TasaDescuentoNota_Result">
+          <ScalarProperty Name="FincomeId" ColumnName="FincomeId" />
+          <ScalarProperty Name="Defaults" ColumnName="Defaults" />
+          <ScalarProperty Name="NominalRecoveryRate" ColumnName="NominalRecoveryRate" />
+          <ScalarProperty Name="CouponRecoveryRate" ColumnName="CouponRecoveryRate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spr_CopiaTabela" FunctionName="PivZestDevModel.Store.spr_CopiaTabela" />
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="PivZestDevModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Classification" ColumnName="Classification" />
+          <ScalarProperty Name="KnowledgeLevel" ColumnName="KnowledgeLevel" />
+          <ScalarProperty Name="RiskProfileId" ColumnName="RiskProfileId" />
+          <ScalarProperty Name="AccountManagerId" ColumnName="AccountManagerId" />
+          <ScalarProperty Name="WorkflowProgress" ColumnName="WorkflowProgress" />
+          <ScalarProperty Name="LastSuitabilityReview" ColumnName="LastSuitabilityReview" />
+          <ScalarProperty Name="RelationshipAdvisorId" ColumnName="RelationshipAdvisorId" />
+          <ScalarProperty Name="SalesAdvisorId" ColumnName="SalesAdvisorId" />
+          <ScalarProperty Name="ContactCategoryId" ColumnName="ContactCategoryId" />
+          <ScalarProperty Name="ClientSince" ColumnName="ClientSince" />
+          <ScalarProperty Name="RegisterId" ColumnName="RegisterId" />
+          <ScalarProperty Name="ContactStatusId" ColumnName="ContactStatusId" />
+          <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactEmails">
+      <EntityTypeMapping TypeName="PivZestDevModel.ContactEmail">
+        <MappingFragment StoreEntitySet="ContactEmail">
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactEmailId" ColumnName="ContactEmailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactPhones">
+      <EntityTypeMapping TypeName="PivZestDevModel.ContactPhone">
+        <MappingFragment StoreEntitySet="ContactPhone">
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactPhoneId" ColumnName="ContactPhoneId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="getInvestorAccess" FunctionName="PivZestDevModel.Store.getInvestorAccess">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.getInvestorAccess_Result">
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+          <ScalarProperty Name="InterfaceCode" ColumnName="InterfaceCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Investors">
+      <EntityTypeMapping TypeName="PivZestDevModel.Investor">
+        <MappingFragment StoreEntitySet="Investor">
+          <ScalarProperty Name="W8EndDate" ColumnName="W8EndDate" />
+          <ScalarProperty Name="W8StartDate" ColumnName="W8StartDate" />
+          <ScalarProperty Name="TaxExempt" ColumnName="TaxExempt" />
+          <ScalarProperty Name="DiscretionType" ColumnName="DiscretionType" />
+          <ScalarProperty Name="VotingAuthority" ColumnName="VotingAuthority" />
+          <ScalarProperty Name="IsActiveToReports" ColumnName="IsActiveToReports" />
+          <ScalarProperty Name="ContactRoleId" ColumnName="ContactRoleId" />
+          <ScalarProperty Name="IntegrationCode" ColumnName="IntegrationCode" />
+          <ScalarProperty Name="ProcessingType" ColumnName="ProcessingType" />
+          <ScalarProperty Name="CultureName" ColumnName="CultureName" />
+          <ScalarProperty Name="OnlyShareholder" ColumnName="OnlyShareholder" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CalendarCode" ColumnName="CalendarCode" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="InterfaceCode" ColumnName="InterfaceCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PivZestDevModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="CultureName" ColumnName="CultureName" />
+          <ScalarProperty Name="DashboardId" ColumnName="DashboardId" />
+          <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+          <ScalarProperty Name="AccessAllInvestors" ColumnName="AccessAllInvestors" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="DatePasswordChange" ColumnName="DatePasswordChange" />
+          <ScalarProperty Name="DateLastLogin" ColumnName="DateLastLogin" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

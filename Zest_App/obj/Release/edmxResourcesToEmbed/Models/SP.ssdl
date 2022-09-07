@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PivZestDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="ContactStatusId" Type="int" Nullable="false" />
+    <Property Name="RegisterId" Type="nvarchar" MaxLength="20" />
+    <Property Name="ClientSince" Type="datetime" />
+    <Property Name="ContactCategoryId" Type="int" Nullable="false" />
+    <Property Name="SalesAdvisorId" Type="int" />
+    <Property Name="RelationshipAdvisorId" Type="int" />
+    <Property Name="LastSuitabilityReview" Type="datetime" />
+    <Property Name="WorkflowProgress" Type="tinyint" />
+    <Property Name="AccountManagerId" Type="int" />
+    <Property Name="RiskProfileId" Type="int" />
+    <Property Name="KnowledgeLevel" Type="int" />
+    <Property Name="Classification" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ContactEmail">
+    <Key>
+      <PropertyRef Name="ContactEmailId" />
+    </Key>
+    <Property Name="ContactEmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactId" Type="int" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactPhone">
+    <Key>
+      <PropertyRef Name="ContactPhoneId" />
+    </Key>
+    <Property Name="ContactPhoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactId" Type="int" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Investor">
+    <Key>
+      <PropertyRef Name="InvestorId" />
+    </Key>
+    <Property Name="InvestorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="InterfaceCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="CurrencyId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CalendarCode" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="OnlyShareholder" Type="bit" Nullable="false" />
+    <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
+    <Property Name="ProcessingType" Type="tinyint" Nullable="false" />
+    <Property Name="IntegrationCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ContactRoleId" Type="int" />
+    <Property Name="IsActiveToReports" Type="bit" Nullable="false" />
+    <Property Name="VotingAuthority" Type="tinyint" />
+    <Property Name="DiscretionType" Type="tinyint" />
+    <Property Name="TaxExempt" Type="bit" Nullable="false" />
+    <Property Name="W8StartDate" Type="datetime" />
+    <Property Name="W8EndDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateLastLogin" Type="datetime" />
+    <Property Name="DatePasswordChange" Type="datetime" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccessAllInvestors" Type="bit" Nullable="false" />
+    <Property Name="UserGroupId" Type="int" Nullable="false" />
+    <Property Name="InvestorId" Type="int" />
+    <Property Name="DashboardId" Type="int" />
+    <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
+  </EntityType>
+  <Association Name="FK_dbo_ContactEmail_dbo_Contact_ContactId">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+    <End Role="ContactEmail" Type="Self.ContactEmail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="ContactEmail">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ContactPhone_dbo_Contact_ContactId">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+    <End Role="ContactPhone" Type="Self.ContactPhone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="ContactPhone">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Investor_dbo_Contact_ContactId">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+    <End Role="Investor" Type="Self.Investor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="Investor">
+        <PropertyRef Name="ContactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Investor_dbo_User_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Investor" Type="Self.Investor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Investor">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_User_dbo_Investor_InvestorId">
+    <End Role="Investor" Type="Self.Investor" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Investor">
+        <PropertyRef Name="InvestorId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="InvestorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="getInvestorAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchAdvisor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchInvestor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="number" Type="varchar" Mode="In" />
+    <Parameter Name="login" Type="varchar" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="date_ini" Type="date" Mode="In" />
+    <Parameter Name="date_fin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_PosicionAcciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_PosicionFondos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_ReturnEstructureNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SymbolFundFincome" Type="varchar" Mode="In" />
+    <Parameter Name="PositionDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_ReturnNoteEventCLN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FincomeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_ReturnNoteEventELN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FincomeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Subyacentes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FincomeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_TasaDescuentoNota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FincomeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spr_CopiaTabela" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Origem" Type="varchar" Mode="In" />
+    <Parameter Name="Destino" Type="varchar" Mode="In" />
+    <Parameter Name="TableName" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="PivZestDevModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactEmail" EntityType="Self.ContactEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactPhone" EntityType="Self.ContactPhone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Investor" EntityType="Self.Investor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_ContactEmail_dbo_Contact_ContactId" Association="Self.FK_dbo_ContactEmail_dbo_Contact_ContactId">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="ContactEmail" EntitySet="ContactEmail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ContactPhone_dbo_Contact_ContactId" Association="Self.FK_dbo_ContactPhone_dbo_Contact_ContactId">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="ContactPhone" EntitySet="ContactPhone" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Investor_dbo_Contact_ContactId" Association="Self.FK_dbo_Investor_dbo_Contact_ContactId">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="Investor" EntitySet="Investor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Investor_dbo_User_UserId" Association="Self.FK_dbo_Investor_dbo_User_UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="Investor" EntitySet="Investor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_User_dbo_Investor_InvestorId" Association="Self.FK_dbo_User_dbo_Investor_InvestorId">
+      <End Role="Investor" EntitySet="Investor" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

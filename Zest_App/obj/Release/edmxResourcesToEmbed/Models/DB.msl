@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zestapp_dbModelStoreContainer" CdmEntityContainer="zestapp_dbEntities">
+    <EntitySetMapping Name="advisers">
+      <EntityTypeMapping TypeName="zestapp_dbModel.adviser">
+        <MappingFragment StoreEntitySet="advisers">
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asset_prices">
+      <EntityTypeMapping TypeName="zestapp_dbModel.asset_prices">
+        <MappingFragment StoreEntitySet="asset_prices">
+          <ScalarProperty Name="asset_id" ColumnName="asset_id" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assets">
+      <EntityTypeMapping TypeName="zestapp_dbModel.asset">
+        <MappingFragment StoreEntitySet="assets">
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="note_id" ColumnName="note_id" />
+          <ScalarProperty Name="fecha_default" ColumnName="fecha_default" />
+          <ScalarProperty Name="barrera" ColumnName="barrera" />
+          <ScalarProperty Name="valoracion" ColumnName="valoracion" />
+          <ScalarProperty Name="precio_salida" ColumnName="precio_salida" />
+          <ScalarProperty Name="precio_entrada" ColumnName="precio_entrada" />
+          <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+          <ScalarProperty Name="bloomberg_code" ColumnName="bloomberg_code" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="assets_logos">
+      <EntityTypeMapping TypeName="zestapp_dbModel.assets_logos">
+        <MappingFragment StoreEntitySet="assets_logos">
+          <ScalarProperty Name="img_url" ColumnName="img_url" />
+          <ScalarProperty Name="asset_code" ColumnName="asset_code" />
+          <ScalarProperty Name="asset_name" ColumnName="asset_name" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bloomberg_asset_prices">
+      <EntityTypeMapping TypeName="zestapp_dbModel.bloomberg_asset_prices">
+        <MappingFragment StoreEntitySet="bloomberg_asset_prices">
+          <ScalarProperty Name="final_price" ColumnName="final_price" />
+          <ScalarProperty Name="current_price" ColumnName="current_price" />
+          <ScalarProperty Name="initial_price" ColumnName="initial_price" />
+          <ScalarProperty Name="symbol" ColumnName="symbol" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catalog_item_details">
+      <EntityTypeMapping TypeName="zestapp_dbModel.catalog_item_details">
+        <MappingFragment StoreEntitySet="catalog_item_details">
+          <ScalarProperty Name="catalog_item_id" ColumnName="catalog_item_id" />
+          <ScalarProperty Name="url_imt" ColumnName="url_imt" />
+          <ScalarProperty Name="adicional" ColumnName="adicional" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catalog_items">
+      <EntityTypeMapping TypeName="zestapp_dbModel.catalog_items">
+        <MappingFragment StoreEntitySet="catalog_items">
+          <ScalarProperty Name="rentabilidad" ColumnName="rentabilidad" />
+          <ScalarProperty Name="barrera_capital" ColumnName="barrera_capital" />
+          <ScalarProperty Name="isin" ColumnName="isin" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="adicional" ColumnName="adicional" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="barrera" ColumnName="barrera" />
+          <ScalarProperty Name="emisor" ColumnName="emisor" />
+          <ScalarProperty Name="riesgo" ColumnName="riesgo" />
+          <ScalarProperty Name="inv_minima" ColumnName="inv_minima" />
+          <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+          <ScalarProperty Name="codigo_nota" ColumnName="codigo_nota" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="zestapp_dbModel.event">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="note_id" ColumnName="note_id" />
+          <ScalarProperty Name="pago" ColumnName="pago" />
+          <ScalarProperty Name="importe_retencion" ColumnName="importe_retencion" />
+          <ScalarProperty Name="importe_bruto" ColumnName="importe_bruto" />
+          <ScalarProperty Name="autocall" ColumnName="autocall" />
+          <ScalarProperty Name="cupon" ColumnName="cupon" />
+          <ScalarProperty Name="f_pago" ColumnName="f_pago" />
+          <ScalarProperty Name="f_observacion" ColumnName="f_observacion" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="generals">
+      <EntityTypeMapping TypeName="zestapp_dbModel.general">
+        <MappingFragment StoreEntitySet="general">
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interes_investor_catalogs">
+      <EntityTypeMapping TypeName="zestapp_dbModel.interes_investor_catalogs">
+        <MappingFragment StoreEntitySet="interes_investor_catalogs">
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="catalog_item_id" ColumnName="catalog_item_id" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interes_investors">
+      <EntityTypeMapping TypeName="zestapp_dbModel.interes_investors">
+        <MappingFragment StoreEntitySet="interes_investors">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="investor_code" ColumnName="investor_code" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="investor_advisers">
+      <EntityTypeMapping TypeName="zestapp_dbModel.investor_advisers">
+        <MappingFragment StoreEntitySet="investor_advisers">
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="adviser_id" ColumnName="adviser_id" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="investor_reviews">
+      <EntityTypeMapping TypeName="zestapp_dbModel.investor_reviews">
+        <MappingFragment StoreEntitySet="investor_reviews">
+          <ScalarProperty Name="review_id" ColumnName="review_id" />
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="landings">
+      <EntityTypeMapping TypeName="zestapp_dbModel.landing">
+        <MappingFragment StoreEntitySet="landings">
+          <ScalarProperty Name="btn_action" ColumnName="btn_action" />
+          <ScalarProperty Name="btn_text" ColumnName="btn_text" />
+          <ScalarProperty Name="btn_tipo" ColumnName="btn_tipo" />
+          <ScalarProperty Name="adicional" ColumnName="adicional" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logos">
+      <EntityTypeMapping TypeName="zestapp_dbModel.logo">
+        <MappingFragment StoreEntitySet="logos">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages_investor">
+      <EntityTypeMapping TypeName="zestapp_dbModel.messages_investor">
+        <MappingFragment StoreEntitySet="messages_investor">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notes">
+      <EntityTypeMapping TypeName="zestapp_dbModel.note">
+        <MappingFragment StoreEntitySet="notes">
+          <ScalarProperty Name="redencion" ColumnName="redencion" />
+          <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+          <ScalarProperty Name="dividendos" ColumnName="dividendos" />
+          <ScalarProperty Name="portfolio_id" ColumnName="portfolio_id" />
+          <ScalarProperty Name="adicional" ColumnName="adicional" />
+          <ScalarProperty Name="barrera_europea" ColumnName="barrera_europea" />
+          <ScalarProperty Name="riesgo" ColumnName="riesgo" />
+          <ScalarProperty Name="ISN" ColumnName="ISN" />
+          <ScalarProperty Name="emisor" ColumnName="emisor" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="tipo_nota" ColumnName="tipo_nota" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="rentabilidad" ColumnName="rentabilidad" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notifications">
+      <EntityTypeMapping TypeName="zestapp_dbModel.notification">
+        <MappingFragment StoreEntitySet="notifications">
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="notification1" ColumnName="notification" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="osp_crm_interactions">
+      <EntityTypeMapping TypeName="zestapp_dbModel.osp_crm_interactions">
+        <MappingFragment StoreEntitySet="osp_crm_interactions">
+          <ScalarProperty Name="osp_crm_lead_id" ColumnName="osp_crm_lead_id" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="osp_crm_leads">
+      <EntityTypeMapping TypeName="zestapp_dbModel.osp_crm_leads">
+        <MappingFragment StoreEntitySet="osp_crm_leads">
+          <ScalarProperty Name="m_saving" ColumnName="m-saving" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="onboarding_status" ColumnName="onboarding_status" />
+          <ScalarProperty Name="risk_profile" ColumnName="risk_profile" />
+          <ScalarProperty Name="aum" ColumnName="aum" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="source" ColumnName="source" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="portfolios">
+      <EntityTypeMapping TypeName="zestapp_dbModel.portfolio">
+        <MappingFragment StoreEntitySet="portfolios">
+          <ScalarProperty Name="subida" ColumnName="subida" />
+          <ScalarProperty Name="investor_id" ColumnName="investor_id" />
+          <ScalarProperty Name="usd_rentabilidad" ColumnName="usd_rentabilidad" />
+          <ScalarProperty Name="rentabilidad" ColumnName="rentabilidad" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rent_months">
+      <EntityTypeMapping TypeName="zestapp_dbModel.rent_months">
+        <MappingFragment StoreEntitySet="rent_months">
+          <ScalarProperty Name="dividendo" ColumnName="dividendo" />
+          <ScalarProperty Name="retencion" ColumnName="retencion" />
+          <ScalarProperty Name="usd_rentabilidad" ColumnName="usd_rentabilidad" />
+          <ScalarProperty Name="portfolio_id" ColumnName="portfolio_id" />
+          <ScalarProperty Name="rentabilidad" ColumnName="rentabilidad" />
+          <ScalarProperty Name="periodo_nombre" ColumnName="periodo_nombre" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reviews">
+      <EntityTypeMapping TypeName="zestapp_dbModel.review">
+        <MappingFragment StoreEntitySet="reviews">
+          <ScalarProperty Name="note_code" ColumnName="note_code" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="note_id" ColumnName="note_id" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="texto" ColumnName="texto" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_25k1k_publis">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_25k1k_publis">
+        <MappingFragment StoreEntitySet="web_25k1k_publis">
+          <ScalarProperty Name="prioridad" ColumnName="prioridad" />
+          <ScalarProperty Name="rrss" ColumnName="rrss" />
+          <ScalarProperty Name="cta" ColumnName="cta" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_banners">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_banners">
+        <MappingFragment StoreEntitySet="web_banners">
+          <ScalarProperty Name="cta" ColumnName="cta" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_entry_blogs">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_entry_blogs">
+        <MappingFragment StoreEntitySet="web_entry_blogs">
+          <ScalarProperty Name="reading_time" ColumnName="reading_time" />
+          <ScalarProperty Name="shares" ColumnName="shares" />
+          <ScalarProperty Name="views" ColumnName="views" />
+          <ScalarProperty Name="entry_url" ColumnName="entry_url" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="img_url" ColumnName="img_url" />
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="entrada" ColumnName="entrada" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_entry_comments">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_entry_comments">
+        <MappingFragment StoreEntitySet="web_entry_comments">
+          <ScalarProperty Name="web_entry_blog_id" ColumnName="web_entry_blog_id" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="web_user_id" ColumnName="web_user_id" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_events">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_events">
+        <MappingFragment StoreEntitySet="web_events">
+          <ScalarProperty Name="url_img_banner" ColumnName="url_img_banner" />
+          <ScalarProperty Name="cta" ColumnName="cta" />
+          <ScalarProperty Name="event_default" ColumnName="event_default" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="lugar" ColumnName="lugar" />
+          <ScalarProperty Name="h_min" ColumnName="h_min" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="event_date" ColumnName="event_date" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_faq">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_faq">
+        <MappingFragment StoreEntitySet="web_faq">
+          <ScalarProperty Name="answer" ColumnName="answer" />
+          <ScalarProperty Name="question" ColumnName="question" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_folders">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_folders">
+        <MappingFragment StoreEntitySet="web_folders">
+          <ScalarProperty Name="web_folder_id" ColumnName="web_folder_id" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_images">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_images">
+        <MappingFragment StoreEntitySet="web_images">
+          <ScalarProperty Name="web_folder_id" ColumnName="web_folder_id" />
+          <ScalarProperty Name="alt_text" ColumnName="alt_text" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_leads">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_leads">
+        <MappingFragment StoreEntitySet="web_leads">
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_menu">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_menu">
+        <MappingFragment StoreEntitySet="web_menu">
+          <ScalarProperty Name="keywords" ColumnName="keywords" />
+          <ScalarProperty Name="descrip" ColumnName="descrip" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_sections">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_sections">
+        <MappingFragment StoreEntitySet="web_sections">
+          <ScalarProperty Name="desc3" ColumnName="desc3" />
+          <ScalarProperty Name="desc2" ColumnName="desc2" />
+          <ScalarProperty Name="desc1" ColumnName="desc1" />
+          <ScalarProperty Name="preview" ColumnName="preview" />
+          <ScalarProperty Name="web_menu_id" ColumnName="web_menu_id" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_team_members">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_team_members">
+        <MappingFragment StoreEntitySet="web_team_members">
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="investors">
+      <EntityTypeMapping TypeName="zestapp_dbModel.investors">
+        <MappingFragment StoreEntitySet="investors">
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="PIN" ColumnName="PIN" />
+          <ScalarProperty Name="investor_code" ColumnName="investor_code" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="zestapp_dbModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="zestapp_dbModel.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="cta" ColumnName="cta" />
+          <ScalarProperty Name="web_mobile" ColumnName="web_mobile" />
+          <ScalarProperty Name="nota_codigo" ColumnName="nota_codigo" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="url_img" ColumnName="url_img" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="titular" ColumnName="titular" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="web_25k1k">
+      <EntityTypeMapping TypeName="zestapp_dbModel.web_25k1k">
+        <MappingFragment StoreEntitySet="web_25k1k">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
