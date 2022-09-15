@@ -42,12 +42,21 @@ namespace Zest_App.Resources.Views.Assesor
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
-        /// rpInvestors control.
+        /// ltMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpInvestors;
+        protected global::System.Web.UI.WebControls.Literal ltMessage;
+
+        /// <summary>
+        /// dgvInvestor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvInvestor;
     }
 }

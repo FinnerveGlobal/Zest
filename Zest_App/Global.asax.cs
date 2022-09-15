@@ -61,6 +61,11 @@ namespace Zest_App
             "~/Resources/Views/Website/Legalinfo.aspx"
        );
             routes.MapPageRoute(
+          "DisclaimerRoute",
+          "legalfundacion",
+           "~/Resources/Views/Website/Legalfundation.aspx"
+      );
+            routes.MapPageRoute(
              "apphowRoute",
              "apphow",
             "~/Resources/Views/Website/App.aspx"

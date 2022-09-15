@@ -1247,6 +1247,7 @@
     <Content Include="Resources\Views\Website\Events.aspx" />
     <Content Include="Resources\Views\Website\FaQ.aspx" />
     <Content Include="Resources\Views\Website\Home.aspx" />
+    <Content Include="Resources\Views\Website\Legalfundation.aspx" />
     <Content Include="Resources\Views\Website\Legalinfo.aspx" />
     <Content Include="Resources\Views\Website\News.aspx" />
     <Content Include="Web.config" />
@@ -1906,6 +1907,13 @@
     </Compile>
     <Compile Include="Resources\Views\Website\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Legalfundation.aspx.cs">
+      <DependentUpon>Legalfundation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Website\Legalfundation.aspx.designer.cs">
+      <DependentUpon>Legalfundation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Website\Legalinfo.aspx.cs">
       <DependentUpon>Legalinfo.aspx</DependentUpon>

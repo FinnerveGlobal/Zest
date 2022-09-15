@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Zest_App.Common;
 using Zest_App.Models;
 
 namespace Zest_App.Resources.Views.Assesor
@@ -17,8 +18,9 @@ namespace Zest_App.Resources.Views.Assesor
             if (!this.IsPostBack)
             {
              
-                if (Session["investor_list"] == null)
+                if (Session["investor_list"] == null) { 
                     Response.Redirect("~/Resources/Views/Auth/Home.aspx");
+                }
                 loadData();
             }
         }
@@ -26,28 +28,45 @@ namespace Zest_App.Resources.Views.Assesor
         protected void loadData()
         {
             string search = txtSearch.Text.ToUpper();
-            var inv_list = ((List<investors>)Session["investor_list"]).Select(o => o.investor_code).ToList();
 
-            var investor_list = pv.Investors.Where(o => inv_list.Contains(o.InvestorId.ToString())).Select(o =>
-                    new
-                    {
-                        id = o.InvestorId,
-                        o.InterfaceCode,
-                        o.Name,
-                        o.IsActive,
-                        email = o.Contact != null ? (o.Contact.ContactEmails.FirstOrDefault() != null ? o.Contact.ContactEmails.FirstOrDefault().Email : "") : "",
-                        phone = o.Contact != null ? (o.Contact.ContactPhones.FirstOrDefault() != null ? o.Contact.ContactPhones.FirstOrDefault().Extension + "" + o.Contact.ContactPhones.FirstOrDefault().Number : "") : ""
-                    }
-                ).Where(o => o.InterfaceCode.ToUpper().Contains(search) || o.Name.ToUpper().Contains(search) || o.email.ToUpper().Contains(search)).ToList();
+            if(search.Length >= 3) { 
+                var inv_list = ((List<investors>)Session["investor_list"]).Select(o => o.investor_code).ToList();
+                var investor_list = 
+                    (from t in pv.Investors
+                     where inv_list.Contains(t.InvestorId.ToString())
+                     where t.InterfaceCode.ToUpper().Contains(search) || t.Name.ToUpper().Contains(search)
+                     select new {
+                         id = t.InvestorId,
+                         t.InterfaceCode,
+                         t.Name,
+                         t.IsActive,
+                         email = t.Contact != null ? (t.Contact.ContactEmails.FirstOrDefault() != null ? t.Contact.ContactEmails.FirstOrDefault().Email : "") : "",
+                         phone = t.Contact != null ? (t.Contact.ContactPhones.FirstOrDefault() != null ? t.Contact.ContactPhones.FirstOrDefault().Extension + "" + t.Contact.ContactPhones.FirstOrDefault().Number : "") : ""
+                     }).ToArray();
+                dgvInvestor.DataSource = investor_list;
+                dgvInvestor.DataBind();
+                ltMessage.Text = "";
+            }
+            else
+            {
 
-            rpInvestors.DataSource = investor_list;
-            rpInvestors.DataBind();
+                dgvInvestor.DataSource = null;
+                dgvInvestor.DataBind();
+                ltMessage.Text = "Debe escribir como mínimo 3 letras para buscar";
+            }
 
+        }
+
+        protected void dgvTable_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            loadData();
+            dgvInvestor.PageIndex = e.NewPageIndex;
+            dgvInvestor.DataBind();
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            loadData();
+           loadData();
         }
 
         protected void btnInv_Click(object sender, EventArgs e)
