@@ -19,11 +19,17 @@ namespace Zest_App.Resources.Views.Auth
         {
 
             string pin = Request.Form[txtPIN.UniqueID];
-            Session["pin"] = pin;
+            if (pin.Length == 4)
+            {
+                Session["pin"] = pin;
 
 
-            Response.Redirect("~/Resources/Views/Auth/Pin_validation.aspx");
-
+                Response.Redirect("~/Resources/Views/Auth/Pin_validation.aspx");
+            }
+            else
+            {
+                ltError.Text = "El código debe tener 4 digitos";
+            }
         }
     }
 }
