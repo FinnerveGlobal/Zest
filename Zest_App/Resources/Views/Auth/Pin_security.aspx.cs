@@ -17,11 +17,19 @@ namespace Zest_App.Resources.Views.Auth
 
         protected void btn_send_Click(object sender, EventArgs e)
         {
-
+            int id = int.Parse(Session["investor_id"].ToString());
             string pin = Request.Form[txtPIN.UniqueID];
+            string[] HistoryPin;
             if (pin.Length == 4)
             {
-                Session["pin"] = pin;
+                using (var ctx = new zestapp_dbEntities())
+                {
+                    investors inv = (from t in ctx.investors
+                                     where t.id == id
+                                     select t).FirstOrDefault();
+                   
+                }
+                    Session["pin"] = pin;
 
 
                 Response.Redirect("~/Resources/Views/Auth/Pin_validation.aspx");

@@ -69,6 +69,9 @@ namespace Zest_App.Resources.Views.Auth
 
                 if (pin == pin_login)
                 {
+                    investor.updated_at = DateTime.Now;
+                    investor.HPIN = "2";
+                    ctx.SaveChanges();
                     var redirect = reqCookies["redirect"].ToString();
                     if (redirect == "ASSESOR")
                     {

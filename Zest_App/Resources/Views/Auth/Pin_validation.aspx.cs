@@ -16,7 +16,7 @@ namespace Zest_App.Resources.Views.Auth
         }
         protected void btn_send_Click(object sender, EventArgs e)
         {
-            string telefono = Session["telefono"].ToString();
+            //string telefono = Session["telefono"].ToString();
             string redirect = Session["redirect"].ToString();
             int id = int.Parse(Session["investor_id"].ToString());
             string pin = Request.Form[txtPIN.UniqueID];
@@ -31,8 +31,9 @@ namespace Zest_App.Resources.Views.Auth
                                     where t.id == id
                                     select t).FirstOrDefault();
 
-                    inv.telefono = telefono;
+                    //inv.telefono = telefono;
                     inv.PIN = pin;
+                    inv.updated_at = DateTime.Now;
                     inv.estado = "A";
                     ctx.SaveChanges();
 
