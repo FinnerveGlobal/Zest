@@ -93,13 +93,13 @@ namespace Zest_App.Resources.Views.Auth
             var client = new Client(creds: new Nexmo.Api.Request.Credentials
             {
                 ApiKey = "2269164b",
-                ApiSecret = "kzNwPMewuMf9f3X3"
+                ApiSecret = "6wLdfL5bo3ZtsfERSh6LL43!z"
             });
             var results = client.SMS.Send(request: new SMS.SMSRequest
             {
                 from = "Zest App",
                 to = countrycode+phone,
-                text = "Bienvenido a Zest App. Tu código de seguridad es: "+code
+                text = "Bienvenido a Zest App. Tu codigo de seguridad es: "+code
             });
 
         }
