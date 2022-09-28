@@ -20,7 +20,7 @@ namespace Zest_App.Resources.Views.Auth
             string redirect = Session["redirect"].ToString();
             int id = int.Parse(Session["investor_id"].ToString());
             string pin = Request.Form[txtPIN.UniqueID];
-
+            string[] HistoryPin;
             string prvpin = Session["pin"].ToString();
 
             if (pin == prvpin)
@@ -35,6 +35,8 @@ namespace Zest_App.Resources.Views.Auth
                     inv.PIN = pin;
                     inv.updated_at = DateTime.Now;
                     inv.estado = "A";
+                    HistoryPin = inv.HPIN.Split(',');
+                    inv.HPIN = pin + "," + HistoryPin[0] + "," + HistoryPin[1];
                     ctx.SaveChanges();
 
                     HttpCookie userInfo = new HttpCookie("userInfo");

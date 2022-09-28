@@ -34,6 +34,7 @@ namespace Zest_App.Models
         public string email { get; set; }
         public string telefono { get; set; }
         public string token { get; set; }
+        public string HPIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<interes_investor_catalogs> interes_investor_catalogs { get; set; }
