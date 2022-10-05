@@ -64,6 +64,9 @@
             <div class="pad_submit" style="margin-bottom:20px">
                 <asp:Button ID="btn_send" runat="server" Text="Ingresar" OnClick="btn_send_Click" CssClass="next text-center"  style="width:150px"  OnClientClick="pin_validate()"/>
             </div>
+             <div class="pad_submit" style="margin-bottom:20px">
+                <asp:Button ID="btnSendByMail" runat="server" Text="Enviar por email" OnClick="btnSendByMail_Click" CssClass="next text-center"  style="width:150px" />
+            </div>
             <div class="pad_submit">
                 <a class="prev text-center" href="Login.aspx" runat="server" style="width:150px">Reenviar código</a>
             </div>

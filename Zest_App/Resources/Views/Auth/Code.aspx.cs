@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Zest_App.Models;
+using Zest_App.Common;
 
 namespace Zest_App.Resources.Views.Auth
 {
@@ -18,6 +19,7 @@ namespace Zest_App.Resources.Views.Auth
         protected void btn_send_Click(object sender, EventArgs e)
         {
             string code = Session["code"].ToString();
+            
 
             string code_text = Request.Form[txtPIN.UniqueID];
             using (var ctx = new zestapp_dbEntities())
@@ -46,6 +48,12 @@ namespace Zest_App.Resources.Views.Auth
                     ltError.Text = "El código ingresado es incorrecto";
                 }
             }
+        }
+
+        protected void btnSendByMail_Click(object sender, EventArgs e)
+        {
+            string email = Session["tmp_email"].ToString();
+            SendMail.sendMail("Código de ingreso",email, "El código de ingreso para tu app de zest es: " + Session["code"].ToString()) ;
         }
     }
 }
