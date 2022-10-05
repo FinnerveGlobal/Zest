@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="zestapp_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+	<Schema Namespace="zestapp_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="advisers">
           <Key>
             <PropertyRef Name="id" />
@@ -186,6 +186,7 @@
           <Property Name="email" Type="varchar" MaxLength="150" />
           <Property Name="telefono" Type="varchar" MaxLength="150" />
           <Property Name="token" Type="text" />
+          <Property Name="HPIN" Type="varchar" MaxLength="14" />
         </EntityType>
         <EntityType Name="landings">
           <Key>
@@ -1735,6 +1736,7 @@
           <NavigationProperty Name="investor_reviews" Relationship="zestapp_dbModel.fk_review_investor" FromRole="investors" ToRole="investor_reviews" />
           <NavigationProperty Name="messages_investor" Relationship="zestapp_dbModel.fk_investor_mensaje" FromRole="investors" ToRole="messages_investor" />
           <NavigationProperty Name="portfolios" Relationship="zestapp_dbModel.fk_investor_portfolio" FromRole="investors" ToRole="portfolio" />
+          <Property Name="HPIN" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="users">
           <Key>
@@ -2377,6 +2379,7 @@
           <EntitySetMapping Name="investors">
             <EntityTypeMapping TypeName="zestapp_dbModel.investors">
               <MappingFragment StoreEntitySet="investors">
+                <ScalarProperty Name="HPIN" ColumnName="HPIN" />
                 <ScalarProperty Name="token" ColumnName="token" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
                 <ScalarProperty Name="email" ColumnName="email" />
