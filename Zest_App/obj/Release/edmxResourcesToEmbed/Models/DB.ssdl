@@ -181,6 +181,7 @@
     <Property Name="email" Type="varchar" MaxLength="150" />
     <Property Name="telefono" Type="varchar" MaxLength="150" />
     <Property Name="token" Type="text" />
+    <Property Name="HPIN" Type="varchar" MaxLength="14" />
   </EntityType>
   <EntityType Name="landings">
     <Key>
