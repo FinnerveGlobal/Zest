@@ -15,7 +15,7 @@ namespace Zest_App.Common
             SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587);
             smtpClient.EnableSsl = true;
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("cs@zest.pe", "Sov86355");
+            smtpClient.Credentials = new System.Net.NetworkCredential("cs@zest.pe", "Yob92967");
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
             MailMessage mailMessage = new MailMessage("cs@zest.pe", mail);
