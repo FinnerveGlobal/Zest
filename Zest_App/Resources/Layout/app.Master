@@ -186,9 +186,6 @@
                 </div>
                 <ul class="m_list" style="padding-bottom:75px">
                     <li><asp:Literal ID="ltNumber" runat="server"></asp:Literal></li>
-                    <li>
-                        <a runat="server" href="tel: +51 970010094"  class="left" >Llamar asesor <i class="fas fa-chevron-right"></i></a>
-                        </li>
                     <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
                     <li>
                         <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>

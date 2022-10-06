@@ -43,7 +43,44 @@ namespace Zest_App.Resources.Views.Auth
                 }
             }
         }
+        protected void btnRecovery_Click(object sender, EventArgs e)
+        {
 
+            HttpCookie reqCookies = Request.Cookies["userAInfo"];
+
+            int id = 0;
+
+            if (reqCookies != null)
+            {
+                id = int.Parse(reqCookies["user_id"].ToString());
+            }
+
+
+            using (var ctx = new zestapp_dbEntities())
+            {
+                var investor = (from t in ctx.investors
+                                where t.id == id
+                                select t).FirstOrDefault();
+
+
+                string pin = investor.PIN;
+                string nombre = investor.nombre;
+                string email = investor.email;
+                //SendMail.sendMail("Zest App, PIN", "victor@finnerve.com", "El usuario: " + nombre +  "\n Solicito su pin: " + pin);
+                //ltRecovery.Text = "Pin enviado a su correo";
+                if (pin!=null && email!=null)
+                {
+                    ltError.Text = "Pin enviado a su correo";
+                    SendMail.sendMail("Solicitud de PIN Zest App", email, "Su usuario es: " + nombre + "\nSu actual pin es: " + pin);
+                }
+                else
+                {
+                    ltError.Text = "ha ocurrido un error al enviar cree un nuevo pin";
+
+                }
+            }
+
+            }
         protected void btn_send_Click(object sender, EventArgs e)
         {
 
