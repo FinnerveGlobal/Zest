@@ -27,7 +27,7 @@ namespace Zest_App.Resources.Layout
               {
                   var advisor = ctx.SearchAdvisor(code).FirstOrDefault();
                   if(advisor != null) { 
-                  ltNumber.Text = "<a href='tel: +51" + advisor.Number + "' class='left'>Llamar a mi asesor <i class='fas fa-chevron-right'></i></a>";
+                  ltNumber.Text = "<a href='tel:+51" + advisor.Number + "' target='_parent' class='left'>Llamar a mi asesor <i class='fas fa-chevron-right'></i></a>";
                   }
                   else
                   {

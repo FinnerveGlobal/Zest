@@ -523,6 +523,7 @@
     <EntitySetMapping Name="investors">
       <EntityTypeMapping TypeName="zestapp_dbModel.investors">
         <MappingFragment StoreEntitySet="investors">
+          <ScalarProperty Name="HPIN" ColumnName="HPIN" />
           <ScalarProperty Name="token" ColumnName="token" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
           <ScalarProperty Name="email" ColumnName="email" />

@@ -68,7 +68,12 @@
             <div class="pad_submit">
                 <asp:Button ID="btn_send" runat="server" Text="Ingresar" OnClick="btn_send_Click" CssClass="next" OnClientClick="pin_validate()" />
             </div>
-
+            <div class="pad_submit">
+            </div>
+            <div class="pad_submit">
+                
+                <asp:Button ID="btn_recovery" runat="server" Text="Recuperar Pin" OnClick="btnRecovery_Click" CssClass="next" />
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
