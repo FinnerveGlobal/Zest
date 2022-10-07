@@ -229,7 +229,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     ctx.catalog_items.Add(newCatalog);
                     ctx.SaveChanges();
 
-                    SendNotification.send("Nuevo Servicio", "");
+                    SendNotification.send("Nuevo Servicio", "Tenemos una nueva nota disponible para ti");
                     Session["mensaje"] = "Nuevo servicio guardado correctamente";
                     Response.Redirect("~/Resources/Views/Backend/Zestapp/Catalog.aspx");
 

@@ -77,7 +77,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 ctx.SaveChanges();
                 loadData();
 
-                SendNotification.send("Catálogo Zest", "Tenemos una propuesta de inversión para ti");
+                //SendNotification.send("Catálogo Zest", "Tenemos una propuesta de inversión para ti");
                 ShowMessage.info("Servicio Publicado", this);
             }
         }
