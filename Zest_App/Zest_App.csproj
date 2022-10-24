@@ -1216,6 +1216,7 @@
     <Content Include="Resources\Views\Backend\Zestapp\News.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\NewsCorp.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\NewsMacro.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\NewsUpload.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\Reviews.aspx" />
     <Content Include="Resources\Views\Backend\Zestweb\Aboutus\Publi25k1k.aspx" />
     <Content Include="Resources\Views\Backend\Zestweb\Aboutus\Team.aspx" />
@@ -1673,6 +1674,13 @@
     <Compile Include="Resources\Views\Backend\Zestapp\NewsMacro.aspx.designer.cs">
       <DependentUpon>NewsMacro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsUpload.aspx.cs">
+      <DependentUpon>NewsUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\NewsUpload.aspx.designer.cs">
+      <DependentUpon>NewsUpload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Backend\Zestapp\Reviews.aspx.cs">
       <DependentUpon>Reviews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2043,6 +2051,7 @@
     <Folder Include="Files\Backend\imgs\" />
     <Folder Include="Files\Backend\reviews\" />
     <Folder Include="Files\events\" />
+    <Folder Include="newsfile\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
