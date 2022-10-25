@@ -1237,6 +1237,7 @@
     <Content Include="Resources\Views\Dashboard\EventosCLN.aspx" />
     <Content Include="Resources\Views\Dashboard\EventosELN.aspx" />
     <Content Include="Resources\Views\Dashboard\Resumen.aspx" />
+    <Content Include="Resources\Views\Funds\ZestFunds.aspx" />
     <Content Include="Resources\Views\More\Algoparati.aspx" />
     <Content Include="Resources\Views\More\Contacto.aspx" />
     <Content Include="Resources\Views\More\externalViewer.aspx" />
@@ -1820,6 +1821,13 @@
     </Compile>
     <Compile Include="Resources\Views\Dashboard\Resumen.aspx.designer.cs">
       <DependentUpon>Resumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Funds\ZestFunds.aspx.cs">
+      <DependentUpon>ZestFunds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Funds\ZestFunds.aspx.designer.cs">
+      <DependentUpon>ZestFunds.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\More\Algoparati.aspx.cs">
       <DependentUpon>Algoparati.aspx</DependentUpon>

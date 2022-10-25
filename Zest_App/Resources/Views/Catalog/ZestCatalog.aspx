@@ -12,9 +12,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div class="dash_header">
-        <div class="logo">
+        <!--<div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>
+        </div>-->
         <div class="resumenLabel" style="width: unset">
             <div align="right" style="float: left">
                 Nuevas Notas
@@ -76,7 +76,7 @@
     <script>
         $(function () {
             $('.bot_menu').find('.bot_menu_item').removeClass('active');
-            $('.bot_menu').find('.bot_menu_item:nth-child(2)').addClass('active');
+            $('.bot_menu').find('.bot_menu_item:nth-child(3)').addClass('active');
         });
     </script>
 </asp:Content>

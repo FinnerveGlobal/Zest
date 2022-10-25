@@ -10,9 +10,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div class="dash_header">
-        <div class="logo">
+        <!--<div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>
+        </div>-->
         <div class="resumenLabel">
             Resumen
         </div>
