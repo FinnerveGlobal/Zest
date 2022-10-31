@@ -231,8 +231,9 @@ namespace Zest_App.Resources.Views.Dashboard
                 List<note> notas_list = new List<note>();
                 foreach(var item in notas)
                 {
+                    System.Diagnostics.Debug.WriteLine(item.Symbol);
                     var tmp = ctx.SP_ReturnEstructureNote(item.Symbol, DateTime.Now).FirstOrDefault();
-
+                    
                     if(tmp != null) { 
                     var note_tmp = notas_list.Where(o => o.nombre == tmp.Symbol).FirstOrDefault();
                     if(note_tmp != null)

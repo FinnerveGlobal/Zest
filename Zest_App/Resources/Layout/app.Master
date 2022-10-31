@@ -56,7 +56,7 @@
                 border-bottom-right-radius: 20px;
                 bottom: 0;
                 position: relative;
-                top: 50%;
+                top: 3rem;
             }
 
                 .modal_menu .sub_menu .m_header {
@@ -150,20 +150,21 @@
 
         .navbar {
             width: 100%;
-            /*box-shadow: 0 1px 4px rgb(146 161 176 / 15%);*/
+            margin-top: 30px;
+            padding: 0px 30px !important;
         }
 
         .nav-container {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          height: 30px;
+          height: 25px;
         }
 
         .nav-container {
           display: block;
           position: relative;
-          height: 60px;
+          height: 25px;
         }
 
         .nav-container .checkbox {
@@ -171,8 +172,8 @@
             display: block;
             height: 32px;
             width: 32px;
-            top: 20px;
-            left: 20px;
+            top: 0px;
+            left: 30px;
             z-index: 5;
             opacity: 0;
             cursor: pointer;
@@ -183,8 +184,8 @@
           height: 26px;
           width: 32px;
           position: absolute;
-          top: 17px;
-          left: 20px;
+          top: 0;
+          left: 30px;
           z-index: 3;
           display: flex;
           flex-direction: column;
@@ -234,7 +235,7 @@
         }
 
         .navbar .menu-items {
-          padding-top: 90px;
+          padding-top: 0px;
           z-index: 2;
           /*box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);*/
           height: 200vh;
@@ -310,40 +311,40 @@
                 </ul>
             </div>
         </div>
-
-         <nav>
-            <div class="navbar">
-                <div class="container nav-container">
-                <input class="checkbox" type="checkbox" name="" id="" />
-                    <div class="hamburger-lines">
-                        <span class="line line1"></span>
-                        <span class="line line2"></span>
-                        <span class="line line3"></span>
-                    </div>
-                    <div class="nav_logo">
-                        <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-                    </div>
-                    <div class="menu-items modal_menu">
-                        <div class="sub_menu">
-                            <div class="m_header">
-                                <asp:Image ID="Image1" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
-                            </div>
-                            <ul class="m_list" style="padding-bottom:75px">
-                                <li><asp:Literal ID="Literal1" runat="server"></asp:Literal></li>
-                                <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
-                                <li>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
-                                <li runat="server" id="Li1"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
-                            </ul>
+        
+         
+        
+            <div class="container nav-container navbar">
+            <input class="checkbox" type="checkbox" name="" id="" />
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <div class="nav_logo">
+                    <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+                </div>
+                <div class="menu-items modal_menu">
+                    <div class="sub_menu">
+                        <div class="m_header">
+                            <asp:Image ID="Image1" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
                         </div>
+                        <ul class="m_list" style="padding-bottom:75px">
+                            <li><asp:Literal ID="Literal1" runat="server"></asp:Literal></li>
+                            <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
+                            <li>
+                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
+                            <li runat="server" id="Li1"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </nav>
+        
+            
 
         <div class="container">
             <div class="row">
-                <div id="div_Content" class="col-md-12" style="padding: 30px 30px 100px 30px">
+                <div id="div_Content" class="col-md-12" style="padding: 0px 30px 100px 30px">
                     <asp:ContentPlaceHolder ID="content" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
