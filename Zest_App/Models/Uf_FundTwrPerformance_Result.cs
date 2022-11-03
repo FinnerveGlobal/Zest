@@ -11,9 +11,15 @@ namespace Zest_App.Models
 {
     using System;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class Uf_FundTwrPerformance_Result
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public System.DateTime HistoricalDate { get; set; }
+        public Nullable<int> InvestorId { get; set; }
+        public Nullable<int> FundId { get; set; }
+        public Nullable<double> Nav { get; set; }
+        public Nullable<double> Deposits { get; set; }
+        public Nullable<double> Withdrawal { get; set; }
+        public Nullable<double> AccruedReturnFactor { get; set; }
+        public Nullable<double> FundReturn { get; set; }
     }
 }

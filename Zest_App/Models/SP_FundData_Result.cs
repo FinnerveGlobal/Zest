@@ -11,21 +11,16 @@ namespace Zest_App.Models
 {
     using System;
     
-    public partial class SP_PosicionAcciones_Result
+    public partial class SP_FundData_Result
     {
         public int InvestorId { get; set; }
-        public int EquityId { get; set; }
-        public int EquityTradeId { get; set; }
         public System.DateTime HistoricalDate { get; set; }
+        public int FundId { get; set; }
         public string Symbol { get; set; }
-        public string Moneda { get; set; }
-        public Nullable<decimal> Cantidad { get; set; }
-        public Nullable<decimal> CostoNetoPromedio { get; set; }
-        public Nullable<decimal> Costo { get; set; }
-        public Nullable<decimal> PrecioMercado { get; set; }
-        public Nullable<decimal> ValorMercado { get; set; }
-        public int Rentabilidad { get; set; }
-        public Nullable<decimal> DividendosIntereses { get; set; }
-        public Nullable<decimal> Retenciones { get; set; }
+        public string LegalName { get; set; }
+        public Nullable<decimal> NaVDelDia { get; set; }
+        public Nullable<decimal> ValorNominalInversion { get; set; }
+        public Nullable<double> RentabilidadAcumuladaBaseNav { get; set; }
+        public Nullable<decimal> DividendosAcumulados { get; set; }
     }
 }

@@ -1389,6 +1389,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SP.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_FundData_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>
@@ -1417,6 +1420,9 @@
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SP_TasaDescuentoNota_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Uf_FundTwrPerformance_Result.cs">
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">

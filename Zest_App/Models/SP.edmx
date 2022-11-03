@@ -29,6 +29,8 @@
           <Property Name="RiskProfileId" Type="int" />
           <Property Name="KnowledgeLevel" Type="int" />
           <Property Name="Classification" Type="tinyint" />
+          <Property Name="CreatedByUserId" Type="int" Nullable="false" />
+          <Property Name="RecordLastChange" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ContactEmail">
           <Key>
@@ -58,7 +60,7 @@
           <Property Name="ContactId" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="InterfaceCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="InterfaceCode" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="CurrencyId" Type="int" Nullable="false" />
           <Property Name="CountryId" Type="int" Nullable="false" />
@@ -67,7 +69,7 @@
           <Property Name="OnlyShareholder" Type="bit" Nullable="false" />
           <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
           <Property Name="ProcessingType" Type="tinyint" Nullable="false" />
-          <Property Name="IntegrationCode" Type="nvarchar" MaxLength="30" />
+          <Property Name="IntegrationCode" Type="nvarchar" MaxLength="50" />
           <Property Name="ContactRoleId" Type="int" />
           <Property Name="IsActiveToReports" Type="bit" Nullable="false" />
           <Property Name="VotingAuthority" Type="tinyint" />
@@ -75,6 +77,8 @@
           <Property Name="TaxExempt" Type="bit" Nullable="false" />
           <Property Name="W8StartDate" Type="datetime" />
           <Property Name="W8EndDate" Type="datetime" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="BlockedFront" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -93,6 +97,13 @@
           <Property Name="InvestorId" Type="int" />
           <Property Name="DashboardId" Type="int" />
           <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
+          <Property Name="TwoFactorAuthSecret" Type="nvarchar" MaxLength="32" />
+          <Property Name="IsBlocked" Type="bit" Nullable="false" />
+          <Property Name="IntegrationCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="EnableDarkMode" Type="bit" Nullable="false" />
+          <Property Name="ThousandSeparator" Type="nvarchar" MaxLength="1" />
+          <Property Name="DecimalSeparator" Type="nvarchar" MaxLength="1" />
+          <Property Name="DateFormat" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <Association Name="FK_dbo_ContactEmail_dbo_Contact_ContactId">
           <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
@@ -165,6 +176,11 @@
           <Parameter Name="login" Type="varchar" Mode="In" />
           <Parameter Name="email" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="SP_FundData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+          <Parameter Name="date_ini" Type="datetime" Mode="In" />
+          <Parameter Name="date_fin" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="InvestorId" Type="int" Mode="In" />
           <Parameter Name="date_ini" Type="date" Mode="In" />
@@ -196,6 +212,31 @@
           <Parameter Name="Origem" Type="varchar" Mode="In" />
           <Parameter Name="Destino" Type="varchar" Mode="In" />
           <Parameter Name="TableName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UF_FundFindStartDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+          <Parameter Name="Symbol" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReferenceDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Uf_FundTwrPerformance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+          <Parameter Name="FundId" Type="int" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="HistoricalDate" Type="datetime" Nullable="false" />
+                <Property Name="InvestorId" Type="int" />
+                <Property Name="FundId" Type="int" />
+                <Property Name="Nav" Type="float" />
+                <Property Name="Deposits" Type="float" />
+                <Property Name="Withdrawal" Type="float" />
+                <Property Name="AccruedReturnFactor" Type="float" />
+                <Property Name="FundReturn" Type="float" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
         </Function>
         <EntityContainer Name="PivZestDevModelStoreContainer">
           <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
@@ -327,6 +368,17 @@
             <End Role="Investor" EntitySet="Investors" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <FunctionImport Name="SP_FundData" ReturnType="Collection(PivZestDevModel.SP_FundData_Result)">
+            <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+            <Parameter Name="date_ini" Mode="In" Type="DateTime" />
+            <Parameter Name="date_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Uf_FundTwrPerformance" IsComposable="true" ReturnType="Collection(PivZestDevModel.Uf_FundTwrPerformance_Result)">
+            <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+            <Parameter Name="FundId" Mode="In" Type="Int32" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SearchAdvisor_Result">
           <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
@@ -504,6 +556,8 @@
           <NavigationProperty Name="ContactEmails" Relationship="PivZestDevModel.FK_dbo_ContactEmail_dbo_Contact_ContactId" FromRole="Contact" ToRole="ContactEmail" />
           <NavigationProperty Name="ContactPhones" Relationship="PivZestDevModel.FK_dbo_ContactPhone_dbo_Contact_ContactId" FromRole="Contact" ToRole="ContactPhone" />
           <NavigationProperty Name="Investors" Relationship="PivZestDevModel.FK_dbo_Investor_dbo_Contact_ContactId" FromRole="Contact" ToRole="Investor" />
+          <Property Name="CreatedByUserId" Type="Int32" Nullable="false" />
+          <Property Name="RecordLastChange" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="ContactEmail">
           <Key>
@@ -563,7 +617,7 @@
           <Property Name="ContactId" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="InterfaceCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="InterfaceCode" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="CurrencyId" Type="Int32" Nullable="false" />
           <Property Name="CountryId" Type="Int32" Nullable="false" />
@@ -572,7 +626,7 @@
           <Property Name="OnlyShareholder" Type="Boolean" Nullable="false" />
           <Property Name="CultureName" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <Property Name="ProcessingType" Type="Byte" Nullable="false" />
-          <Property Name="IntegrationCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IntegrationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactRoleId" Type="Int32" />
           <Property Name="IsActiveToReports" Type="Boolean" Nullable="false" />
           <Property Name="VotingAuthority" Type="Byte" />
@@ -583,6 +637,8 @@
           <NavigationProperty Name="Contact" Relationship="PivZestDevModel.FK_dbo_Investor_dbo_Contact_ContactId" FromRole="Investor" ToRole="Contact" />
           <NavigationProperty Name="User" Relationship="PivZestDevModel.FK_dbo_Investor_dbo_User_UserId" FromRole="Investor" ToRole="User" />
           <NavigationProperty Name="Users" Relationship="PivZestDevModel.FK_dbo_User_dbo_Investor_InvestorId" FromRole="Investor" ToRole="User" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="BlockedFront" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -603,6 +659,13 @@
           <Property Name="CultureName" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Investors" Relationship="PivZestDevModel.FK_dbo_Investor_dbo_User_UserId" FromRole="User" ToRole="Investor" />
           <NavigationProperty Name="Investor" Relationship="PivZestDevModel.FK_dbo_User_dbo_Investor_InvestorId" FromRole="User" ToRole="Investor" />
+          <Property Name="TwoFactorAuthSecret" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="IsBlocked" Type="Boolean" Nullable="false" />
+          <Property Name="IntegrationCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EnableDarkMode" Type="Boolean" Nullable="false" />
+          <Property Name="ThousandSeparator" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DecimalSeparator" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DateFormat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_Investor_dbo_Contact_ContactId">
           <End Type="PivZestDevModel.Contact" Role="Contact" Multiplicity="1" />
@@ -640,6 +703,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SP_FundData_Result">
+          <Property Type="Int32" Name="InvestorId" Nullable="false" />
+          <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="FundId" Nullable="false" />
+          <Property Type="String" Name="Symbol" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="LegalName" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="NaVDelDia" Nullable="true" Precision="38" Scale="8" />
+          <Property Type="Decimal" Name="ValorNominalInversion" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Double" Name="RentabilidadAcumuladaBaseNav" Nullable="true" />
+          <Property Type="Decimal" Name="DividendosAcumulados" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="Uf_FundTwrPerformance_Result">
+          <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="InvestorId" Nullable="true" />
+          <Property Type="Int32" Name="FundId" Nullable="true" />
+          <Property Type="Double" Name="Nav" Nullable="true" />
+          <Property Type="Double" Name="Deposits" Nullable="true" />
+          <Property Type="Double" Name="Withdrawal" Nullable="true" />
+          <Property Type="Double" Name="AccruedReturnFactor" Nullable="true" />
+          <Property Type="Double" Name="FundReturn" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -825,6 +909,8 @@
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="PivZestDevModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="RecordLastChange" ColumnName="RecordLastChange" />
+                <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
                 <ScalarProperty Name="Classification" ColumnName="Classification" />
                 <ScalarProperty Name="KnowledgeLevel" ColumnName="KnowledgeLevel" />
                 <ScalarProperty Name="RiskProfileId" ColumnName="RiskProfileId" />
@@ -881,6 +967,8 @@
           <EntitySetMapping Name="Investors">
             <EntityTypeMapping TypeName="PivZestDevModel.Investor">
               <MappingFragment StoreEntitySet="Investor">
+                <ScalarProperty Name="BlockedFront" ColumnName="BlockedFront" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="W8EndDate" ColumnName="W8EndDate" />
                 <ScalarProperty Name="W8StartDate" ColumnName="W8StartDate" />
                 <ScalarProperty Name="TaxExempt" ColumnName="TaxExempt" />
@@ -908,6 +996,13 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="PivZestDevModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="DateFormat" ColumnName="DateFormat" />
+                <ScalarProperty Name="DecimalSeparator" ColumnName="DecimalSeparator" />
+                <ScalarProperty Name="ThousandSeparator" ColumnName="ThousandSeparator" />
+                <ScalarProperty Name="EnableDarkMode" ColumnName="EnableDarkMode" />
+                <ScalarProperty Name="IntegrationCode" ColumnName="IntegrationCode" />
+                <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+                <ScalarProperty Name="TwoFactorAuthSecret" ColumnName="TwoFactorAuthSecret" />
                 <ScalarProperty Name="CultureName" ColumnName="CultureName" />
                 <ScalarProperty Name="DashboardId" ColumnName="DashboardId" />
                 <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
@@ -924,6 +1019,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_FundData" FunctionName="PivZestDevModel.Store.SP_FundData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.SP_FundData_Result">
+                <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+                <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="LegalName" ColumnName="LegalName" />
+                <ScalarProperty Name="NaVDelDia" ColumnName="NaVDelDia" />
+                <ScalarProperty Name="ValorNominalInversion" ColumnName="ValorNominalInversion" />
+                <ScalarProperty Name="RentabilidadAcumuladaBaseNav" ColumnName="RentabilidadAcumuladaBaseNav" />
+                <ScalarProperty Name="DividendosAcumulados" ColumnName="DividendosAcumulados" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Uf_FundTwrPerformance" FunctionName="PivZestDevModel.Store.Uf_FundTwrPerformance">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.Uf_FundTwrPerformance_Result">
+                <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+                <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Nav" ColumnName="Nav" />
+                <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="Withdrawal" ColumnName="Withdrawal" />
+                <ScalarProperty Name="AccruedReturnFactor" ColumnName="AccruedReturnFactor" />
+                <ScalarProperty Name="FundReturn" ColumnName="FundReturn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
