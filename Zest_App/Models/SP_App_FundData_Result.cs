@@ -11,7 +11,7 @@ namespace Zest_App.Models
 {
     using System;
     
-    public partial class SP_FundData_Result
+    public partial class SP_App_FundData_Result
     {
         public int InvestorId { get; set; }
         public System.DateTime HistoricalDate { get; set; }

@@ -65,47 +65,23 @@
         </div>
         <div id="dash_portfolio" class="dash_portfolio" >
             <div class="port_header" onclick="show_portfolio()">
-                Notas
+                Fondos
                 <br />
                 <i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>
                 <i class="fas fa-chevron-down on"></i>
             </div>
-            <a class="notas first_nota">
-                        <div style="position:absolute;right:37px;margin-top:-5px">
-                            <i class='' style="font-size:8px"></i>
-                        </div>
-                        <div class="left">
-                            Cositas
-                        </div>
-                        <div class="right">
-                            <div>
-                                Valor 
-                                <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04">Moneda</i>
-                            </div>
-                        </div>
-                    </a>
-            <asp:Repeater ID="rpNotas" runat="server">
+            
+            <asp:Repeater ID="rpFunds" runat="server">
                 <ItemTemplate>
                     <a class="notas <%# Container.ItemIndex == 0? "first_nota":""%>">
                         <div style="position:absolute;right:37px;margin-top:-5px">
                             <i class='' style="font-size:8px"></i>
                         </div>
                         <div class="left">
-                            Cositas
-                            <span style="margin-top:5px;width:100px;background:#dabe04;color:#000">
-                                Cositas
-                            </span>
+                            <%# Eval("LegalName") %> 
                         </div>
                         <div class="right">
-                        <div>
-                            Valor 
-                            <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04">Moneda</i>
-                        </div> 
-                            <span style="color:#1ecd93">
-                                <i class="fas fa-sort-up"></i>
-                                Dividendos   
-                                <i style="font-size:7px;font-style:normal;color:#dabe04">Monedas</i> 
-                            </span>
+                            <div><%# ((decimal)Eval("NaVDelDia")).ToString("N2") %><i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04"><%# Eval("Moneda") %> </i></div>
                         </div>
                     </a>
                 </ItemTemplate>

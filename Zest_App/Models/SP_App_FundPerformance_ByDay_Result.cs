@@ -11,17 +11,15 @@ namespace Zest_App.Models
 {
     using System;
     
-    public partial class SP_FundData_Result
+    public partial class SP_App_FundPerformance_ByDay_Result
     {
-        public int InvestorId { get; set; }
         public System.DateTime HistoricalDate { get; set; }
-        public int FundId { get; set; }
-        public string Symbol { get; set; }
-        public string LegalName { get; set; }
-        public Nullable<decimal> NaVDelDia { get; set; }
-        public Nullable<decimal> ValorNominalInversion { get; set; }
-        public Nullable<double> RentabilidadAcumuladaBaseNav { get; set; }
-        public Nullable<decimal> DividendosAcumulados { get; set; }
-        public string Moneda { get; set; }
+        public Nullable<int> InvestorId { get; set; }
+        public Nullable<int> FundId { get; set; }
+        public Nullable<double> Nav { get; set; }
+        public Nullable<double> Deposits { get; set; }
+        public Nullable<double> Withdrawal { get; set; }
+        public Nullable<double> AccruedReturnFactor { get; set; }
+        public Nullable<double> FundReturn { get; set; }
     }
 }

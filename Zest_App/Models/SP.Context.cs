@@ -272,23 +272,6 @@ namespace Zest_App.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getInvestorAccess_Result>("getInvestorAccess", user_idParameter);
         }
     
-        public virtual ObjectResult<SP_FundData_Result> SP_FundData(Nullable<int> investorId, Nullable<System.DateTime> date_ini, Nullable<System.DateTime> date_fin)
-        {
-            var investorIdParameter = investorId.HasValue ?
-                new ObjectParameter("InvestorId", investorId) :
-                new ObjectParameter("InvestorId", typeof(int));
-    
-            var date_iniParameter = date_ini.HasValue ?
-                new ObjectParameter("date_ini", date_ini) :
-                new ObjectParameter("date_ini", typeof(System.DateTime));
-    
-            var date_finParameter = date_fin.HasValue ?
-                new ObjectParameter("date_fin", date_fin) :
-                new ObjectParameter("date_fin", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_FundData_Result>("SP_FundData", investorIdParameter, date_iniParameter, date_finParameter);
-        }
-    
         [DbFunction("PivZestDevEntities", "Uf_FundTwrPerformance")]
         public virtual IQueryable<Uf_FundTwrPerformance_Result> Uf_FundTwrPerformance(Nullable<int> investorId, Nullable<int> fundId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
         {
@@ -309,6 +292,41 @@ namespace Zest_App.Models
                 new ObjectParameter("EndDate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<Uf_FundTwrPerformance_Result>("[PivZestDevEntities].[Uf_FundTwrPerformance](@InvestorId, @FundId, @StartDate, @EndDate)", investorIdParameter, fundIdParameter, startDateParameter, endDateParameter);
+        }
+    
+        public virtual ObjectResult<SP_FundData_Result> SP_FundData(Nullable<int> investorId, Nullable<System.DateTime> date_ini, Nullable<System.DateTime> date_fin)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            var date_iniParameter = date_ini.HasValue ?
+                new ObjectParameter("date_ini", date_ini) :
+                new ObjectParameter("date_ini", typeof(System.DateTime));
+    
+            var date_finParameter = date_fin.HasValue ?
+                new ObjectParameter("date_fin", date_fin) :
+                new ObjectParameter("date_fin", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_FundData_Result>("SP_FundData", investorIdParameter, date_iniParameter, date_finParameter);
+        }
+    
+        public virtual ObjectResult<SP_App_FundData_Result> SP_App_FundData(Nullable<int> investorId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_App_FundData_Result>("SP_App_FundData", investorIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_App_FundPerformance_ByDay_Result> SP_App_FundPerformance_ByDay(Nullable<int> investorId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_App_FundPerformance_ByDay_Result>("SP_App_FundPerformance_ByDay", investorIdParameter);
         }
     }
 }

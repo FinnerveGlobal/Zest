@@ -60,12 +60,12 @@ namespace Zest_App.Resources.Views.Funds
         protected global::System.Web.UI.WebControls.Literal ltChart;
 
         /// <summary>
-        /// Control rpNotas.
+        /// Control rpFunds.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpNotas;
+        protected global::System.Web.UI.WebControls.Repeater rpFunds;
     }
 }

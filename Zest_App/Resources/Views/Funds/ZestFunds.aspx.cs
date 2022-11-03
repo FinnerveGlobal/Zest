@@ -49,35 +49,24 @@ namespace Zest_App.Resources.Views.Funds
 
             using (var ctx = new PivZestDevEntities())
             {
-                // Values
+                // Header resume
                 decimal naVDelDia = 0, valorNominalInversion = 0, rentabilidadAcumuladaBaseNav = 0, dividendosAcumulados = 0;
-                var fundData_result = ctx.SP_FundData(5501, new DateTime(2022, 2, 17), new DateTime(2022, 2, 17)).ToArray();
+                var app_fundData_result = ctx.SP_App_FundData(5501).ToArray().FirstOrDefault();
                 
-                // Verify funds
-                if(fundData_result.Length == 0)
-                {
-                    this.HasFunds = false;
-                    return;
-                }
-                this.HasFunds = true;
+                naVDelDia = Math.Round((decimal)(app_fundData_result.NaVDelDia == null ? 0 : app_fundData_result.NaVDelDia), 2);
+                valorNominalInversion = Math.Round((decimal)(app_fundData_result.ValorNominalInversion == null ? 0 : app_fundData_result.ValorNominalInversion), 2);
+                rentabilidadAcumuladaBaseNav = Math.Round((decimal)(app_fundData_result.RentabilidadAcumuladaBaseNav == null ? 0 : app_fundData_result.RentabilidadAcumuladaBaseNav), 2);
+                dividendosAcumulados = Math.Round((decimal)(app_fundData_result.DividendosAcumulados == null ? 0 : app_fundData_result.DividendosAcumulados), 2);
 
-                var fundData = fundData_result.FirstOrDefault();
-                if (fundData != null)
-                {
-                    naVDelDia = Math.Round((decimal)(fundData.NaVDelDia == null ? 0 : fundData.NaVDelDia), 2);
-                    valorNominalInversion = Math.Round((decimal)(fundData.ValorNominalInversion == null ? 0 : fundData.ValorNominalInversion), 2);
-                    rentabilidadAcumuladaBaseNav = Math.Round((decimal)(fundData.RentabilidadAcumuladaBaseNav == null ? 0 : fundData.RentabilidadAcumuladaBaseNav), 2);
-                    dividendosAcumulados = Math.Round((decimal)(fundData.DividendosAcumulados == null ? 0 : fundData.DividendosAcumulados), 2);
+                valor_nominal.Text = valorNominalInversion.ToString("N2");
+                nav_del_dia.Text = naVDelDia.ToString("N2");
+                rentabilidad_acumulada.Text = rentabilidadAcumuladaBaseNav.ToString("N2");
+                dividendos_acumulados.Text = dividendosAcumulados.ToString("N2");
 
-                    // Set values
-                    valor_nominal.Text = valorNominalInversion.ToString("N2");
-                    nav_del_dia.Text = naVDelDia.ToString("N2");
-                    rentabilidad_acumulada.Text = rentabilidadAcumuladaBaseNav.ToString("N2");
-                    dividendos_acumulados.Text = dividendosAcumulados.ToString("N2");
-                }
 
-                // Graph
-                var fundTwrPerformance = ctx.Uf_FundTwrPerformance(5501, 347, new DateTime(2022, 2, 10), new DateTime(2022, 2, 17)).ToArray();
+                // Linear graph
+                // var fundTwrPerformance = ctx.Uf_FundTwrPerformance(5501, 347, new DateTime(2022, 2, 10), new DateTime(2022, 2, 17)).ToArray();
+                var fundTwrPerformance = ctx.SP_App_FundPerformance_ByDay(5501);
                 String labels = "[";
                 String data = "[";
                 string[] months = { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" };
@@ -116,8 +105,20 @@ namespace Zest_App.Resources.Views.Funds
                 System.Diagnostics.Debug.WriteLine(data);
                 System.Diagnostics.Debug.WriteLine(chart);
 
+
+                // List of funds
+                var fundData_result = ctx.SP_FundData(5501, new DateTime(2022, 2, 17), new DateTime(2022, 2, 17)).ToArray();
+                if (fundData_result.Length == 0)
+                {
+                    this.HasFunds = false;
+                    return;
+                }
+                this.HasFunds = true;
+
+                rpFunds.DataSource = fundData_result.ToList();
+                rpFunds.DataBind();
+
             }
-            this.Test = false;
         }
     }
 }

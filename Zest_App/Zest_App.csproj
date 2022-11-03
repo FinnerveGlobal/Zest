@@ -1389,6 +1389,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SP.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_App_FundData_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_App_FundPerformance_ByDay_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SP_FundData_Result.cs">
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>
