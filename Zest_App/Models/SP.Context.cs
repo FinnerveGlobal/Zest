@@ -317,7 +317,7 @@ namespace Zest_App.Models
                 new ObjectParameter("InvestorId", investorId) :
                 new ObjectParameter("InvestorId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_App_FundData_Result>("SP_App_FundData", investorIdParameter);
+                return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_App_FundData_Result>("SP_App_FundData", investorIdParameter);
         }
     
         public virtual ObjectResult<SP_App_FundPerformance_ByDay_Result> SP_App_FundPerformance_ByDay(Nullable<int> investorId)

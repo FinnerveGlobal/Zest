@@ -44,6 +44,7 @@ namespace Zest_App.Resources.Views.Funds
                 code = int.Parse(reqCookies["user_code"].ToString());
             }
 
+            code = 5186;
             //System.Diagnostics.Debug.WriteLine(id);
             //System.Diagnostics.Debug.WriteLine(code);
 
@@ -51,7 +52,8 @@ namespace Zest_App.Resources.Views.Funds
             {
                 // Header resume
                 decimal naVDelDia = 0, valorNominalInversion = 0, rentabilidadAcumuladaBaseNav = 0, dividendosAcumulados = 0;
-                var app_fundData_result = ctx.SP_App_FundData(5501).ToArray().FirstOrDefault();
+                var app_fundData = ctx.SP_App_FundData(code).ToArray();
+                var app_fundData_result = app_fundData.FirstOrDefault();
                 
                 naVDelDia = Math.Round((decimal)(app_fundData_result.NaVDelDia == null ? 0 : app_fundData_result.NaVDelDia), 2);
                 valorNominalInversion = Math.Round((decimal)(app_fundData_result.ValorNominalInversion == null ? 0 : app_fundData_result.ValorNominalInversion), 2);
@@ -66,7 +68,7 @@ namespace Zest_App.Resources.Views.Funds
 
                 // Linear graph
                 // var fundTwrPerformance = ctx.Uf_FundTwrPerformance(5501, 347, new DateTime(2022, 2, 10), new DateTime(2022, 2, 17)).ToArray();
-                var fundTwrPerformance = ctx.SP_App_FundPerformance_ByDay(5501);
+                var fundTwrPerformance = ctx.SP_App_FundPerformance_ByDay(code);
                 String labels = "[";
                 String data = "[";
                 string[] months = { "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic" };
@@ -107,15 +109,15 @@ namespace Zest_App.Resources.Views.Funds
 
 
                 // List of funds
-                var fundData_result = ctx.SP_FundData(5501, new DateTime(2022, 2, 17), new DateTime(2022, 2, 17)).ToArray();
-                if (fundData_result.Length == 0)
+               
+                if (app_fundData.Length == 0)
                 {
                     this.HasFunds = false;
                     return;
                 }
                 this.HasFunds = true;
 
-                rpFunds.DataSource = fundData_result.ToList();
+                rpFunds.DataSource = app_fundData.ToList();
                 rpFunds.DataBind();
 
             }

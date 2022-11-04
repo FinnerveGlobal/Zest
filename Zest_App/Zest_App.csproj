@@ -1230,6 +1230,7 @@
     <Content Include="Resources\Views\Backend\Zestweb\Sections\Home.aspx" />
     <Content Include="Resources\Views\Backend\Zestweb\Sections\Titulos.aspx" />
     <Content Include="Resources\Views\Catalog\ZestCatalog.aspx" />
+    <Content Include="Resources\Views\Catalog\ZestCatalogFund.aspx" />
     <Content Include="Resources\Views\Catalog\ZestItem.aspx" />
     <Content Include="Resources\Views\Dashboard\ActivosCLN.aspx" />
     <Content Include="Resources\Views\Dashboard\ActivosELN.aspx" />
@@ -1785,6 +1786,13 @@
     </Compile>
     <Compile Include="Resources\Views\Catalog\ZestCatalog.aspx.designer.cs">
       <DependentUpon>ZestCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestCatalogFund.aspx.cs">
+      <DependentUpon>ZestCatalogFund.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Catalog\ZestCatalogFund.aspx.designer.cs">
+      <DependentUpon>ZestCatalogFund.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Catalog\ZestItem.aspx.cs">
       <DependentUpon>ZestItem.aspx</DependentUpon>

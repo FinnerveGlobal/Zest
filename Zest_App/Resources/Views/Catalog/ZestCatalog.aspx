@@ -21,7 +21,13 @@
              <div style="height: 4px; width: 30px; background: #dabe04">
              </div>
             </div>
-
+            <div align="left" style="float: right">
+                <a href="ZestCatalogFund.aspx">
+                   Nuevos Fondos
+                </a>
+             <div style="height: 4px; width: 30px; background: #dabe04">
+             </div>
+            </div>
         </div>
     </div>
     <br />

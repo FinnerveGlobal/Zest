@@ -67,8 +67,6 @@
             <div class="port_header" onclick="show_portfolio()">
                 Fondos
                 <br />
-                <i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>
-                <i class="fas fa-chevron-down on"></i>
             </div>
             
             <%--<asp:Repeater ID="rpFunds" runat="server">
@@ -98,7 +96,7 @@
                                 <div class="left">
                                     <%# Eval("LegalName") %> 
                                 </div>
-                                <div class="right" style="margin: auto 20px auto 0;"><div><%# ((decimal)Eval("NaVDelDia")).ToString("N2") %> <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04"><%# Eval("Moneda") %></i></div></div>
+                                <div class="right" style="margin: auto 20px auto 0;"><div><%# ((decimal)Eval("ValorNominalInversion")).ToString("N2") %> <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04"><%# Eval("Moneda") %></i></div></div>
                             </div>
                             <div class="activos_header_desc" style="z-index:1000;position:relative;background:black;">
                                 <div class="row">
@@ -155,7 +153,7 @@
         </div>
         <div class="dash_body">
             <div style="color: white;text-align: center;width: auto;height: 50vh;padding-top: 10%;">
-                Aún no tienes inversiones en Fondos. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalog.aspx">aquí </a>
+                Aún no tienes inversiones en Fondos. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalogFund.aspx">aquí </a>
             </div> 
         </div>
            
