@@ -48,14 +48,14 @@
                         <i style="font-style: normal">%</i>
                     </span>
                 </div>
-                <div class="right" style="color: #fff">
+                <%--<div class="right" style="color: #fff">
                     <span>
                         <asp:Literal ID="dividendos_acumulados" runat="server"></asp:Literal>
                         <i style="font-style: normal; color: #dabe04">USD</i>
                     </span>
                     <br />
                     <span>7,56% </span>
-                </div>
+                </div>--%>
             </div>
         </div>
         <div id="dash_body" class="dash_body">
@@ -71,9 +71,9 @@
                 <i class="fas fa-chevron-down on"></i>
             </div>
             
-            <asp:Repeater ID="rpFunds" runat="server">
+            <%--<asp:Repeater ID="rpFunds" runat="server">
                 <ItemTemplate>
-                    <a class="notas <%# Container.ItemIndex == 0? "first_nota":""%>">
+                    <a class="notas <%# Container.ItemIndex == 0? "first_nota":""%>" href=<%# "/Resources/Views/Funds/Fund.aspx?id=4" + Eval("FundId") %>>
                         <div style="position:absolute;right:37px;margin-top:-5px">
                             <i class='' style="font-size:8px"></i>
                         </div>
@@ -85,7 +85,60 @@
                         </div>
                     </a>
                 </ItemTemplate>
+            </asp:Repeater>--%>
+
+            <asp:Repeater ID="rpFunds" runat="server">
+                <ItemTemplate>
+                    <div class="notas_body notas_activos" style="margin-top:10px">
+                        <div class="activos_header_group" style="position:sticky;top:85px;">
+                            <div class="activos_header" style="background:black;">
+                             <div style="position:absolute;bottom:20px;left:50%;color:#fff">
+                              <i class="fas fa-chevron-down"></i>
+                             </div>
+                                <div class="left">
+                                    <%# Eval("LegalName") %> 
+                                </div>
+                                <div class="right" style="margin: auto 20px auto 0;"><div><%# ((decimal)Eval("NaVDelDia")).ToString("N2") %> <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04"><%# Eval("Moneda") %></i></div></div>
+                            </div>
+                            <div class="activos_header_desc" style="z-index:1000;position:relative;background:black;">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span>Gestor</span>
+                                        <br />
+                                        Zest LLC
+                                        <br />
+                                        <br />
+                                        <span>Auditor</span>
+                                        <br />
+                                        PwC
+                                        <br />
+                                        <br />
+                                         <span>Moneda</span>
+                                        <br />
+                                        USD
+                                    </div>
+                                    <div class="col-6">
+                                        <span>Administrador</span>
+                                        <br />
+                                        Zest Capital Perú SAC
+                                        <br />
+                                        <br />
+                                        <span>Custodio</span>
+                                        <br />
+                                        Pershing LLC
+                                        <br />
+                                        <br />
+                                        <span>Riesgo</span>
+                                        <br />
+                                        Volatibilidad
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </ItemTemplate>
             </asp:Repeater>
+
         </div>
     <%}
         else
@@ -129,6 +182,15 @@
             }
             t = !t;
         }
+
+        $('.activos_item_group').click(function () {
+            $(this).toggleClass('active');
+            $(this).find('.activos_desc').slideToggle(500);
+        });
+
+        $('.activos_header_group').click(function () {
+            $(this).find('.activos_header_desc').slideToggle(500);
+        });
 
     </script>
 </asp:Content>

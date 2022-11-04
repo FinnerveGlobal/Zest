@@ -42,15 +42,6 @@ namespace Zest_App.Resources.Views.Funds
         protected global::System.Web.UI.WebControls.Literal rentabilidad_acumulada;
 
         /// <summary>
-        /// Control dividendos_acumulados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal dividendos_acumulados;
-
-        /// <summary>
         /// Control ltChart.
         /// </summary>
         /// <remarks>
