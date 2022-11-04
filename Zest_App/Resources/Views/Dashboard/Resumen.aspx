@@ -31,19 +31,19 @@
         </div>
     </div>
     <div id="dash_body" class="dash_body">
-        <div class="menu zgrid_5">
-            <a id="menu_grafico" onclick="toggle_menu()" class="menu_item active" style="margin-left: 0px">gráfico
+       <div class="menu zgrid_5">
+<%--          <a id="menu_grafico" onclick="toggle_menu()" class="menu_item active" style="margin-left: 0px">gráfico
                 <span></span>
-            </a>
-            <a id="menu_cuadro" onclick="toggle_menu()" class="menu_item" style="margin-right: 0px;">cuadro
+            </a>--%>
+          <a id="menu_cuadro" onclick="toggle_menu()" class="menu_item active" style="margin-right: 0px;">cuadro
                 <span></span>
             </a>
         </div>
 
-        <div id="body_grafico" class="body_item1 active">
+       <div id="body_grafico" class="body_item1 active">
             <asp:Literal ID="ltChart" runat="server"></asp:Literal>
         </div>
-        <div id="body_cuadro" class="body_item2">
+        <div id="body_cuadro" class="body_item2 active">
 
             <div id="last_3" class="b_line active">
                 <div id="last_3_first" class="b_cell active" onclick="show_3()">
@@ -181,15 +181,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
         function toggle_menu() {
-            $('#body_grafico').toggleClass('active');
+            /*$('#body_grafico').toggleClass('active');*/
             $('#body_cuadro').toggleClass('active');
             $('#menu_cuadro').toggleClass('active');
             $('#menu_grafico').toggleClass('active');
         }
 
-        $('#body_grafico').on('swipeleft', function (e, data) {
-            toggle_menu();
-        });
+        //$('#body_grafico').on('swipeleft', function (e, data) {
+        //    toggle_menu();
+        //});
         $('#body_cuadro').on('swiperight', function (e, data) {
             toggle_menu();
         });

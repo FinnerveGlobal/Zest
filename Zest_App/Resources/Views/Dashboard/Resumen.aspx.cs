@@ -220,7 +220,7 @@ namespace Zest_App.Resources.Views.Dashboard
 
                 chart += "</script>";
 
-                ltChart.Text = chart;
+                //ltChart.Text = chart;
 
                 valor_resumen.Text = resumen;
                 rentabilidad_resumen.Text = resumen_rent;
