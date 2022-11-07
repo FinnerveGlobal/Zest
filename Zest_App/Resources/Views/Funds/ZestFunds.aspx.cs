@@ -53,6 +53,14 @@ namespace Zest_App.Resources.Views.Funds
                 // Header resume
                 decimal naVDelDia = 0, valorNominalInversion = 0, rentabilidadAcumuladaBaseNav = 0, dividendosAcumulados = 0;
                 var app_fundData = ctx.SP_App_FundData(code).ToArray();
+
+                if (app_fundData.Length == 0)
+                {
+                    this.HasFunds = false;
+                    return;
+                }
+                this.HasFunds = true;
+
                 var app_fundData_result = app_fundData.FirstOrDefault();
                 
                 naVDelDia = Math.Round((decimal)(app_fundData_result.NaVDelDia == null ? 0 : app_fundData_result.NaVDelDia), 2);
@@ -110,12 +118,7 @@ namespace Zest_App.Resources.Views.Funds
 
                 // List of funds
                
-                if (app_fundData.Length == 0)
-                {
-                    this.HasFunds = false;
-                    return;
-                }
-                this.HasFunds = true;
+                
 
                 rpFunds.DataSource = app_fundData.ToList();
                 rpFunds.DataBind();
