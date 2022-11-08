@@ -43,8 +43,17 @@
                         <asp:Literal ID="nav_del_dia" runat="server"></asp:Literal>
                         <span style="display: inline-block">USD</span>
                     </p>
-                    <span style="display: block; color: greenyellow;">
-                        <asp:Literal ID="rentabilidad_acumulada" runat="server"></asp:Literal>
+                    
+                    <% if (IsPositive)
+                        { %>
+                        <span style="display: block; color: yellowgreen;">
+                    <% }
+                        else
+                        { %>
+                        <span style="display: block; color: red;">
+                    <% } %>
+                    
+                        <asp:Literal ID="rentabilidad_acumulada"  runat="server"></asp:Literal>
                         <i style="font-style: normal">%</i>
                     </span>
                 </div>

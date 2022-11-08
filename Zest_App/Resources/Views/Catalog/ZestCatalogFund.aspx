@@ -83,6 +83,14 @@
     </div>
     <div class="d-flex justify-content-around my-3">
 
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf#view=FitH">
+                    Ver Factsheet
+                </asp:LinkButton>
+            </ContentTemplate>           
+        </asp:UpdatePanel>
+
         <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
                 <a style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" href="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf"  target="_blank">

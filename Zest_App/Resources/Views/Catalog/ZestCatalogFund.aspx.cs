@@ -67,9 +67,8 @@ namespace Zest_App.Resources.Views.Catalog
 
         protected void btnExternal_Click(object sender, EventArgs e)
         {
-            //LinkButton btn = (LinkButton)sender;
-            //string url = (string)btn.CommandArgument;
-            string url = "https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf";
+            LinkButton btn = (LinkButton)sender;
+            string url = (string)btn.CommandArgument;
 
             if (!string.IsNullOrEmpty(url))
             {
@@ -77,6 +76,7 @@ namespace Zest_App.Resources.Views.Catalog
 
                 Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
             }
+
         }
     }
 }

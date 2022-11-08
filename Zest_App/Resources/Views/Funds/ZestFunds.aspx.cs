@@ -19,6 +19,9 @@ namespace Zest_App.Resources.Views.Funds
 
         public bool HasFunds { get => hasFunds; set => hasFunds = value; }
 
+        private bool isPositive = false;
+        public bool IsPositive { get => isPositive; set => isPositive = value; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             loadData();
@@ -44,9 +47,9 @@ namespace Zest_App.Resources.Views.Funds
                 code = int.Parse(reqCookies["user_code"].ToString());
             }
 
-            code = 5186;
+            //code = 5186;
             //System.Diagnostics.Debug.WriteLine(id);
-            //System.Diagnostics.Debug.WriteLine(code);
+            System.Diagnostics.Debug.WriteLine("Code: " + code);
 
             using (var ctx = new PivZestDevEntities())
             {
@@ -71,6 +74,8 @@ namespace Zest_App.Resources.Views.Funds
                 valor_nominal.Text = valorNominalInversion.ToString("N2");
                 nav_del_dia.Text = naVDelDia.ToString("N2");
                 rentabilidad_acumulada.Text = rentabilidadAcumuladaBaseNav.ToString("N2");
+                System.Diagnostics.Debug.WriteLine(rentabilidadAcumuladaBaseNav);
+                isPositive = (rentabilidadAcumuladaBaseNav >= 0);
                 // dividendos_acumulados.Text = dividendosAcumulados.ToString("N2");
 
 

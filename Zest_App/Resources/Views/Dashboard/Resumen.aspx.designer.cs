@@ -24,24 +24,6 @@ namespace Zest_App.Resources.Views.Dashboard
         protected global::System.Web.UI.WebControls.Literal valor_resumen;
 
         /// <summary>
-        /// Control rentabilidad_resumen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal rentabilidad_resumen;
-
-        /// <summary>
-        /// Control usd_rentabilidad_resumen.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal usd_rentabilidad_resumen;
-
-        /// <summary>
         /// Control ltChart.
         /// </summary>
         /// <remarks>

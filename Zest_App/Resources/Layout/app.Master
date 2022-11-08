@@ -364,8 +364,8 @@
                 </a>
                 <a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/Funds/ZestFunds.aspx">
                     <div class="mark_line"></div>
-                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="img_fond1" CssClass="item_off" />
-                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="img_fond2" CssClass="item_on" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/funds 0.svg" runat="server" ID="img_fond1" CssClass="item_off" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/funds 1.svg" runat="server" ID="img_fond2" CssClass="item_on" />
                     <br>
                     <i runat="server" id="not_background"></i>
                     <span>Fondos
