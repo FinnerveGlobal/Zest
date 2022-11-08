@@ -9,7 +9,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
+    <% if (HasNotes) { %>
+        <div class="dash_header">
         <%--<div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
         </div>--%>
@@ -22,28 +23,28 @@
                 <asp:Literal ID="valor_resumen" runat="server"></asp:Literal> <span>USD
                 </span>
             </div>
-            <div class="right" style="color:#fff">
+            <%--<div class="right" style="color:#fff">
                 <span>
                     <asp:Literal ID="rentabilidad_resumen" runat="server"></asp:Literal>%
                 </span><br />
                  <asp:Literal ID="usd_rentabilidad_resumen" runat="server"></asp:Literal> <i style="font-style:normal;color:#dabe04">USD</i>
-            </div>
+            </div>--%>
         </div>
     </div>
-    <div id="dash_body" class="dash_body">
+        <div id="dash_body" class="dash_body">
        <div class="menu zgrid_5">
 <%--          <a id="menu_grafico" onclick="toggle_menu()" class="menu_item active" style="margin-left: 0px">gráfico
                 <span></span>
             </a>--%>
-          <a id="menu_cuadro" onclick="toggle_menu()" class="menu_item active" style="margin-right: 0px;">cuadro
+          <%--<a id="menu_cuadro" onclick="toggle_menu()" class="menu_item active" style="margin-right: 0px;">cuadro
                 <span></span>
-            </a>
+            </a>--%>
         </div>
 
-       <div id="body_grafico" class="body_item1 active">
+       <div id="body_grafico" class="body_item1">
             <asp:Literal ID="ltChart" runat="server"></asp:Literal>
         </div>
-        <div id="body_cuadro" class="body_item2 active">
+        <div id="body_cuadro" class="body_item2">
 
             <div id="last_3" class="b_line active">
                 <div id="last_3_first" class="b_cell active" onclick="show_3()">
@@ -143,7 +144,7 @@
             </div>
         </div>
     </div>
-    <div id="dash_portfolio" class="dash_portfolio" >
+        <div id="dash_portfolio" class="dash_portfolio" >
         <div class="port_header" onclick="show_portfolio()">
             Portafolio 
             <br />
@@ -176,23 +177,32 @@
         </asp:Repeater>
 
     </div>
+    <% }else { %>
+        <div class="dash_body">
+            <div style="color: white;text-align: center;width: auto;height: 50vh;padding-top: 10%;">
+                Aún no tienes inversiones en Notas. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalog.aspx">aquí </a>
+            </div> 
+        </div>
+    <% } %>
+
+    
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
-        function toggle_menu() {
-            /*$('#body_grafico').toggleClass('active');*/
-            $('#body_cuadro').toggleClass('active');
-            $('#menu_cuadro').toggleClass('active');
-            $('#menu_grafico').toggleClass('active');
-        }
+        //function toggle_menu() {
+        //    $('#body_grafico').toggleClass('active');
+        //    $('#body_cuadro').toggleClass('active');
+        //    $('#menu_cuadro').toggleClass('active');
+        //    $('#menu_grafico').toggleClass('active');
+        //}
 
         //$('#body_grafico').on('swipeleft', function (e, data) {
         //    toggle_menu();
         //});
-        $('#body_cuadro').on('swiperight', function (e, data) {
-            toggle_menu();
-        });
+        //$('#body_cuadro').on('swiperight', function (e, data) {
+        //    toggle_menu();
+        //});
 
         function show_3() {
             $('#last_3').addClass('active');
@@ -256,7 +266,6 @@
             show_portfolio();
             document.getElementsByTagName("body")[0].style.overflow = 'hidden';
         });
-
 
     </script>
 </asp:Content>

@@ -296,7 +296,7 @@
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>
-        <div class="modal_menu">
+        <%--<div class="modal_menu">
             <div class="sub_menu">
                 <div class="m_header">
                     <asp:Image ID="log_menu" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
@@ -307,14 +307,16 @@
                     <li>
                         <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
                     <li runat="server" id="ltReturn"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
-                   
+                    <li runat="server" id="Li2">
+                        <a runat="server" href="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf" class="btn_load">Archivo <i class="fas fa-chevron-right"></i></a>
+                    </li>                    
                 </ul>
             </div>
-        </div>
+        </div>--%>
         
          
         
-            <div class="container nav-container navbar">
+        <div class="container nav-container navbar">
             <input class="checkbox" type="checkbox" name="" id="" />
                 <div class="hamburger-lines">
                     <span class="line line1"></span>
@@ -330,18 +332,16 @@
                             <asp:Image ID="Image1" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
                         </div>
                         <ul class="m_list" style="padding-bottom:75px">
-                            <li><asp:Literal ID="Literal1" runat="server"></asp:Literal></li>
-                            <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
-                            <li>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
-                            <li runat="server" id="Li1"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
+                           <li><asp:Literal ID="ltNumber" runat="server"></asp:Literal></li>
+                    <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
+                    <li>
+                        <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
+                    <li runat="server" id="ltReturn"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         
-            
-
         <div class="container">
             <div class="row">
                 <div id="div_Content" class="col-md-12" style="padding: 0px 30px 100px 30px">
@@ -364,8 +364,8 @@
                 </a>
                 <a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/Funds/ZestFunds.aspx">
                     <div class="mark_line"></div>
-                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="img_fond1" CssClass="item_off" />
-                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="img_fond2" CssClass="item_on" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/funds 0.svg" runat="server" ID="img_fond1" CssClass="item_off" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/funds 1.svg" runat="server" ID="img_fond2" CssClass="item_on" />
                     <br>
                     <i runat="server" id="not_background"></i>
                     <span>Fondos

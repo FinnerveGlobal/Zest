@@ -1,14 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Layout/app.Master" AutoEventWireup="true" CodeBehind="ZestItem.aspx.cs" Inherits="Zest_App.Resources.Views.Catalog.ZestItem" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <a style="color:#fff;position: absolute;top:30px;left:30px;z-index: 100000;" href="/Resources/Views/Catalog/ZestCatalog.aspx"><i class="fas fa-chevron-left"></i></a>
+    <a style="color:#fff;position: absolute;top:30px;left:80px;z-index: 100000;" href="/Resources/Views/Catalog/ZestCatalog.aspx"><i class="fas fa-chevron-left"></i></a>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
+    <%--<div class="dash_header">
         <div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
         </div>
-    </div>
+    </div>--%>
     <div class="notas_body notas_activos nota_catalog">
         <div class="activos_header_group">
             <div class="activos_header">
