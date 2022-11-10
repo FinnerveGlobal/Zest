@@ -83,7 +83,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="caja_evento">
                                         <div class="caja_evento_header" style='<%# "background-image:url("+Eval("url_img")+")"%>;background-position: right bottom;'>
-                                            <img src="/Assets/img/website/cinta.svg" />
+                                            <img style="display:none" src="/Assets/img/website/cinta.svg" />
                                         </div>
                                         <p class="caja_evento_detalle web_text">
                                             <b class="web_subtitle" style="font-weight: bold"><%# Eval("titulo") %></b><br /><br />
@@ -119,7 +119,7 @@
                                 <div class="col-md-4">
                                     <div class="caja_evento">
                                         <div class="caja_evento_header" style='<%# "background-image:url("+Eval("url_img")+")"%>;background-position: right bottom;'>
-                                            <img src="/Assets/img/website/cinta.svg" />
+                                         <img style="display:none" src="/Assets/img/website/cinta.svg" />
                                         </div>
                                         <p class="caja_evento_detalle web_text">
                                             <b class="web_subtitle" style="font-weight: bold"><%# Eval("titulo") %></b><br /><br />

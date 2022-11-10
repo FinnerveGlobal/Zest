@@ -11,10 +11,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
-        <%--<div class="logo">
+    <%--<div class="dash_header">
+        <!--<div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>--%>
+        </div>-->
         <div class="resumenLabel" style="width: unset">
             <div align="right" style="float: left">
                 Nuevas Notas
@@ -22,14 +22,34 @@
              </div>
             </div>
             <div align="left" style="float: right">
-                <a href="ZestCatalogFund.aspx">
+                <a href="ZestCatalogFund.aspx" style="color: #333333">
                    Nuevos Fondos
                 </a>
-             <div style="height: 4px; width: 30px; background: #dabe04">
+             <div style="height: 4px; width: 30px; background: #dabe04; display: none">
+             </div>
+            </div>
+        </div>
+    </div>--%>
+
+    <div class="dash_header">
+        <!--<div class="logo">
+            <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+        </div>-->
+        <div class="resumenLabel row" style="width: unset">
+            <div class="col-6" style="padding-left: 30px;">
+                    Nuevas Notas
+                    <div style="height: 4px; width: 30px; background: #dabe04; margin-left: 75px;"></div>
+            </div>
+            <div class="col-6">
+                <a href="ZestCatalogFund.aspx" style="color: #333333">
+                   Nuevos Fondos
+                </a>
+             <div style="height: 4px; width: 30px; background: #dabe04; display: none">
              </div>
             </div>
         </div>
     </div>
+
     <br />
     <br />
     <div class="catalog">

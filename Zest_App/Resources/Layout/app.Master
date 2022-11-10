@@ -170,9 +170,9 @@
         .nav-container .checkbox {
             position: absolute;
             display: block;
-            height: 32px;
-            width: 32px;
-            top: 0px;
+            height: 19px;
+            width: 19px;
+            top: 5px;
             left: 30px;
             z-index: 5;
             opacity: 0;
@@ -181,10 +181,10 @@
         
         .nav-container .hamburger-lines {
           display: block;
-          height: 26px;
-          width: 32px;
+          height: 16px;
+          width: 19px;
           position: absolute;
-          top: 0;
+          top: 5px;
           left: 30px;
           z-index: 3;
           display: flex;

@@ -9,10 +9,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
-        <div class="logo">
+    <% if (HasNotes) { %>
+        <div class="dash_header">
+        <%--<div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>
+        </div>--%>
         <div class="resumenLabel">
             Resumen
         </div>
@@ -22,25 +23,25 @@
                 <asp:Literal ID="valor_resumen" runat="server"></asp:Literal> <span>USD
                 </span>
             </div>
-            <div class="right" style="color:#fff">
+            <%--<div class="right" style="color:#fff">
                 <span>
                     <asp:Literal ID="rentabilidad_resumen" runat="server"></asp:Literal>%
                 </span><br />
                  <asp:Literal ID="usd_rentabilidad_resumen" runat="server"></asp:Literal> <i style="font-style:normal;color:#dabe04">USD</i>
-            </div>
+            </div>--%>
         </div>
     </div>
-    <div id="dash_body" class="dash_body">
-        <div class="menu zgrid_5">
-            <a id="menu_grafico" onclick="toggle_menu()" class="menu_item active" style="margin-left: 0px">gráfico
+        <div id="dash_body" class="dash_body">
+       <div class="menu zgrid_5">
+<%--          <a id="menu_grafico" onclick="toggle_menu()" class="menu_item active" style="margin-left: 0px">gráfico
                 <span></span>
-            </a>
-            <a id="menu_cuadro" onclick="toggle_menu()" class="menu_item" style="margin-right: 0px;">cuadro
+            </a>--%>
+          <%--<a id="menu_cuadro" onclick="toggle_menu()" class="menu_item active" style="margin-right: 0px;">cuadro
                 <span></span>
-            </a>
+            </a>--%>
         </div>
 
-        <div id="body_grafico" class="body_item1 active">
+       <div id="body_grafico" class="body_item1">
             <asp:Literal ID="ltChart" runat="server"></asp:Literal>
         </div>
         <div id="body_cuadro" class="body_item2">
@@ -143,17 +144,17 @@
             </div>
         </div>
     </div>
-    <div id="dash_portfolio" class="dash_portfolio" >
+        <div id="dash_portfolio" class="dash_portfolio" >
         <div class="port_header" onclick="show_portfolio()">
             Portafolio 
             <br />
-            <i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>
-            <i class="fas fa-chevron-down on"></i>
+            <%--<i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>--%>
+            <%--<i class="fas fa-chevron-down on"></i>--%>
         </div>
 
         <asp:Repeater ID="rpNotas" runat="server">
             <ItemTemplate>
-                <a class="notas <%# Container.ItemIndex == 0? "first_nota":""%>" href='<%# Eval("tipo_nota").ToString() == "EQUITY"?"#":("Activos"+(Eval("tipo_nota").ToString() == "GARANTIZADO"?"ELN":Eval("tipo_nota"))+".aspx?id="+Eval("codigo")+"&type="+Eval("tipo_nota")) %>'>
+                <a class="notas first_nota" href='<%# Eval("tipo_nota").ToString() == "EQUITY"?"#":("Activos"+(Eval("tipo_nota").ToString() == "GARANTIZADO"?"ELN":Eval("tipo_nota"))+".aspx?id="+Eval("codigo")+"&type="+Eval("tipo_nota")) %>'>
                     
                     <div style="position:absolute;right:37px;margin-top:-5px">
                         <i class='<%# returnNot(Eval("codigo").ToString()) %>' 
@@ -176,23 +177,32 @@
         </asp:Repeater>
 
     </div>
+    <% }else { %>
+        <div class="dash_body">
+            <div style="color: white;text-align: center;width: auto;height: 50vh;padding-top: 10%;">
+                Aún no tienes inversiones en Notas. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalog.aspx">aquí </a>
+            </div> 
+        </div>
+    <% } %>
+
+    
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
-        function toggle_menu() {
-            $('#body_grafico').toggleClass('active');
-            $('#body_cuadro').toggleClass('active');
-            $('#menu_cuadro').toggleClass('active');
-            $('#menu_grafico').toggleClass('active');
-        }
+        //function toggle_menu() {
+        //    $('#body_grafico').toggleClass('active');
+        //    $('#body_cuadro').toggleClass('active');
+        //    $('#menu_cuadro').toggleClass('active');
+        //    $('#menu_grafico').toggleClass('active');
+        //}
 
-        $('#body_grafico').on('swipeleft', function (e, data) {
-            toggle_menu();
-        });
-        $('#body_cuadro').on('swiperight', function (e, data) {
-            toggle_menu();
-        });
+        //$('#body_grafico').on('swipeleft', function (e, data) {
+        //    toggle_menu();
+        //});
+        //$('#body_cuadro').on('swiperight', function (e, data) {
+        //    toggle_menu();
+        //});
 
         function show_3() {
             $('#last_3').addClass('active');
@@ -236,15 +246,15 @@
         }
         var t = true;
         function show_portfolio() {
-            $('#dash_portfolio').toggleClass('active');
-            $('#dash_body').toggle('500');
-            if (t) {
-                document.getElementsByTagName("body")[0].style.overflow = 'auto';
-            }
-            else {
-                document.getElementsByTagName("body")[0].style.overflow = 'hidden';
-            }
-            t = !t;
+            //$('#dash_portfolio').toggleClass('active');
+            //$('#dash_body').toggle('500');
+            //if (t) {
+            //    document.getElementsByTagName("body")[0].style.overflow = 'auto';
+            //}
+            //else {
+            //    document.getElementsByTagName("body")[0].style.overflow = 'hidden';
+            //}
+            //t = !t;
         }
 
         $('#dash_portfolio').on('swipeup', function (e, data) {
@@ -256,7 +266,6 @@
             show_portfolio();
             document.getElementsByTagName("body")[0].style.overflow = 'hidden';
         });
-
 
     </script>
 </asp:Content>

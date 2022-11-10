@@ -148,13 +148,13 @@
         <div class="port_header" onclick="show_portfolio()">
             Portafolio 
             <br />
-            <i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>
-            <i class="fas fa-chevron-down on"></i>
+            <%--<i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>--%>
+            <%--<i class="fas fa-chevron-down on"></i>--%>
         </div>
 
         <asp:Repeater ID="rpNotas" runat="server">
             <ItemTemplate>
-                <a class="notas <%# Container.ItemIndex == 0? "first_nota":""%>" href='<%# Eval("tipo_nota").ToString() == "EQUITY"?"#":("Activos"+(Eval("tipo_nota").ToString() == "GARANTIZADO"?"ELN":Eval("tipo_nota"))+".aspx?id="+Eval("codigo")+"&type="+Eval("tipo_nota")) %>'>
+                <a class="notas first_nota" href='<%# Eval("tipo_nota").ToString() == "EQUITY"?"#":("Activos"+(Eval("tipo_nota").ToString() == "GARANTIZADO"?"ELN":Eval("tipo_nota"))+".aspx?id="+Eval("codigo")+"&type="+Eval("tipo_nota")) %>'>
                     
                     <div style="position:absolute;right:37px;margin-top:-5px">
                         <i class='<%# returnNot(Eval("codigo").ToString()) %>' 
@@ -246,15 +246,15 @@
         }
         var t = true;
         function show_portfolio() {
-            $('#dash_portfolio').toggleClass('active');
-            $('#dash_body').toggle('500');
-            if (t) {
-                document.getElementsByTagName("body")[0].style.overflow = 'auto';
-            }
-            else {
-                document.getElementsByTagName("body")[0].style.overflow = 'hidden';
-            }
-            t = !t;
+            //$('#dash_portfolio').toggleClass('active');
+            //$('#dash_body').toggle('500');
+            //if (t) {
+            //    document.getElementsByTagName("body")[0].style.overflow = 'auto';
+            //}
+            //else {
+            //    document.getElementsByTagName("body")[0].style.overflow = 'hidden';
+            //}
+            //t = !t;
         }
 
         $('#dash_portfolio').on('swipeup', function (e, data) {

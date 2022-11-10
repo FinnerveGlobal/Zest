@@ -996,6 +996,8 @@
     <Content Include="Assets\img\logos\isotipo.svg" />
     <Content Include="Assets\img\menu\bell 0.svg" />
     <Content Include="Assets\img\menu\bell 1.svg" />
+    <Content Include="Assets\img\menu\funds 0.svg" />
+    <Content Include="Assets\img\menu\funds 1.svg" />
     <Content Include="Assets\img\menu\list 0.svg" />
     <Content Include="Assets\img\menu\list 1.svg" />
     <Content Include="Assets\img\menu\mail 0.svg" />
@@ -1242,6 +1244,7 @@
     <Content Include="Resources\Views\Funds\ZestFunds.aspx" />
     <Content Include="Resources\Views\More\Algoparati.aspx" />
     <Content Include="Resources\Views\More\Contacto.aspx" />
+    <Content Include="Resources\Views\More\externalPdfViewer.aspx" />
     <Content Include="Resources\Views\More\externalViewer.aspx" />
     <Content Include="Resources\Views\More\pdfViewer.aspx" />
     <Content Include="Resources\Views\News\NewsCorp.aspx" />
@@ -1870,6 +1873,13 @@
     </Compile>
     <Compile Include="Resources\Views\More\Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewer.aspx.cs">
+      <DependentUpon>externalPdfViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewer.aspx.designer.cs">
+      <DependentUpon>externalPdfViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\More\externalViewer.aspx.cs">
       <DependentUpon>externalViewer.aspx</DependentUpon>

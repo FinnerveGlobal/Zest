@@ -250,6 +250,7 @@
                             <a href="#" class="nav-link has-dropdown">
                                 <i class="fas fa-mobile-alt"></i><span>Zest App</span></a>
                             <ul class="dropdown-menu">
+                                <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/NewsUpload.aspx">Cargar Noticias</a></li>
                                 <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/News.aspx">Noticias Zest</a></li>
                                 <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/NewsCorp.aspx">Noticias Compañias</a></li>
                                 <li><a class="nav-link" runat="server" href="~/Resources/Views/Backend/Zestapp/NewsMacro.aspx">Noticias Macro</a></li>

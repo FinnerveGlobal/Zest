@@ -10,25 +10,45 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
-        <%--<div class="logo">
+    <%--<div class="dash_header">
+        <!-- <div class="logo">
             <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>--%>
+        </div>-->
         <div class="resumenLabel" style="width: unset">
             <div align="right" style="float: left">
-                <a href="ZestCatalog.aspx">
+                <a href="ZestCatalog.aspx" style="color: #333333">
                     Nuevas Notas
                 </a>
-             <div style="height: 4px; width: 30px; background: #dabe04">
+             <div style="height: 4px; width: 30px; background: #dabe04; display: none">
              </div>
             </div>
-            <div align="left" style="float: right">
+            <div align="right" style="float: right">
                 Nuevos Fondos
              <div style="height: 4px; width: 30px; background: #dabe04">
              </div>
             </div>
         </div>
+    </div>--%>
+    <div class="dash_header">
+        <%--<div class="logo">
+            <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+        </div>--%>
+        <div class="resumenLabel row" style="width: unset">
+            <div class="col-6">
+                <a href="ZestCatalog.aspx" style="color: #333333; padding-left: 20px;">
+                    Nuevas Notas
+                </a>
+             <div style="height: 4px; width: 30px; background: #dabe04; display: none">
+             </div>
+            </div>
+            <div class="col-6">
+                Nuevos Fondos
+                 <div style="height: 4px; width: 30px; background: #dabe04; margin-left: 87px;">
+                 </div>
+            </div>
+        </div>
     </div>
+
     <br />
     <br />
     <div class="catalog">
@@ -81,32 +101,26 @@
             </div>
 
     </div>
-    <div class="d-flex justify-content-around my-3">
-
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-                <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf#view=FitH">
-                    Ver Factsheet
-                </asp:LinkButton>
-            </ContentTemplate>           
-        </asp:UpdatePanel>
-
-        <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-                <a style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" href="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf"  target="_blank">
-                    Ver Factsheet
-                </a>
-                <asp:LinkButton ID="btnVerFactsheet" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;">Ver Factsheet</asp:LinkButton>
-            </ContentTemplate>
-        </asp:UpdatePanel>--%>
-
-        <asp:UpdatePanel ID="upMail" runat="server">
-            <ContentTemplate>
-                <asp:LinkButton ID="btnMeInteresa" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnMeInteresa_Click">
-                    Me interesa
-                </asp:LinkButton>
-            </ContentTemplate>           
-        </asp:UpdatePanel>
+    <div class="row my-3">
+        <div class="col-6" style="padding-left: 35px;">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
+                        Ver Factsheet
+                    </asp:LinkButton>
+                </ContentTemplate>           
+            </asp:UpdatePanel>
+        </div>
+        <div class="col-6">
+            <asp:UpdatePanel ID="upMail" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="btnMeInteresa" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnMeInteresa_Click">
+                        Me interesa
+                    </asp:LinkButton>
+                </ContentTemplate>           
+            </asp:UpdatePanel>
+        </div>
+        
     </div>
 
     <%--<asp:Button runat="server"  OnClick="btnExternal_Click"/>--%>

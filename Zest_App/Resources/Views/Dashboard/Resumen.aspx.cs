@@ -62,6 +62,8 @@ namespace Zest_App.Resources.Views.Dashboard
                 code = int.Parse(reqCookies["user_code"].ToString());
             }
 
+            //code = 3214;
+
             using (var ctx = new PivZestDevEntities())
             {
                 string resumen = "",resumen_rent = "",resumen_rent_usd="";
@@ -246,6 +248,7 @@ namespace Zest_App.Resources.Views.Dashboard
                         var note_tmp = notas_list.Where(o => o.nombre == tmp.Symbol).FirstOrDefault();
                         if(note_tmp != null)
                         {
+                            System.Diagnostics.Debug.WriteLine(" != null: " + item.Symbol);
                             note_tmp.valor = note_tmp.valor + (double)item.ValorMercado;
                         
                         }
@@ -301,7 +304,7 @@ namespace Zest_App.Resources.Views.Dashboard
                 }
 
                 valor_resumen.Text = dataAcumulada.ToString("N2");
-
+                System.Diagnostics.Debug.WriteLine(notas_list.Count);
                 Session["notas_list"] = notas_list;
 
                 rpNotas.DataSource = notas_list ;

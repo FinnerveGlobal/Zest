@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="notas_menu">
+    <div class="notas_menu" style="z-index: 1">
         <a class="menu_item btn_load" href="NewsMercado.aspx">Macro
              <span></span>
         </a>
@@ -72,7 +72,7 @@
         }
         $(function () {
             $('.bot_menu').find('.bot_menu_item').removeClass('active');
-            $('.bot_menu').find('.bot_menu_item:nth-child(3)').addClass('active');
+            $('.bot_menu').find('.bot_menu_item:nth-child(4)').addClass('active');
         });
         $('.news_item').click(function () {
             var tmp = $(this).hasClass('active');

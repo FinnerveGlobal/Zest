@@ -27,11 +27,11 @@
         { %>
         <div class="dash_header">
             <div class="resumenLabel" style="width: unset">
-                <div align="right" style="float: left">
+                <%--<div align="right" style="float: left">
                     Fondos
                     <div style="height: 4px; width: 30px; background: #dabe04">
                     </div>
-                </div>
+                </div>--%>
             </div>
             <div class="resumen">
                 <div class="left">
@@ -74,7 +74,7 @@
         </div>
         <div id="dash_portfolio" class="dash_portfolio" >
             <div class="port_header" onclick="show_portfolio()">
-                Fondos
+                Portafolio
                 <br />
             </div>
             
