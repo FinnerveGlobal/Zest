@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="externalPdfViewer.aspx.cs" Inherits="Zest_App.Resources.Views.More.externalPdfViewer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="externalPdfViewerIframeVer.aspx.cs" Inherits="Zest_App.Resources.Views.More.externalPdfViewerIframeVer" %>
+
 
 <!DOCTYPE html>
 
@@ -160,14 +161,9 @@
 
             <asp:UpdatePanel ID="up_contact" runat="server">
                 <ContentTemplate>
-                    <%--<iframe runat="server" id="externalFrame" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)" type="application/pdf"></iframe>--%>
-                    <%--<iframe runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"></iframe>--%>
-                    <%--<embed runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
-                    <%--<object runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
-                    <asp:Literal ID="ltEmbed" runat="server" />
+                    <iframe runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"></iframe>
                 </ContentTemplate> 
-            </asp:UpdatePanel>
-            
+            </asp:UpdatePanel>            
     </form>
 </body>
     <script>

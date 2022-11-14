@@ -74,9 +74,53 @@ namespace Zest_App.Resources.Views.Catalog
             {
                 Session["tmpUrl"] = url;
 
-                Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                Response.Redirect("~/Resources/Views/More/externalPdfViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
             }
-
         }
+
+        protected void btnExternal_Click_Iframe(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string url = (string)btn.CommandArgument;
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                Session["tmpUrl"] = url;
+
+                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                Response.Redirect("~/Resources/Views/More/externalPdfViewerIframeVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+            }
+        }
+
+        protected void btnExternal_Click_Object(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string url = (string)btn.CommandArgument;
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                Session["tmpUrl"] = url;
+
+                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                Response.Redirect("~/Resources/Views/More/externalPdfViewerObjectVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+            }
+        }
+
+        protected void btnExternal_Click_Embed(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            string url = (string)btn.CommandArgument;
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                Session["tmpUrl"] = url;
+
+                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                Response.Redirect("~/Resources/Views/More/externalPdfViewerEmbedVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+            }
+        }
+
+
     }
 }

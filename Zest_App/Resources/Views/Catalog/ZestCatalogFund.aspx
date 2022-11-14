@@ -110,6 +110,27 @@
                     </asp:LinkButton>
                 </ContentTemplate>           
             </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="LinkButton2" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Iframe" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
+                        Ver Iframe
+                    </asp:LinkButton>
+                </ContentTemplate>           
+            </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="LinkButton3" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Embed" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
+                        Ver Embed
+                    </asp:LinkButton>
+                </ContentTemplate>           
+            </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                <ContentTemplate>
+                    <asp:LinkButton ID="LinkButton4" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Object" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
+                        Ver Object
+                    </asp:LinkButton>
+                </ContentTemplate>           
+            </asp:UpdatePanel>
         </div>
         <div class="col-6">
             <asp:UpdatePanel ID="upMail" runat="server">

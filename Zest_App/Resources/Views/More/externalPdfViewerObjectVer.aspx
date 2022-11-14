@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="externalPdfViewer.aspx.cs" Inherits="Zest_App.Resources.Views.More.externalPdfViewer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="externalPdfViewerObjectVer.aspx.cs" Inherits="Zest_App.Resources.Views.More.externalPdfViewerObjectVer" %>
 
 <!DOCTYPE html>
 
@@ -160,10 +160,6 @@
 
             <asp:UpdatePanel ID="up_contact" runat="server">
                 <ContentTemplate>
-                    <%--<iframe runat="server" id="externalFrame" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)" type="application/pdf"></iframe>--%>
-                    <%--<iframe runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"></iframe>--%>
-                    <%--<embed runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
-                    <%--<object runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
                     <asp:Literal ID="ltEmbed" runat="server" />
                 </ContentTemplate> 
             </asp:UpdatePanel>

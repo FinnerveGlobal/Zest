@@ -1240,11 +1240,13 @@
     <Content Include="Resources\Views\Dashboard\EventosCLN.aspx" />
     <Content Include="Resources\Views\Dashboard\EventosELN.aspx" />
     <Content Include="Resources\Views\Dashboard\Resumen.aspx" />
-    <Content Include="Resources\Views\Funds\Fund.aspx" />
     <Content Include="Resources\Views\Funds\ZestFunds.aspx" />
     <Content Include="Resources\Views\More\Algoparati.aspx" />
     <Content Include="Resources\Views\More\Contacto.aspx" />
     <Content Include="Resources\Views\More\externalPdfViewer.aspx" />
+    <Content Include="Resources\Views\More\externalPdfViewerEmbedVer.aspx" />
+    <Content Include="Resources\Views\More\externalPdfViewerIframeVer.aspx" />
+    <Content Include="Resources\Views\More\externalPdfViewerObjectVer.aspx" />
     <Content Include="Resources\Views\More\externalViewer.aspx" />
     <Content Include="Resources\Views\More\pdfViewer.aspx" />
     <Content Include="Resources\Views\News\NewsCorp.aspx" />
@@ -1846,13 +1848,6 @@
     <Compile Include="Resources\Views\Dashboard\Resumen.aspx.designer.cs">
       <DependentUpon>Resumen.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Views\Funds\Fund.aspx.cs">
-      <DependentUpon>Fund.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Resources\Views\Funds\Fund.aspx.designer.cs">
-      <DependentUpon>Fund.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Views\Funds\ZestFunds.aspx.cs">
       <DependentUpon>ZestFunds.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1880,6 +1875,27 @@
     </Compile>
     <Compile Include="Resources\Views\More\externalPdfViewer.aspx.designer.cs">
       <DependentUpon>externalPdfViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerEmbedVer.aspx.cs">
+      <DependentUpon>externalPdfViewerEmbedVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerEmbedVer.aspx.designer.cs">
+      <DependentUpon>externalPdfViewerEmbedVer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerIframeVer.aspx.cs">
+      <DependentUpon>externalPdfViewerIframeVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerIframeVer.aspx.designer.cs">
+      <DependentUpon>externalPdfViewerIframeVer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerObjectVer.aspx.cs">
+      <DependentUpon>externalPdfViewerObjectVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\externalPdfViewerObjectVer.aspx.designer.cs">
+      <DependentUpon>externalPdfViewerObjectVer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\More\externalViewer.aspx.cs">
       <DependentUpon>externalViewer.aspx</DependentUpon>
