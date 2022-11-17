@@ -65,7 +65,7 @@ namespace Zest_App.Resources.Views.Funds
                 this.HasFunds = true;
 
                 var app_fundData_result = app_fundData.FirstOrDefault();
-                
+
                 naVDelDia = Math.Round((decimal)(app_fundData_result.NaVDelDia == null ? 0 : app_fundData_result.NaVDelDia), 2);
                 valorNominalInversion = Math.Round((decimal)(app_fundData_result.ValorNominalInversion == null ? 0 : app_fundData_result.ValorNominalInversion), 2);
                 rentabilidadAcumuladaBaseNav = Math.Round((decimal)(app_fundData_result.RentabilidadAcumuladaBaseNav == null ? 0 : app_fundData_result.RentabilidadAcumuladaBaseNav), 2);
@@ -122,8 +122,8 @@ namespace Zest_App.Resources.Views.Funds
 
 
                 // List of funds
-               
-                
+
+
 
                 rpFunds.DataSource = app_fundData.ToList();
                 rpFunds.DataBind();

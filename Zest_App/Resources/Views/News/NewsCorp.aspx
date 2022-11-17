@@ -79,7 +79,7 @@
         }
         $(function () {
             $('.bot_menu').find('.bot_menu_item').removeClass('active');
-            $('.bot_menu').find('.bot_menu_item:nth-child(3)').addClass('active');
+            $('.bot_menu').find('.bot_menu_item:nth-child(4)').addClass('active');
         });
         $('.news_item').click(function () {
             var tmp = $(this).hasClass('active');

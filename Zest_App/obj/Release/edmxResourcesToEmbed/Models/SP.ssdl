@@ -24,6 +24,8 @@
     <Property Name="RiskProfileId" Type="int" />
     <Property Name="KnowledgeLevel" Type="int" />
     <Property Name="Classification" Type="tinyint" />
+    <Property Name="CreatedByUserId" Type="int" Nullable="false" />
+    <Property Name="RecordLastChange" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="ContactEmail">
     <Key>
@@ -53,7 +55,7 @@
     <Property Name="ContactId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
-    <Property Name="InterfaceCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="InterfaceCode" Type="nvarchar" MaxLength="60" Nullable="false" />
     <Property Name="Type" Type="int" Nullable="false" />
     <Property Name="CurrencyId" Type="int" Nullable="false" />
     <Property Name="CountryId" Type="int" Nullable="false" />
@@ -62,7 +64,7 @@
     <Property Name="OnlyShareholder" Type="bit" Nullable="false" />
     <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
     <Property Name="ProcessingType" Type="tinyint" Nullable="false" />
-    <Property Name="IntegrationCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="IntegrationCode" Type="nvarchar" MaxLength="50" />
     <Property Name="ContactRoleId" Type="int" />
     <Property Name="IsActiveToReports" Type="bit" Nullable="false" />
     <Property Name="VotingAuthority" Type="tinyint" />
@@ -70,6 +72,8 @@
     <Property Name="TaxExempt" Type="bit" Nullable="false" />
     <Property Name="W8StartDate" Type="datetime" />
     <Property Name="W8EndDate" Type="datetime" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="BlockedFront" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -88,6 +92,13 @@
     <Property Name="InvestorId" Type="int" />
     <Property Name="DashboardId" Type="int" />
     <Property Name="CultureName" Type="nvarchar" MaxLength="8" />
+    <Property Name="TwoFactorAuthSecret" Type="nvarchar" MaxLength="32" />
+    <Property Name="IsBlocked" Type="bit" Nullable="false" />
+    <Property Name="IntegrationCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="EnableDarkMode" Type="bit" Nullable="false" />
+    <Property Name="ThousandSeparator" Type="nvarchar" MaxLength="1" />
+    <Property Name="DecimalSeparator" Type="nvarchar" MaxLength="1" />
+    <Property Name="DateFormat" Type="nvarchar" MaxLength="10" />
   </EntityType>
   <Association Name="FK_dbo_ContactEmail_dbo_Contact_ContactId">
     <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
@@ -160,6 +171,17 @@
     <Parameter Name="login" Type="varchar" Mode="In" />
     <Parameter Name="email" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="SP_App_FundData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_App_FundPerformance_ByDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_FundData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="date_ini" Type="datetime" Mode="In" />
+    <Parameter Name="date_fin" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="InvestorId" Type="int" Mode="In" />
     <Parameter Name="date_ini" Type="date" Mode="In" />
@@ -191,6 +213,31 @@
     <Parameter Name="Origem" Type="varchar" Mode="In" />
     <Parameter Name="Destino" Type="varchar" Mode="In" />
     <Parameter Name="TableName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UF_FundFindStartDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="datetime">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="Symbol" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReferenceDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Uf_FundTwrPerformance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="HistoricalDate" Type="datetime" Nullable="false" />
+          <Property Name="InvestorId" Type="int" />
+          <Property Name="FundId" Type="int" />
+          <Property Name="Nav" Type="float" />
+          <Property Name="Deposits" Type="float" />
+          <Property Name="Withdrawal" Type="float" />
+          <Property Name="AccruedReturnFactor" Type="float" />
+          <Property Name="FundReturn" Type="float" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
   </Function>
   <EntityContainer Name="PivZestDevModelStoreContainer">
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />

@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="notas_menu" style="position:fixed">
+    <div class="notas_menu">
         <asp:Literal ID="notas_menu" runat="server"></asp:Literal>
     </div>
     <div class="analisis_group">

@@ -7,21 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Zest_App.Resources.Views.Dashboard
+namespace Zest_App.Resources.Views.Funds
 {
 
 
-    public partial class ActivosCLN
+    public partial class ZestFundsDetail
     {
-
-        /// <summary>
-        /// Control notas_menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal notas_menu;
 
         /// <summary>
         /// Control nota_nombre.
@@ -33,15 +24,6 @@ namespace Zest_App.Resources.Views.Dashboard
         protected global::System.Web.UI.WebControls.Literal nota_nombre;
 
         /// <summary>
-        /// Control nota_vencimiento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_vencimiento;
-
-        /// <summary>
         /// Control nota_valor.
         /// </summary>
         /// <remarks>
@@ -51,75 +33,57 @@ namespace Zest_App.Resources.Views.Dashboard
         protected global::System.Web.UI.WebControls.Literal nota_valor;
 
         /// <summary>
-        /// Control nota_rentabilidad.
+        /// Control fondo_gestor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_rentabilidad;
+        protected global::System.Web.UI.WebControls.Literal fondo_gestor;
 
         /// <summary>
-        /// Control nota_emisor.
+        /// Control fondo_auditor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_emisor;
+        protected global::System.Web.UI.WebControls.Literal fondo_auditor;
 
         /// <summary>
-        /// Control nota_isin.
+        /// Control fondo_moneda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_isin;
+        protected global::System.Web.UI.WebControls.Literal fondo_moneda;
 
         /// <summary>
-        /// Control nota_moneda.
+        /// Control fondo_administrador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_moneda;
+        protected global::System.Web.UI.WebControls.Literal fondo_administrador;
 
         /// <summary>
-        /// Control nota_rent.
+        /// Control fondo_custodio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_rent;
+        protected global::System.Web.UI.WebControls.Literal fondo_custodio;
 
         /// <summary>
-        /// Control nota_barrera_capital.
+        /// Control fondo_riesgo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_barrera_capital;
-
-        /// <summary>
-        /// Control nota_barrera_cupon.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal nota_barrera_cupon;
-
-        /// <summary>
-        /// Control rpActivos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpActivos;
+        protected global::System.Web.UI.WebControls.Literal fondo_riesgo;
     }
 }

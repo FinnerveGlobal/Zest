@@ -76,6 +76,8 @@
             <div class="port_header" onclick="show_portfolio()">
                 Portafolio
                 <br />
+                <i class="fas fa-chevron-up off" style="position:fixed;bottom:80px"></i>
+                <i class="fas fa-chevron-down on"></i>
             </div>
             
             <%--<asp:Repeater ID="rpFunds" runat="server">
@@ -96,53 +98,11 @@
 
             <asp:Repeater ID="rpFunds" runat="server">
                 <ItemTemplate>
-                    <div class="notas_body notas_activos" style="margin-top:10px">
-                        <div class="activos_header_group" style="position:sticky;top:85px;">
-                            <div class="activos_header" style="background:black;">
-                             <div style="position:absolute;bottom:20px;left:50%;color:#fff">
-                              <i class="fas fa-chevron-down"></i>
-                             </div>
-                                <div class="left">
-                                    <%# Eval("LegalName") %> 
-                                </div>
-                                <div class="right" style="margin: auto 20px auto 0;"><div><%--<%# ((decimal)Eval("ValorNominalInversion")).ToString("N2") %> <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04"><%# Eval("Moneda") %></i>--%>  </div></div>
-                            </div>
-                            <div class="activos_header_desc" style="z-index:1000;position:relative;background:black;">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <span>Gestor</span>
-                                        <br />
-                                        Zest LLC
-                                        <br />
-                                        <br />
-                                        <span>Auditor</span>
-                                        <br />
-                                        PwC
-                                        <br />
-                                        <br />
-                                         <span>Moneda</span>
-                                        <br />
-                                        USD
-                                    </div>
-                                    <div class="col-6">
-                                        <span>Administrador</span>
-                                        <br />
-                                        Zest Capital Perú SAC
-                                        <br />
-                                        <br />
-                                        <span>Custodio</span>
-                                        <br />
-                                        Pershing LLC
-                                        <br />
-                                        <br />
-                                        <span>Riesgo</span>
-                                        <br />
-                                        Volatibilidad
-                                    </div>
-                                </div>
-                            </div>
+                    <a class="notas first_nota" href=<%# "ZestFundsDetail.aspx?symbol=" + Eval("Symbol").ToString().Replace(" ","+") %> >
+                        <div class="left">
+                           <%# Eval("Symbol") %>
                         </div>
-                        </div>
+                    </a>
                 </ItemTemplate>
             </asp:Repeater>
 
