@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Layout/backend.Master" AutoEventWireup="true" CodeBehind="Catalog.aspx.cs" Inherits="Zest_App.Resources.Views.Backend.Zestapp.Catalog" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Layout/backend.Master" AutoEventWireup="true" CodeBehind="CatalogFunds.aspx.cs" Inherits="Zest_App.Resources.Views.Backend.Zestapp.CatalogFunds" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
 </asp:Content>
@@ -8,14 +8,14 @@
             <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Servicios Zest App: Notas</h4>
+                        <h4>Servicios Zest App: Fondos</h4>
                         <div class="card-header-action">
                              <asp:UpdatePanel ID="upSearch" runat="server">
                                 <ContentTemplate>
-                                    <asp:TextBox ID="txtSearch" placeholder="Buscar Servicio" onFocus="this.select()" CssClass="form-control" Width="300" OnTextChanged="txtSearch_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtSearch" placeholder="Buscar Fondo" onFocus="this.select()" CssClass="form-control" Width="300" OnTextChanged="txtSearch_TextChanged" AutoPostBack="true" runat="server"></asp:TextBox>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
-                            <a href="Catalog_item.aspx" runat="server" class="btn btn-light" style="margin-left:20px">Nuevo Servicio
+                            <a href="CatalogFunds_item.aspx" runat="server" class="btn btn-light" style="margin-left:20px">Nuevo Fondo
                             </a>
                         </div>
                     </div>
@@ -30,23 +30,22 @@
                                                 <%# Container.DataItemIndex + 1 %>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="codigo_nota" SortExpression="codigo_nota" HeaderText="código" />
-                                        <asp:BoundField DataField="isin" SortExpression="isin" HeaderText="ISIN" />
-                                        <asp:TemplateField HeaderText="inversión mínima" SortExpression="inv_minima">
+                                        <asp:BoundField DataField="codigo_fondo" SortExpression="codigo_fondo" HeaderText="código" />                                       
+                                        <asp:TemplateField SortExpression="inv_minima" HeaderText="inversión mínima">
                                             <ItemTemplate>
                                                 <%# ((Double)Eval("inv_minima")).ToString("N2") %>
                                             </ItemTemplate>
                                         </asp:TemplateField>
+                                        <asp:BoundField DataField="gestor" SortExpression="gestor" HeaderText="gestor" />
+                                        <asp:BoundField DataField="administrador" SortExpression="administrador" HeaderText="administrador" />
+                                        <asp:BoundField DataField="auditor" SortExpression="auditor" HeaderText="auditor" />
+                                        <asp:BoundField DataField="custodio" SortExpression="custodio" HeaderText="custodio" />
                                         <asp:BoundField DataField="riesgo" SortExpression="riesgo" HeaderText="riesgo" />
-                                        <asp:BoundField DataField="emisor" SortExpression="emisor" HeaderText="emisor" />
-                                        <asp:BoundField DataField="barrera" SortExpression="barrera" HeaderText="barrera cupón" />
-                                        <asp:BoundField DataField="barrera_capital" SortExpression="barrera_capital" HeaderText="barrera capital" />
                                         <asp:TemplateField HeaderText="moneda" SortExpression="moneda">
                                             <ItemTemplate>
                                                 <i class="fas fa-money-bill text-success"></i><%# "  "+Eval("moneda").ToString() %>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="adicional" SortExpression="adicional" HeaderText="adicional" />
                                         <asp:TemplateField HeaderText="estado">
                                             <ItemTemplate>
                                                 <span class='<%# Eval("estado").ToString() == "A" ? "badge bg-success":"badge bg-warning" %>' style="color: #fff">
@@ -56,8 +55,6 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-
-
                                                 <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false" style="float: right">
                                                     Options
@@ -66,7 +63,6 @@
                                                     <asp:LinkButton ID="btnPublicar" runat="server" OnClick="btnPublicar_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Publicar"><i class="fas fa-expand"></i> Publicar</asp:LinkButton></li>
                                                     <asp:LinkButton ID="btnDesactivar" runat="server" OnClick="btnDesactivar_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Desactivar"><i class="fas fa-ban"></i> Desactivar</asp:LinkButton></li>
                                                     <div class="dropdown-divider"></div>
-                                                    <asp:LinkButton ID="btnDetalle" runat="server" OnClick="btnDetalle_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Detalle"><i class="far fa-file"></i> Ver detalle</asp:LinkButton></li>
                                                     <asp:LinkButton ID="btnEditar" runat="server" OnClick="btnEditar_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Detalle"><i class="far fa-save"></i> Editar</asp:LinkButton></li>
                                                     <asp:LinkButton ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Borrar"><i class="fas fa-trash"></i> Borrar</asp:LinkButton></li>
                                                 </div>
@@ -103,101 +99,69 @@
                         <ContentTemplate>
                             <div class="row" style="margin-top: 15px">
                                 <div class="col-md-12">
-                                   <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Código Nota</label>
-                                                    <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>ISIN</label>
-                                                    <asp:TextBox ID="txtIsin" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Vencimiento</label>
-                                                    <asp:TextBox ID="txtVencimiento" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Limite Ingreso</label>
-                                                    <asp:TextBox ID="txtLimite" TextMode="Date" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Código Fondo</label>
+                                                <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Inversión Mínima</label>
+                                                <asp:TextBox ID="txtInversion" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Moneda</label>
+                                                <asp:DropDownList ID="ddlMoneda" CssClass="form-control" runat="server">
+                                                    <asp:ListItem Value="USD"></asp:ListItem>
+                                                    <asp:ListItem Value="PEN"></asp:ListItem>
+                                                    <asp:ListItem Value="EUR"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Gestor</label>
+                                                <asp:TextBox ID="txtGestor" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Inversión Mínima</label>
-                                                    <asp:TextBox ID="txtInversion" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Administrador</label>
+                                                <asp:TextBox ID="txtAdministrador" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
+                                        </div>
                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Moneda</label>
-                                                    <asp:DropDownList ID="ddlMoneda" CssClass="form-control" runat="server">
-                                                        <asp:ListItem Value="USD"></asp:ListItem>
-                                                        <asp:ListItem Value="PEN"></asp:ListItem>
-                                                        <asp:ListItem Value="EUR"></asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                           
-                                        </div>
-                                        <div class="row">
-                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Rentabilidad Cupón</label>
-                                                    <asp:TextBox ID="txtRentabilidad" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Barrera Capital</label>
-                                                    <asp:TextBox ID="txtBarreraCapital" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                             <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>Barrera Cupón</label>
-                                                    <asp:TextBox ID="txtBarrera" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Auditor</label>
+                                                <asp:TextBox ID="txtAuditor" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Emisor</label>
-                                                    <asp:TextBox ID="txtEmisor" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Riesgo</label>
-                                                    <asp:TextBox ID="txtRiesgo" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Custodio</label>
+                                                <asp:TextBox ID="txtCustodio" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Info adicional</label>
-                                                    <asp:TextBox ID="txtAdicional" TextMode="MultiLine" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Descripción</label>
-                                                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Style="height: 100px !important" runat="server" CssClass="form-control"></asp:TextBox>
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Riesgo</label>
+                                                <asp:TextBox ID="txtRiesgo" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
                                
                                 <div class="col-md-12" align="right">
-
                                     <button data-dismiss="modal" aria-label="Close" class="btn btn-default">Cancelar</button>
                                     <asp:Button ID="btnSaveEdit" runat="server" Text="Guardar Cambios" OnClick="btnSaveEdit_Click" CssClass="btn btn-light" />
                                 </div>
@@ -210,7 +174,7 @@
     </div>
 
     <!-- New modal -->
-    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog"
+    <%--<div class="modal fade" id="detailModal" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -276,10 +240,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 
-     <div class="modal fade" id="newDetModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     <%--<div class="modal fade" id="newDetModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -327,9 +291,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
-    <div class="modal fade" id="editDetModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <%--<div class="modal fade" id="editDetModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -377,7 +341,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 
 </asp:Content>

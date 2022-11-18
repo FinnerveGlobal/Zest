@@ -64,5 +64,6 @@ namespace Zest_App.Models
         public virtual DbSet<users> users { get; set; }
         public virtual DbSet<news> news { get; set; }
         public virtual DbSet<web_25k1k> web_25k1k { get; set; }
+        public virtual DbSet<catalog_fund_items> catalog_fund_items { get; set; }
     }
 }

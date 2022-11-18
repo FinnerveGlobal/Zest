@@ -64,6 +64,7 @@
         <AssociationConnector Association="zestapp_dbModel.fk_blog_user" />
         <EntityTypeShape EntityType="zestapp_dbModel.news" Width="1.5" PointX="19.375" PointY="4.75" />
         <EntityTypeShape EntityType="zestapp_dbModel.web_25k1k" Width="1.5" PointX="17.375" PointY="19.75" />
+        <EntityTypeShape EntityType="zestapp_dbModel.catalog_fund_items" Width="1.5" PointX="19.375" PointY="19.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

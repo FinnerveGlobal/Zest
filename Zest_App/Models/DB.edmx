@@ -71,6 +71,23 @@
           <Property Name="current_price" Type="decimal" Precision="10" Scale="10" />
           <Property Name="final_price" Type="decimal" Precision="10" Scale="10" />
         </EntityType>
+        <EntityType Name="catalog_fund_items">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_at" Type="timestamp" Precision="0" />
+          <Property Name="updated_at" Type="timestamp" Precision="0" />
+          <Property Name="estado" Type="varchar" MaxLength="5" />
+          <Property Name="codigo_fondo" Type="varchar" MaxLength="500" />
+          <Property Name="inv_minima" Type="double" />
+          <Property Name="moneda" Type="varchar" MaxLength="15" />
+          <Property Name="gestor" Type="varchar" MaxLength="50" />
+          <Property Name="administrador" Type="varchar" MaxLength="50" />
+          <Property Name="auditor" Type="varchar" MaxLength="50" />
+          <Property Name="custodio" Type="varchar" MaxLength="50" />
+          <Property Name="riesgo" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="catalog_item_details">
           <Key>
             <PropertyRef Name="id" />
@@ -791,6 +808,7 @@
           <EntitySet Name="assets" EntityType="Self.assets" Schema="zestapp_db" store:Type="Tables" />
           <EntitySet Name="assets_logos" EntityType="Self.assets_logos" Schema="zestapp_db" store:Type="Tables" />
           <EntitySet Name="bloomberg_asset_prices" EntityType="Self.bloomberg_asset_prices" Schema="zestapp_db" store:Type="Tables" />
+          <EntitySet Name="catalog_fund_items" EntityType="Self.catalog_fund_items" Schema="zestapp_db" store:Type="Tables" />
           <EntitySet Name="catalog_item_details" EntityType="Self.catalog_item_details" Schema="zestapp_db" store:Type="Tables" />
           <EntitySet Name="catalog_items" EntityType="Self.catalog_items" Schema="zestapp_db" store:Type="Tables" />
           <EntitySet Name="events" EntityType="Self.events" Schema="zestapp_db" store:Type="Tables" />
@@ -1030,6 +1048,7 @@
           </AssociationSet>
           <EntitySet Name="news" EntityType="zestapp_dbModel.news" />
           <EntitySet Name="web_25k1k" EntityType="zestapp_dbModel.web_25k1k" />
+          <EntitySet Name="catalog_fund_items" EntityType="zestapp_dbModel.catalog_fund_items" />
         </EntityContainer>
         <EntityType Name="adviser">
           <Key>
@@ -1851,6 +1870,23 @@
           <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="catalog_fund_items">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_at" Type="DateTime" />
+          <Property Name="updated_at" Type="DateTime" />
+          <Property Name="estado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="codigo_fondo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="inv_minima" Type="Double" />
+          <Property Name="moneda" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="gestor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="administrador" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="auditor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="custodio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="riesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2432,6 +2468,24 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_fund_items">
+            <EntityTypeMapping TypeName="zestapp_dbModel.catalog_fund_items">
+              <MappingFragment StoreEntitySet="catalog_fund_items">
+                <ScalarProperty Name="riesgo" ColumnName="riesgo" />
+                <ScalarProperty Name="custodio" ColumnName="custodio" />
+                <ScalarProperty Name="auditor" ColumnName="auditor" />
+                <ScalarProperty Name="administrador" ColumnName="administrador" />
+                <ScalarProperty Name="gestor" ColumnName="gestor" />
+                <ScalarProperty Name="moneda" ColumnName="moneda" />
+                <ScalarProperty Name="inv_minima" ColumnName="inv_minima" />
+                <ScalarProperty Name="codigo_fondo" ColumnName="codigo_fondo" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

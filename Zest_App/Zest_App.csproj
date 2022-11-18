@@ -1209,7 +1209,9 @@
     <Content Include="Resources\Views\Backend\Profile\Profile.aspx" />
     <Content Include="Resources\Views\Backend\Users\Users.aspx" />
     <Content Include="Resources\Views\Backend\Welcome.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\CatalogFunds.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\Catalog.aspx" />
+    <Content Include="Resources\Views\Backend\Zestapp\CatalogFunds_item.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\Catalog_item.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\CellCode.aspx" />
     <Content Include="Resources\Views\Backend\Zestapp\Dashboard.aspx" />
@@ -1287,6 +1289,9 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\bloomberg_asset_prices.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\catalog_fund_items.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\catalog_items.cs">
@@ -1632,12 +1637,26 @@
     <Compile Include="Resources\Views\Backend\Welcome.aspx.designer.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CatalogFunds.aspx.cs">
+      <DependentUpon>CatalogFunds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CatalogFunds.aspx.designer.cs">
+      <DependentUpon>CatalogFunds.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Views\Backend\Zestapp\Catalog.aspx.cs">
       <DependentUpon>Catalog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Resources\Views\Backend\Zestapp\Catalog.aspx.designer.cs">
       <DependentUpon>Catalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CatalogFunds_item.aspx.cs">
+      <DependentUpon>CatalogFunds_item.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\Backend\Zestapp\CatalogFunds_item.aspx.designer.cs">
+      <DependentUpon>CatalogFunds_item.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\Backend\Zestapp\Catalog_item.aspx.cs">
       <DependentUpon>Catalog_item.aspx</DependentUpon>
