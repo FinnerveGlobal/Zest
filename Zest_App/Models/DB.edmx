@@ -87,6 +87,8 @@
           <Property Name="auditor" Type="varchar" MaxLength="50" />
           <Property Name="custodio" Type="varchar" MaxLength="50" />
           <Property Name="riesgo" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="text" />
+          <Property Name="nombre_archivo" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="catalog_item_details">
           <Key>
@@ -1886,6 +1888,8 @@
           <Property Name="auditor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="custodio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="riesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_archivo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2475,6 +2479,8 @@
           <EntitySetMapping Name="catalog_fund_items">
             <EntityTypeMapping TypeName="zestapp_dbModel.catalog_fund_items">
               <MappingFragment StoreEntitySet="catalog_fund_items">
+                <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="riesgo" ColumnName="riesgo" />
                 <ScalarProperty Name="custodio" ColumnName="custodio" />
                 <ScalarProperty Name="auditor" ColumnName="auditor" />

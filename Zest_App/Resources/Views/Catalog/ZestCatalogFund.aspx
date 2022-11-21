@@ -51,98 +51,46 @@
 
     <br />
     <br />
-    <div class="catalog">
-        <div class="notas_body notas_activos" style="margin-top:10px">
-            <div class="activos_header_group" style="position:sticky;top:85px;">
-                <div class="activos_header" style="">
-                    <div style="position:absolute;bottom:20px;left:50%;color:#fff">
-                    <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="left">
-                        <asp:Literal ID="ltCodigo" runat="server" Text="Zest Estructurado Distribución"></asp:Literal>
-                    </div>
-                    <div class="right" style="margin: auto 20px auto 0;"><div>5,000 <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04">USD</i></div></div>
-                </div>
-                <div class="activos_header_desc" style="z-index:1000;position:relative;background:black;display: block;">
-                    <div class="row">
-                        <div class="col-6">
-                            <span>Gestor</span>
-                            <br />
-                            Zest LLC
-                            <br />
-                            <br />
-                            <span>Auditor</span>
-                            <br />
-                            PwC
-                            <br />
-                            <br />
-                                <span>Moneda</span>
-                            <br />
-                            USD
-                        </div>
-                        <div class="col-6">
-                            <span>Administrador</span>
-                            <br />
-                            Zest Capital Perú SAC
-                            <br />
-                            <br />
-                            <span>Custodio</span>
-                            <br />
-                            Pershing LLC
-                            <br />
-                            <br />
-                            <span>Riesgo</span>
-                            <br />
-                            Volatibilidad
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
 
+    <div class="catalog">
+        <asp:Repeater ID="rpTable" runat="server">
+            <ItemTemplate>
+                <a class="catalog_item ca_1" href="ZestItemFund.aspx?id=<%# Eval("id") %>">
+                    <i class="fas fa-chevron-down" style="position:absolute;bottom:10px;right:10px"></i>
+                    <div class="title">
+                        <%# Eval("codigo_fondo") %>
+                        <br />
+                    </div>
+                    <div class="monto_minimo" style="position:absolute;right:10px">
+                        <%# ((Double)Eval("inv_minima")).ToString("N0") %> <span>  <%# Eval("moneda") %></span>
+                        <br />
+                        <i>Inversión mínima</i>
+                    </div>
+                    <div class="desc">
+                        <br />
+                        <span>Gestor</span>
+                        <%# Eval("gestor") %>
+                        <br />
+                        <br />
+                        <span>Administrador</span>
+                        <%# Eval("administrador") %>
+                        <br />
+                        <br />
+                        <span>Auditor</span>
+                        <%# Eval("auditor") %>
+                        <br />
+                        <br />
+                        <span>Ingreso a la serie limitado hasta</span> 
+                        <%# ((DateTime)Eval("updated_at")).ToString("dd MMM yy") %><br />
+                        <span>o hasta completar monto de emisión</span>
+                        <br />
+                        <br />
+                    </div>
+                </a>
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
-    <div class="row my-3">
-        <div class="col-6" style="padding-left: 35px;">
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
-                        Ver Factsheet
-                    </asp:LinkButton>
-                </ContentTemplate>           
-            </asp:UpdatePanel>
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton2" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Iframe" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
-                        Ver Iframe
-                    </asp:LinkButton>
-                </ContentTemplate>           
-            </asp:UpdatePanel>
-            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton3" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Embed" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
-                        Ver Embed
-                    </asp:LinkButton>
-                </ContentTemplate>           
-            </asp:UpdatePanel>
-            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton4" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Object" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
-                        Ver Object
-                    </asp:LinkButton>
-                </ContentTemplate>           
-            </asp:UpdatePanel>
-        </div>
-        <div class="col-6">
-            <asp:UpdatePanel ID="upMail" runat="server">
-                <ContentTemplate>
-                    <asp:LinkButton ID="btnMeInteresa" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnMeInteresa_Click">
-                        Me interesa
-                    </asp:LinkButton>
-                </ContentTemplate>           
-            </asp:UpdatePanel>
-        </div>
-        
-    </div>
+    
 
     <%--<asp:Button runat="server"  OnClick="btnExternal_Click"/>--%>
 </asp:Content>

@@ -114,7 +114,7 @@
      <script>
          $(function () {
              $('.bot_menu').find('.bot_menu_item').removeClass('active');
-             $('.bot_menu').find('.bot_menu_item:nth-child(2)').addClass('active');
+             $('.bot_menu').find('.bot_menu_item:nth-child(3)').addClass('active');
          });
      </script>
 </asp:Content>

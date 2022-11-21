@@ -13,114 +13,31 @@ namespace Zest_App.Resources.Views.Catalog
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnMeInteresa_Click(object sender, EventArgs e)
-        {
-            //System.Diagnostics.Debug.WriteLine("SomeText");
-            //System.Diagnostics.Debug.WriteLine(btnMeInteresa.CommandArgument);
-
-            btnMeInteresa.Enabled = false;
-            btnMeInteresa.Text = "Enviando";
-            btnMeInteresa.DataBind();
-
-            int id = 0;
-            int code = 0;
-            using (var ctx = new PivZestDevEntities())
-            {
-                HttpCookie reqCookies = Request.Cookies["userInfo"];
-
-
-                if (reqCookies != null)
-                {
-                    id = int.Parse(reqCookies["user_id"].ToString());
-                    code = int.Parse(reqCookies["user_code"].ToString());
-
-
-                }
-                var advisor = ctx.SearchAdvisor(code).FirstOrDefault();
-
-                if (SendMail.sendMail(advisor.contacto + " | " + ltCodigo.Text, advisor.Email, "El cliente " + advisor.contacto + ", solicita más información sobre la nota " + ltCodigo.Text + "   <br><br> Zest App"))
-                {
-                    btnMeInteresa.Text = "Solicitud Enviada";
-                }
-                else
-                {
-                    btnMeInteresa.Text = "Intenta más tarde";
-                }
-            }
-
             using (var ctx = new zestapp_dbEntities())
             {
-                var item = new interes_investors
+
+                var items = (from t in ctx.catalog_fund_items
+                             where t.estado == "A"
+                             select t).OrderByDescending(o => o.id).ToArray();
+
+                rpTable.DataSource = items;
+                rpTable.DataBind();
+
+                HttpCookie reqCookies = Request.Cookies["userInfo"];
+                int id = int.Parse(reqCookies["user_id"].ToString());
+
+                var not = ctx.notifications.Where(o => o.estado == "A" && o.investor_id == id && o.notification1 == "catalog").FirstOrDefault();
+                if (not != null)
                 {
-                    created_at = DateTime.Now,
-                    investor_code = code.ToString(),
-                    nota = ltCodigo.Text,
-                    status = "A"
-                };
-                ctx.interes_investors.Add(item);
-                ctx.SaveChanges();
+                    not.estado = "R";
+                    ctx.SaveChanges();
+                }
             }
         }
 
-        protected void btnExternal_Click(object sender, EventArgs e)
+        private void load_data()
         {
-            LinkButton btn = (LinkButton)sender;
-            string url = (string)btn.CommandArgument;
 
-            if (!string.IsNullOrEmpty(url))
-            {
-                Session["tmpUrl"] = url;
-
-                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-            }
         }
-
-        protected void btnExternal_Click_Iframe(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            string url = (string)btn.CommandArgument;
-
-            if (!string.IsNullOrEmpty(url))
-            {
-                Session["tmpUrl"] = url;
-
-                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewerIframeVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-            }
-        }
-
-        protected void btnExternal_Click_Object(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            string url = (string)btn.CommandArgument;
-
-            if (!string.IsNullOrEmpty(url))
-            {
-                Session["tmpUrl"] = url;
-
-                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewerObjectVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-            }
-        }
-
-        protected void btnExternal_Click_Embed(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)sender;
-            string url = (string)btn.CommandArgument;
-
-            if (!string.IsNullOrEmpty(url))
-            {
-                Session["tmpUrl"] = url;
-
-                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewerEmbedVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-            }
-        }
-
-
     }
 }

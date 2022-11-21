@@ -176,6 +176,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     txtAuditor.Text = item.auditor;
                     txtCustodio.Text = item.custodio;
                     txtRiesgo.Text = item.riesgo;
+                    txtDesc.Text = item.descripcion;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "open_edit();", true);
                 }
             }
@@ -199,7 +200,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     string auditor = txtAuditor.Text;
                     string custodio = txtCustodio.Text;
                     string riesgo = txtRiesgo.Text;
-
+                    string descripcion = txtDesc.Text;
 
                     if (string.IsNullOrEmpty(codigo))
                     {
@@ -240,6 +241,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                         item.auditor = auditor;
                         item.custodio = custodio;
                         item.riesgo = riesgo;
+                        item.descripcion = descripcion;
 
                         ctx.SaveChanges();
                         loadData();

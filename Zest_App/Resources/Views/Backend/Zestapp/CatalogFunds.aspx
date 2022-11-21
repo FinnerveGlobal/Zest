@@ -159,6 +159,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Archivo</label><br />
+                                                <asp:FileUpload ID="FileUpload1" runat="server" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <asp:TextBox ID="txtDesc" TextMode="MultiLine" Style="height: 100px !important" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                
                                 <div class="col-md-12" align="right">

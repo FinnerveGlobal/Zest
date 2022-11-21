@@ -51,7 +51,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
             string auditor = txtAuditor.Text;
             string custodio = txtCustodio.Text;
             string riesgo = txtRiesgo.Text;
-
+            string descripcion = txtDesc.Text;
 
             if (string.IsNullOrEmpty(codigo))
             {
@@ -98,6 +98,8 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     newFund.auditor = auditor;
                     newFund.custodio = custodio;
                     newFund.riesgo = riesgo;
+                    newFund.descripcion = descripcion;
+                    newFund.nombre_archivo = "";
 
                     ctx.catalog_fund_items.Add(newFund);
                     int result = ctx.SaveChanges();

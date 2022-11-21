@@ -7,155 +7,137 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Zest_App.Resources.Views.Backend.Zestapp
+namespace Zest_App.Resources.Views.Catalog
 {
 
 
-    public partial class CatalogFunds
+    public partial class ZestItemFund
     {
 
         /// <summary>
-        /// Control upSearch.
+        /// Control ltCodigo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upSearch;
+        protected global::System.Web.UI.WebControls.Literal ltCodigo;
 
         /// <summary>
-        /// Control txtSearch.
+        /// Control ltInv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+        protected global::System.Web.UI.WebControls.Literal ltInv;
 
         /// <summary>
-        /// Control upTable.
+        /// Control ltMoneda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upTable;
+        protected global::System.Web.UI.WebControls.Literal ltMoneda;
 
         /// <summary>
-        /// Control dgvTable.
+        /// Control fondo_gestor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvTable;
+        protected global::System.Web.UI.WebControls.Literal fondo_gestor;
 
         /// <summary>
-        /// Control upEditModal.
+        /// Control fondo_auditor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upEditModal;
+        protected global::System.Web.UI.WebControls.Literal fondo_auditor;
 
         /// <summary>
-        /// Control txtCodigo.
+        /// Control fondo_moneda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
+        protected global::System.Web.UI.WebControls.Literal fondo_moneda;
 
         /// <summary>
-        /// Control txtInversion.
+        /// Control fondo_administrador.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInversion;
+        protected global::System.Web.UI.WebControls.Literal fondo_administrador;
 
         /// <summary>
-        /// Control ddlMoneda.
+        /// Control fondo_custodio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMoneda;
+        protected global::System.Web.UI.WebControls.Literal fondo_custodio;
 
         /// <summary>
-        /// Control txtGestor.
+        /// Control fondo_riesgo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGestor;
+        protected global::System.Web.UI.WebControls.Literal fondo_riesgo;
 
         /// <summary>
-        /// Control txtAdministrador.
+        /// Control ltDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAdministrador;
+        protected global::System.Web.UI.WebControls.Literal ltDesc;
 
         /// <summary>
-        /// Control txtAuditor.
+        /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAuditor;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// Control txtCustodio.
+        /// Control LinkButton1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustodio;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
 
         /// <summary>
-        /// Control txtRiesgo.
+        /// Control upMail.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRiesgo;
+        protected global::System.Web.UI.UpdatePanel upMail;
 
         /// <summary>
-        /// Control FileUpload1.
+        /// Control btnMeInteresa.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
-        /// <summary>
-        /// Control txtDesc.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDesc;
-
-        /// <summary>
-        /// Control btnSaveEdit.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveEdit;
+        protected global::System.Web.UI.WebControls.LinkButton btnMeInteresa;
     }
 }

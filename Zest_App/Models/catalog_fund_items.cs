@@ -26,5 +26,7 @@ namespace Zest_App.Models
         public string auditor { get; set; }
         public string custodio { get; set; }
         public string riesgo { get; set; }
+        public string descripcion { get; set; }
+        public string nombre_archivo { get; set; }
     }
 }
