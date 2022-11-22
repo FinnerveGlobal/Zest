@@ -55,7 +55,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="pdf">
                                             <ItemTemplate>
-                                                <a runat="server" target="_blank" id="pdf" href='<%# "/newsfile/" + Eval("nombre_archivo") %>'>Ver PDF</a>
+                                                <a runat="server" target="_blank" id="pdf" href='<%# "/Files/" + Eval("nombre_archivo") %>'>Ver PDF</a>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField>

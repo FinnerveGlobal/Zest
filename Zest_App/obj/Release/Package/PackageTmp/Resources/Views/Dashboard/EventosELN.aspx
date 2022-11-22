@@ -26,7 +26,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="notas_menu" style="position:fixed">
+    <div class="notas_menu" style="">
         <asp:Literal ID="notas_menu" runat="server"></asp:Literal>
     </div>
     <div class="notas_body notas_activos"  style="position:sticky;top:85px;margin-top:50px">

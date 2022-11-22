@@ -580,5 +580,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="catalog_fund_items">
+      <EntityTypeMapping TypeName="zestapp_dbModel.catalog_fund_items">
+        <MappingFragment StoreEntitySet="catalog_fund_items">
+          <ScalarProperty Name="nombre_archivo" ColumnName="nombre_archivo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="riesgo" ColumnName="riesgo" />
+          <ScalarProperty Name="custodio" ColumnName="custodio" />
+          <ScalarProperty Name="auditor" ColumnName="auditor" />
+          <ScalarProperty Name="administrador" ColumnName="administrador" />
+          <ScalarProperty Name="gestor" ColumnName="gestor" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="inv_minima" ColumnName="inv_minima" />
+          <ScalarProperty Name="codigo_fondo" ColumnName="codigo_fondo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

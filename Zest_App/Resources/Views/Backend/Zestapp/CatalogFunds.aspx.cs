@@ -245,7 +245,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                             }
 
                             // Save file
-                            string FolderPath = "/newsfile/";
+                            string FolderPath = "/Files/";
                             string FilePath = Server.MapPath(FolderPath + FileName);
                             FileUpload1.SaveAs(FilePath);
 

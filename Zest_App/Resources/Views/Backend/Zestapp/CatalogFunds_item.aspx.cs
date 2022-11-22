@@ -99,7 +99,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     using (var ctx = new zestapp_dbEntities())
                     {
                         // Save file
-                        string FolderPath = "/newsfile/";
+                        string FolderPath = "/Files/";
                         string FilePath = Server.MapPath(FolderPath + FileName);
                         FileUpload1.SaveAs(FilePath);
 

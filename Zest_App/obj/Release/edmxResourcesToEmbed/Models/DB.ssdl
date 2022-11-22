@@ -66,6 +66,25 @@
     <Property Name="current_price" Type="decimal" Precision="10" Scale="10" />
     <Property Name="final_price" Type="decimal" Precision="10" Scale="10" />
   </EntityType>
+  <EntityType Name="catalog_fund_items">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="created_at" Type="timestamp" Precision="0" />
+    <Property Name="updated_at" Type="timestamp" Precision="0" />
+    <Property Name="estado" Type="varchar" MaxLength="5" />
+    <Property Name="codigo_fondo" Type="varchar" MaxLength="500" />
+    <Property Name="inv_minima" Type="double" />
+    <Property Name="moneda" Type="varchar" MaxLength="15" />
+    <Property Name="gestor" Type="varchar" MaxLength="50" />
+    <Property Name="administrador" Type="varchar" MaxLength="50" />
+    <Property Name="auditor" Type="varchar" MaxLength="50" />
+    <Property Name="custodio" Type="varchar" MaxLength="50" />
+    <Property Name="riesgo" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="nombre_archivo" Type="varchar" MaxLength="500" />
+  </EntityType>
   <EntityType Name="catalog_item_details">
     <Key>
       <PropertyRef Name="id" />
@@ -786,6 +805,7 @@
     <EntitySet Name="assets" EntityType="Self.assets" Schema="zestapp_db" store:Type="Tables" />
     <EntitySet Name="assets_logos" EntityType="Self.assets_logos" Schema="zestapp_db" store:Type="Tables" />
     <EntitySet Name="bloomberg_asset_prices" EntityType="Self.bloomberg_asset_prices" Schema="zestapp_db" store:Type="Tables" />
+    <EntitySet Name="catalog_fund_items" EntityType="Self.catalog_fund_items" Schema="zestapp_db" store:Type="Tables" />
     <EntitySet Name="catalog_item_details" EntityType="Self.catalog_item_details" Schema="zestapp_db" store:Type="Tables" />
     <EntitySet Name="catalog_items" EntityType="Self.catalog_items" Schema="zestapp_db" store:Type="Tables" />
     <EntitySet Name="events" EntityType="Self.events" Schema="zestapp_db" store:Type="Tables" />

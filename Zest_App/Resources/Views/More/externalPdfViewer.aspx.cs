@@ -14,17 +14,17 @@ namespace Zest_App.Resources.Views.More
             string url = Session["tmpUrl"].ToString();
             string back = Request.QueryString["getBack"];
 
-            //externalFrame.Src = url;
-            //externalFrame.DataBind();
+            externalFrame.Src = "https://docs.google.com/gview?url=" + url + "&embedded=true&rm=minimal";
+            externalFrame.DataBind();
 
             txtUrl.Text = url;
             getBack.HRef = back;
 
-            string embedHtml = "<object data=\""
-                + url + "\""
-                + "type=\"application/pdf\" style=\"background: #fff; width: 100%;border:none;height:calc(100vh - 38px)\"></object>";
+            //string embedHtml = "<object data=\""
+            //    + url + "\""
+            //    + "type=\"application/pdf\" style=\"background: #fff; width: 100%;border:none;height:calc(100vh - 38px)\"></object>";
 
-            ltEmbed.Text = embedHtml;
+            //ltEmbed.Text = embedHtml;
         }
     }
 }
