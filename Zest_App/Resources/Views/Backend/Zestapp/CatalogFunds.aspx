@@ -53,6 +53,11 @@
                                                 </span>
                                             </ItemTemplate>
                                         </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="pdf">
+                                            <ItemTemplate>
+                                                <a runat="server" target="_blank" id="pdf" href='<%# "/newsfile/" + Eval("nombre_archivo") %>'>Ver PDF</a>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:TemplateField>
                                             <ItemTemplate>
                                                 <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown"
@@ -183,6 +188,9 @@
                                 </div>
                             </div>
                         </ContentTemplate>
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="btnSaveEdit" />
+                        </Triggers>
                     </asp:UpdatePanel>
                 </div>
             </div>

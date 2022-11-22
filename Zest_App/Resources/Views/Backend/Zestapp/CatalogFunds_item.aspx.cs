@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -80,36 +81,54 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
             else if (string.IsNullOrEmpty(riesgo))
             {
                 ShowMessage.warning("Campo riesgo es obligatorio", this);
+            }else if (!FileUpload1.HasFile)
+            {
+                ShowMessage.warning("Campo archivo es obligatorio", this);
             }
-            
             else
             {
-                using (var ctx = new zestapp_dbEntities())
+                string FileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                string Extension = Path.GetExtension(FileUpload1.PostedFile.FileName);
+
+                if (Extension != ".pdf")
                 {
-                    var newFund = new catalog_fund_items();
-                    newFund.created_at = DateTime.Now;
-                    newFund.updated_at = DateTime.Now;
-                    newFund.estado = "P";
-                    newFund.codigo_fondo = codigo;
-                    newFund.inv_minima = inversion_minima;
-                    newFund.moneda = moneda;
-                    newFund.gestor = gestor;
-                    newFund.administrador = administrador;
-                    newFund.auditor = auditor;
-                    newFund.custodio = custodio;
-                    newFund.riesgo = riesgo;
-                    newFund.descripcion = descripcion;
-                    newFund.nombre_archivo = "";
-
-                    ctx.catalog_fund_items.Add(newFund);
-                    int result = ctx.SaveChanges();
-                    System.Diagnostics.Debug.WriteLine(result);
-
-                    SendNotification.send("Nuevo Servicio", "Tenemos un nuevo fondo disponible para ti");
-                    Session["mensaje"] = "Nuevo servicio (fondo) guardado correctamente";
-                    Response.Redirect("~/Resources/Views/Backend/Zestapp/CatalogFunds.aspx");
-
+                    ShowMessage.warning("Ingresar un archivo formato .pdf", this);
                 }
+                else
+                {
+                    using (var ctx = new zestapp_dbEntities())
+                    {
+                        // Save file
+                        string FolderPath = "/newsfile/";
+                        string FilePath = Server.MapPath(FolderPath + FileName);
+                        FileUpload1.SaveAs(FilePath);
+
+                        var newFund = new catalog_fund_items();
+                        newFund.created_at = DateTime.Now;
+                        newFund.updated_at = DateTime.Now;
+                        newFund.estado = "P";
+                        newFund.codigo_fondo = codigo;
+                        newFund.inv_minima = inversion_minima;
+                        newFund.moneda = moneda;
+                        newFund.gestor = gestor;
+                        newFund.administrador = administrador;
+                        newFund.auditor = auditor;
+                        newFund.custodio = custodio;
+                        newFund.riesgo = riesgo;
+                        newFund.descripcion = descripcion;
+                        newFund.nombre_archivo = FileName;
+
+                        ctx.catalog_fund_items.Add(newFund);
+                        int result = ctx.SaveChanges();
+                        System.Diagnostics.Debug.WriteLine(result);
+
+                        SendNotification.send("Nuevo Servicio", "Tenemos un nuevo fondo disponible para ti");
+                        Session["mensaje"] = "Nuevo servicio (fondo) guardado correctamente";
+                        Response.Redirect("~/Resources/Views/Backend/Zestapp/CatalogFunds.aspx");
+
+                    }
+                }
+
             }
         }
     }

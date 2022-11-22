@@ -115,7 +115,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Archivo</label><br />
-                                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                                    <asp:FileUpload ID="FileUpload1" runat="server"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,6 +137,9 @@
                                     </div>
                                 </div>
                             </ContentTemplate>
+                            <Triggers>
+                                <asp:PostBackTrigger ControlID="btnSave" />
+                            </Triggers>
                         </asp:UpdatePanel>
                     </div>
                 </div>

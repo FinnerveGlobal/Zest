@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -232,6 +233,26 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                     }
                     else
                     {
+                        if (FileUpload1.HasFile)
+                        {
+                            string FileName = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                            string Extension = Path.GetExtension(FileUpload1.PostedFile.FileName);
+
+                            if (Extension != ".pdf")
+                            {
+                                ShowMessage.warning("Ingresar un archivo formato .pdf", this);
+                                return;
+                            }
+
+                            // Save file
+                            string FolderPath = "/newsfile/";
+                            string FilePath = Server.MapPath(FolderPath + FileName);
+                            FileUpload1.SaveAs(FilePath);
+
+                            item.nombre_archivo = FileName;
+                        }
+
+
                         item.updated_at = DateTime.Now;
                         item.codigo_fondo = codigo;
                         item.inv_minima = inversion_minima;
