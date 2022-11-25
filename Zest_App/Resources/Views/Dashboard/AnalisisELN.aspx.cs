@@ -91,6 +91,7 @@ namespace Zest_App.Resources.Views.Dashboard
             LinkButton btn = (LinkButton)sender;
 
             Session["pdf_url"] = btn.CommandArgument;
+            System.Diagnostics.Debug.WriteLine(btn.CommandArgument);
             Session["getBack"] = "/Resources/Views/Dashboard/AnalisisELN.aspx?id=" + Request.QueryString["id"] + "&type=" + Request.QueryString["type"];
             Response.Redirect("~/Resources/Views/More/pdfViewer.aspx");
         }

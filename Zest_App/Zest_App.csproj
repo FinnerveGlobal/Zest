@@ -1252,6 +1252,7 @@
     <Content Include="Resources\Views\More\externalPdfViewerIframeVer.aspx" />
     <Content Include="Resources\Views\More\externalPdfViewerObjectVer.aspx" />
     <Content Include="Resources\Views\More\externalViewer.aspx" />
+    <Content Include="Resources\Views\More\pdfViewerNew.aspx" />
     <Content Include="Resources\Views\More\pdfViewer.aspx" />
     <Content Include="Resources\Views\News\NewsCorp.aspx" />
     <Content Include="Resources\Views\News\NewsMercado.aspx" />
@@ -1938,6 +1939,13 @@
     </Compile>
     <Compile Include="Resources\Views\More\externalViewer.aspx.designer.cs">
       <DependentUpon>externalViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Views\More\pdfViewerNew.aspx.cs">
+      <DependentUpon>pdfViewerNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Views\More\pdfViewerNew.aspx.designer.cs">
+      <DependentUpon>pdfViewerNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Views\More\pdfViewer.aspx.cs">
       <DependentUpon>pdfViewer.aspx</DependentUpon>

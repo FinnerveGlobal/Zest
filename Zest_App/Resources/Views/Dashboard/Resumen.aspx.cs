@@ -62,7 +62,7 @@ namespace Zest_App.Resources.Views.Dashboard
                 code = int.Parse(reqCookies["user_code"].ToString());
             }
 
-            code = 3214;
+            // code = 3214;
 
             using (var ctx = new PivZestDevEntities())
             {

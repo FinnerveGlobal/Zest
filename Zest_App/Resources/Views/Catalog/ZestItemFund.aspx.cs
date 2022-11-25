@@ -102,15 +102,22 @@ namespace Zest_App.Resources.Views.Catalog
         protected void btnExternal_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)sender;
-            string url = (string)btn.CommandArgument;
 
-            if (!string.IsNullOrEmpty(url))
-            {
-                Session["tmpUrl"] = url;
+            Session["pdf_url"] = btn.CommandArgument;
+            System.Diagnostics.Debug.WriteLine(btn.CommandArgument);
+            Session["getBack"] = "/Resources/Views/Catalog/ZestItemFund.aspx?id=" + Request.QueryString["id"];
+            Response.Redirect("~/Resources/Views/More/pdfViewerNew.aspx");
 
-                //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-            }
+            //LinkButton btn = (LinkButton)sender;
+            //string url = (string)btn.CommandArgument;
+
+            //if (!string.IsNullOrEmpty(url))
+            //{
+            //    Session["tmpUrl"] = url;
+
+            //    Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+            //    Response.Redirect("~/Resources/Views/More/externalPdfViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+            //}
         }
 
         protected void btnExternal_Click_Iframe(object sender, EventArgs e)
@@ -123,7 +130,7 @@ namespace Zest_App.Resources.Views.Catalog
                 Session["tmpUrl"] = url;
 
                 //Response.Redirect("~/Resources/Views/More/externalViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
-                Response.Redirect("~/Resources/Views/More/externalPdfViewerIframeVer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
+                Response.Redirect("~/Resources/Views/More/externalPdfViewer.aspx?getBack=/Resources/Views/Catalog/ZestCatalogFund.aspx");
             }
         }
 

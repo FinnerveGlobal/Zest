@@ -19,7 +19,7 @@
                         <span>inversión mínima</span>
                     </div>
                 </div>
-                <div class="activos_header_desc" style="z-index:1000;position:relative;background:black;display: block;">
+                <div class="activos_header_desc" style="z-index:1;position:relative;background:black;display: block;">
                     <div class="row">
                         <div class="col-6">
                             <span>Gestor</span>
@@ -63,7 +63,7 @@
         <div class="col-6" style="padding-left: 35px;">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
+                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="/files/Factsheet_Nuevo_Fondo.pdf">
                         Ver Factsheet
                     </asp:LinkButton>
                 </ContentTemplate>           
@@ -71,11 +71,11 @@
             <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
                     <asp:LinkButton ID="LinkButton2" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Iframe" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
-                        Ver Iframe
+                        Ver test
                     </asp:LinkButton>
                 </ContentTemplate>           
-            </asp:UpdatePanel>
-            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+            </asp:UpdatePanel>--%>
+            <%--<asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
                     <asp:LinkButton ID="LinkButton3" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click_Embed" CommandArgument="https://zest.pe/files/Factsheet_Nuevo_Fondo.pdf">
                         Ver Embed

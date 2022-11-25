@@ -162,7 +162,8 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 txtIsin.Text = item.isin;
                 txtBarreraCapital.Text = item.barrera_capital;
                 txtRentabilidad.Text = item.rentabilidad;
-
+                txtLimite.Text = "";
+                System.Diagnostics.Debug.WriteLine(txtLimite.Text);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "open_edit();", true);
             }
         }
@@ -178,7 +179,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 string codigo = txtCodigo.Text;
                 string isin = txtIsin.Text;
                 DateTime vencimiento = DateTime.Parse(txtVencimiento.Text);
-                DateTime limite = DateTime.Parse(txtLimite.Text);
+                
                 double inversion_minima = 0;
 
                 string moneda = ddlMoneda.SelectedValue;
@@ -213,9 +214,13 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 {
                     ShowMessage.warning("Campo riesgo es obligatorio", this);
                 }
-
+                else if (string.IsNullOrEmpty(txtLimite.Text))
+                {
+                    ShowMessage.warning("Campo límite ingreso es obligatorio y debe ser una fecha", this);
+                }
                 else
                 {
+                    DateTime limite = DateTime.Parse(txtLimite.Text);
 
                     item.codigo_nota = codigo;
                     item.vencimiento = vencimiento;

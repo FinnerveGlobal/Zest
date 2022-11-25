@@ -15,7 +15,7 @@
     <div class="notas_menu">
         <asp:Literal ID="notas_menu" runat="server"></asp:Literal>
     </div>
-    <div class="notas_body notas_activos" style="margin-top:50px">
+    <div class="notas_body notas_activos" style="margin-top:0px">
         <div class="activos_header_group" style="position:sticky;top:85px">
             <div class="activos_header">
              <div style="position:absolute;bottom:20px;left:50%;color:#fff">

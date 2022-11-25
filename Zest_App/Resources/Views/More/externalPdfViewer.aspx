@@ -155,18 +155,18 @@
                     </asp:UpdatePanel>
 
                 </div>
-                </div>
             </div>
+        </div>
 
-            <asp:UpdatePanel ID="up_contact" runat="server">
-                <ContentTemplate>
-                    <iframe runat="server" id="externalFrame" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)" type="application/pdf"></iframe>
-                    <%--<iframe runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"></iframe>--%>
-                    <%--<embed runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
-                    <%--<object runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
-                    <%--<asp:Literal ID="ltEmbed" runat="server" />--%>
-                </ContentTemplate> 
-            </asp:UpdatePanel>
+        <asp:UpdatePanel ID="up_contact" runat="server">
+            <ContentTemplate>
+                <iframe runat="server" id="externalFrame" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)" type="application/pdf"></iframe>
+                <%--<iframe runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"></iframe>--%>
+                <%--<embed runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
+                <%--<object runat="server" id="externalFrame" type="application/pdf" style="background: #fff; width: 100%;border:none;height:calc(100vh - 38px)"/>--%>
+                <%--<asp:Literal ID="ltEmbed" runat="server" />--%>
+            </ContentTemplate> 
+        </asp:UpdatePanel>
             
     </form>
 </body>

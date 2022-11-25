@@ -11,7 +11,7 @@
     <div class="notas_menu">
         <asp:Literal ID="notas_menu" runat="server"></asp:Literal>
     </div>
-    <div class="analisis_group">
+    <div class="analisis_group" style="margin-top: 0px;">
         <asp:Repeater ID="rpReviews" runat="server">
             <ItemTemplate>
                  <div class='<%# Container.ItemIndex == 0? "analisis active":"analisis" %>'>

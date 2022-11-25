@@ -28,7 +28,7 @@
              <div style="position:absolute;bottom:20px;left:50%;color:#fff">
               <i class="fas fa-chevron-down"></i>
              </div>
-                <div class="left">
+                <div class="left" style="margin-right: 0.5px">
                     <asp:Literal ID="nota_nombre" runat="server" Text="Fondo Zest Estructurado"></asp:Literal>
                 </div>
                 <div class="right">
