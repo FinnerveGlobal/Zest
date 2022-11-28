@@ -187,6 +187,10 @@
           <Parameter Name="date_ini" Type="datetime" Mode="In" />
           <Parameter Name="date_fin" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="SP_FundEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+          <Parameter Name="FundId" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="InvestorId" Type="int" Mode="In" />
           <Parameter Name="date_ini" Type="date" Mode="In" />
@@ -389,7 +393,11 @@
           <Parameter Name="InvestorId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_App_FundData" ReturnType="Collection(PivZestDevModel.SP_App_FundData_Result)">
+          <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_FundEvent" ReturnType="Collection(PivZestDevModel.SP_FundEvent_Result)">
             <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+            <Parameter Name="FundId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SearchAdvisor_Result">
@@ -759,6 +767,18 @@
           <Property Type="Decimal" Name="DividendosAcumulados" Nullable="true" Precision="38" Scale="6" />
           <Property Type="String" Name="Moneda" Nullable="true" MaxLength="3" />
         </ComplexType>
+        <ComplexType Name="SP_FundEvent_Result">
+          <Property Type="Int32" Name="FundId" Nullable="false" />
+          <Property Type="DateTime" Name="PaymentDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="ExDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Year" Nullable="true" />
+          <Property Type="Int32" Name="Month" Nullable="true" />
+          <Property Type="Decimal" Name="Dividend" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="Tax" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="Redemption" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="PeriodPerformance" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Int32" Name="Historic" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1111,6 +1131,22 @@
                 <ScalarProperty Name="RentabilidadAcumuladaBaseNav" ColumnName="RentabilidadAcumuladaBaseNav" />
                 <ScalarProperty Name="DividendosAcumulados" ColumnName="DividendosAcumulados" />
                 <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_FundEvent" FunctionName="PivZestDevModel.Store.SP_FundEvent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.SP_FundEvent_Result">
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="ExDate" ColumnName="ExDate" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Dividend" ColumnName="Dividend" />
+                <ScalarProperty Name="Tax" ColumnName="Tax" />
+                <ScalarProperty Name="Redemption" ColumnName="Redemption" />
+                <ScalarProperty Name="PeriodPerformance" ColumnName="PeriodPerformance" />
+                <ScalarProperty Name="Historic" ColumnName="Historic" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -163,6 +163,8 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 txtBarreraCapital.Text = item.barrera_capital;
                 txtRentabilidad.Text = item.rentabilidad;
                 txtLimite.Text = "";
+                txtLimite.Text = item.updated_at.Value.ToString("yyyy-MM-dd");
+
                 System.Diagnostics.Debug.WriteLine(txtLimite.Text);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "open_edit();", true);
             }
@@ -181,7 +183,7 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 DateTime vencimiento = DateTime.Parse(txtVencimiento.Text);
                 
                 double inversion_minima = 0;
-
+                DateTime limite = DateTime.Parse(txtLimite.Text);
                 string moneda = ddlMoneda.SelectedValue;
                 string barrera = txtBarrera.Text;
                 string emisor = txtEmisor.Text;
@@ -214,14 +216,8 @@ namespace Zest_App.Resources.Views.Backend.Zestapp
                 {
                     ShowMessage.warning("Campo riesgo es obligatorio", this);
                 }
-                else if (string.IsNullOrEmpty(txtLimite.Text))
-                {
-                    ShowMessage.warning("Campo límite ingreso es obligatorio y debe ser una fecha", this);
-                }
                 else
                 {
-                    DateTime limite = DateTime.Parse(txtLimite.Text);
-
                     item.codigo_nota = codigo;
                     item.vencimiento = vencimiento;
                     item.updated_at = limite;

@@ -50,6 +50,7 @@ namespace Zest_App.Resources.Layout
             {
                 var nots = ctx.notifications.Where(o => o.investor_id == 1);
 
+                System.Diagnostics.Debug.WriteLine("Notifications: " + nots.ToArray().Length);
 
                 if (nots.Where(o => o.estado == "A" && o.notification1 == "panel").FirstOrDefault() != null)
                 {
@@ -101,5 +102,54 @@ namespace Zest_App.Resources.Layout
                 Response.Redirect("/Resources/Views/Auth/Home.aspx");
             }
         }
+
+        protected void btnCatalog_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new zestapp_dbEntities())
+            {
+                var notifications = (from t in ctx.notifications
+                                     where t.investor_id == 1
+                                     where t.estado == "A"
+                                     where t.notification1.Contains("catalog")
+                                     select t).ToList();
+                notifications.ForEach(o => o.estado = "R");
+                System.Diagnostics.Debug.WriteLine("btnCatalog_Click: " + notifications.Count);
+                ctx.SaveChanges();
+            }
+            Response.Redirect("/Resources/Views/Catalog/ZestCatalog.aspx");
+        }
+
+        protected void btnNews_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new zestapp_dbEntities())
+            {
+                var notifications = (from t in ctx.notifications
+                                     where t.investor_id == 1
+                                     where t.estado == "A"
+                                     where t.notification1.Contains("news")
+                                     select t).ToList();
+                notifications.ForEach(o => o.estado = "R");
+                System.Diagnostics.Debug.WriteLine("btnNews_Click: " + notifications.Count);
+                ctx.SaveChanges();
+            }
+            Response.Redirect("/Resources/Views/News/NewsZest.aspx");
+        }
+
+        protected void btnPanel_Click(object sender, EventArgs e)
+        {
+            using (var ctx = new zestapp_dbEntities())
+            {
+                var notifications = (from t in ctx.notifications
+                                     where t.investor_id == 1
+                                     where t.estado == "A"
+                                     where t.notification1.Contains("panel")
+                                     select t).ToList();
+                notifications.ForEach(o => o.estado = "R");
+                System.Diagnostics.Debug.WriteLine("btnPanel_Click: " + notifications.Count);
+                ctx.SaveChanges();
+            }
+            Response.Redirect("/Resources/Views/Dashboard/Resumen.aspx");
+        }
+
     }
 }

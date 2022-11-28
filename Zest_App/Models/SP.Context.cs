@@ -328,5 +328,18 @@ namespace Zest_App.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_App_FundData_Result>("SP_App_FundData", investorIdParameter);
         }
+    
+        public virtual ObjectResult<SP_FundEvent_Result> SP_FundEvent(Nullable<int> investorId, Nullable<int> fundId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            var fundIdParameter = fundId.HasValue ?
+                new ObjectParameter("FundId", fundId) :
+                new ObjectParameter("FundId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_FundEvent_Result>("SP_FundEvent", investorIdParameter, fundIdParameter);
+        }
     }
 }

@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\Publicar Zest Test</_PublishTargetUrl>
-    <History>True|2022-11-25T13:18:03.1446590Z;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
+    <History>True|2022-11-25T19:04:54.3934882Z;True|2022-11-25T08:18:03.1446590-05:00;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Assets/backend/blog/css/medium-editor.css">
@@ -405,94 +405,94 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:10:59</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/dk.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/dm.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/do.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/dz.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/ec.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/ee.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/eg.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/eh.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/er.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/es-ct.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/es.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/et.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/eu.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fi.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fj.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fk.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fm.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fo.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/fr.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/ga.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gb-eng.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gb-nir.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gb-sct.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gb-wls.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gb.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gd.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/ge.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gf.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gg.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gh.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/25/2022 08:11:00</publishTime>
     </File>
     <File Include="Assets/backend/bundles/flag-icon-css/flags/1x1/gi.svg">
       <publishTime>10/25/2022 08:11:01</publishTime>
@@ -2439,10 +2439,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:11</publishTime>
     </File>
     <File Include="Assets/img/menu/funds 0.svg">
-      <publishTime>09/11/2022 13:53:13</publishTime>
+      <publishTime>11/09/2022 13:53:13</publishTime>
     </File>
     <File Include="Assets/img/menu/funds 1.svg">
-      <publishTime>08/11/2022 15:13:46</publishTime>
+      <publishTime>11/08/2022 15:13:46</publishTime>
     </File>
     <File Include="Assets/img/menu/list 0.svg">
       <publishTime>10/25/2022 08:11:11</publishTime>
@@ -3075,10 +3075,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:52</publishTime>
     </File>
     <File Include="bin/Zest_App.dll">
-      <publishTime>11/25/2022 08:17:15</publishTime>
+      <publishTime>11/25/2022 14:04:03</publishTime>
     </File>
     <File Include="bin/Zest_App.pdb">
-      <publishTime>11/25/2022 08:17:15</publishTime>
+      <publishTime>11/25/2022 14:04:03</publishTime>
     </File>
     <File Include="bin/Zstandard.Net.dll">
       <publishTime>10/25/2022 08:11:52</publishTime>
@@ -3099,7 +3099,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2022 08:28:46</publishTime>
     </File>
     <File Include="Resources/Layout/app.Master">
-      <publishTime>10/11/2022 08:17:32</publishTime>
+      <publishTime>11/10/2022 08:17:32</publishTime>
     </File>
     <File Include="Resources/Layout/appAssesor.Master">
       <publishTime>10/25/2022 08:11:25</publishTime>
@@ -3162,7 +3162,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:26</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Catalog.aspx">
-      <publishTime>11/18/2022 08:33:31</publishTime>
+      <publishTime>11/25/2022 13:19:04</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/CatalogFunds.aspx">
       <publishTime>11/22/2022 14:43:47</publishTime>
@@ -3234,7 +3234,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:27</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestCatalog.aspx">
-      <publishTime>10/11/2022 10:50:42</publishTime>
+      <publishTime>11/10/2022 10:50:42</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestCatalogFund.aspx">
       <publishTime>11/21/2022 10:03:35</publishTime>
@@ -3261,7 +3261,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/23/2022 08:21:50</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/Resumen.aspx">
-      <publishTime>09/11/2022 13:19:36</publishTime>
+      <publishTime>11/09/2022 13:19:36</publishTime>
     </File>
     <File Include="Resources/Views/Funds/Fund.aspx">
       <publishTime>11/03/2022 14:49:34</publishTime>
@@ -3270,7 +3270,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/14/2022 13:29:05</publishTime>
     </File>
     <File Include="Resources/Views/Funds/ZestFundsDetail.aspx">
-      <publishTime>11/14/2022 14:11:02</publishTime>
+      <publishTime>11/25/2022 09:22:00</publishTime>
     </File>
     <File Include="Resources/Views/More/Algoparati.aspx">
       <publishTime>10/25/2022 08:11:27</publishTime>
@@ -3339,7 +3339,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/11/2022 11:32:44</publishTime>
+      <publishTime>11/09/2022 11:32:44</publishTime>
     </File>
   </ItemGroup>
 </Project>

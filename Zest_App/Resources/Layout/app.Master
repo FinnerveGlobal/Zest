@@ -353,7 +353,7 @@
 
         <footer style="z-index: 10000;">
             <div class="bot_menu">
-                <a class="bot_menu_item active zgrid_3 btn_load" runat="server" href="~/Resources/Views/Dashboard/Resumen.aspx">
+                <%--<a class="bot_menu_item active zgrid_3 btn_load" runat="server" href="~/Resources/Views/Dashboard/Resumen.aspx">
                     <div class="mark_line"></div>
                     <asp:Image ImageUrl="~/Assets/img/menu/dashboard 0.svg" runat="server" ID="img_ds1" CssClass="item_off" />
                     <asp:Image ImageUrl="~/Assets/img/menu/dashboard 1.svg" runat="server" ID="img_ds2" CssClass="item_on" />
@@ -361,7 +361,18 @@
                     <i runat="server" id="not_panel"></i>
                     <span>Notas
                     </span>
-                </a>
+                </a>--%>
+
+                <asp:LinkButton runat="server" CssClass="bot_menu_item active zgrid_3 btn_load" OnClick="btnPanel_Click">
+                    <div class="mark_line"></div>
+                    <asp:Image ImageUrl="~/Assets/img/menu/dashboard 0.svg" runat="server" ID="Image6" CssClass="item_off" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/dashboard 1.svg" runat="server" ID="Image7" CssClass="item_on" />
+                    <br>
+                    <i runat="server" id="not_panel"></i>
+                    <span>Notas
+                    </span>
+                </asp:LinkButton>
+
                 <a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/Funds/ZestFunds.aspx">
                     <div class="mark_line"></div>
                     <asp:Image ImageUrl="~/Assets/img/menu/funds 0.svg" runat="server" ID="img_fond1" CssClass="item_off" />
@@ -371,7 +382,7 @@
                     <span>Fondos
                     </span>
                 </a>
-                <a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/Catalog/ZestCatalog.aspx">
+                <%--<a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/Catalog/ZestCatalog.aspx">
                     <div class="mark_line"></div>
                     <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="img_cat1" CssClass="item_off" />
                     <asp:Image ImageUrl="~/Assets/img/menu/catalog 1.svg" runat="server" ID="img_cat2" CssClass="item_on" />
@@ -379,8 +390,8 @@
                     <i runat="server" id="not_catalog"></i>
                     <span>Servicios
                     </span>
-                </a>
-                <a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/News/NewsZest.aspx">
+                </a>--%>
+                <%--<a class="bot_menu_item zgrid_3 btn_load" runat="server" href="~/Resources/Views/News/NewsZest.aspx">
                     <div class="mark_line"></div>
                     <asp:Image ImageUrl="~/Assets/img/menu/news 0.svg" runat="server" ID="img_news1" CssClass="item_off" />
                     <asp:Image ImageUrl="~/Assets/img/menu/news 1.svg" runat="server" ID="img_news2" CssClass="item_on" />
@@ -388,7 +399,26 @@
                     <i  runat="server" id="not_news"></i>
                     <span>Noticias
                     </span>
-                </a>
+                </a>--%>
+                <asp:LinkButton runat="server" CssClass="bot_menu_item zgrid_3 btn_load" OnClick="btnCatalog_Click">
+                    <div class="mark_line"></div>
+                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 0.svg" runat="server" ID="Image4" CssClass="item_off" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/catalog 1.svg" runat="server" ID="Image5" CssClass="item_on" />
+                    <br>
+                    <i runat="server" id="not_catalog"></i>
+                    <span>Servicios
+                    </span>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="bot_menu_item zgrid_3 btn_load" OnClick="btnNews_Click">
+                    <div class="mark_line"></div>
+                    <asp:Image ImageUrl="~/Assets/img/menu/news 0.svg" runat="server" ID="Image2" CssClass="item_off" />
+                    <asp:Image ImageUrl="~/Assets/img/menu/news 1.svg" runat="server" ID="Image3" CssClass="item_on" />
+                    <br>
+                    <i  runat="server" id="not_news"></i>
+                    <span>Noticias
+                    </span>
+                </asp:LinkButton>
+
             </div>
         </footer>
 
@@ -398,7 +428,7 @@
     var index;
     $('#menu_more').click(function () {
         var tmp = $('.bot_menu').find('.bot_menu_item:nth-child(4)').hasClass('active');
-
+        
         var indextmp = $('.bot_menu_item').index($('.bot_menu').find('.active')) + 1;
         if (indextmp != 4)
             index = indextmp;

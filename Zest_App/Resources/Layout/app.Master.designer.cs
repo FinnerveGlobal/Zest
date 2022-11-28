@@ -105,22 +105,22 @@ namespace Zest_App.Resources.Layout
         protected global::System.Web.UI.WebControls.ContentPlaceHolder content;
 
         /// <summary>
-        /// Control img_ds1.
+        /// Control Image6.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_ds1;
+        protected global::System.Web.UI.WebControls.Image Image6;
 
         /// <summary>
-        /// Control img_ds2.
+        /// Control Image7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_ds2;
+        protected global::System.Web.UI.WebControls.Image Image7;
 
         /// <summary>
         /// Control not_panel.
@@ -159,22 +159,22 @@ namespace Zest_App.Resources.Layout
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl not_background;
 
         /// <summary>
-        /// Control img_cat1.
+        /// Control Image4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_cat1;
+        protected global::System.Web.UI.WebControls.Image Image4;
 
         /// <summary>
-        /// Control img_cat2.
+        /// Control Image5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_cat2;
+        protected global::System.Web.UI.WebControls.Image Image5;
 
         /// <summary>
         /// Control not_catalog.
@@ -186,22 +186,22 @@ namespace Zest_App.Resources.Layout
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl not_catalog;
 
         /// <summary>
-        /// Control img_news1.
+        /// Control Image2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_news1;
+        protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
-        /// Control img_news2.
+        /// Control Image3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_news2;
+        protected global::System.Web.UI.WebControls.Image Image3;
 
         /// <summary>
         /// Control not_news.

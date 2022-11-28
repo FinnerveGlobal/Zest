@@ -8,14 +8,14 @@
                 Detalles
                 <div style="height: 4px; width: 30px; background: #dabe04; margin-left: 32px;"></div>
             </div>
-            <div class="col-4">
-                <a href="" style="color: #333333">
+            <div class="col-4" style="padding-left: 30px;">
+                <a href="ZestFundsEvents.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
                    Eventos
                 </a>
                 <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>
             </div>
-            <div class="col-4">
-                <a href="" style="color: #333333">
+            <div class="col-4" style="padding-left: 30px;">
+                <a href="ZestFundsAnalisis.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
                    Análisis
                 </a>
                 <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>

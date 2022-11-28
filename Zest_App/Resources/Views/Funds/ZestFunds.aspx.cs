@@ -122,10 +122,11 @@ namespace Zest_App.Resources.Views.Funds
 
 
                 // List of funds
+                var fund_list = app_fundData.ToList();
+                // Saving in session 
+                Session["fund_list"] = fund_list;
 
-
-
-                rpFunds.DataSource = app_fundData.ToList();
+                rpFunds.DataSource = fund_list;
                 rpFunds.DataBind();
 
             }

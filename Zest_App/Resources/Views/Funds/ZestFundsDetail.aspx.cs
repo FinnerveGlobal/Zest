@@ -9,10 +9,18 @@ namespace Zest_App.Resources.Views.Funds
 {
     public partial class ZestFundsDetail : System.Web.UI.Page
     {
+        private string symbol = "";
+
+        public string Symbol { get => symbol; set => symbol = value; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string symbol = Request.QueryString["symbol"];
-            System.Diagnostics.Debug.WriteLine("symbol: "  + symbol);
+            if(symbol != null)
+            {
+                Symbol = symbol;
+                System.Diagnostics.Debug.WriteLine("symbol: "  + symbol);
+            }
         }
     }
 }
