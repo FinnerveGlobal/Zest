@@ -116,6 +116,10 @@
     <FunctionImport Name="SP_App_FundData" ReturnType="Collection(PivZestDevModel.SP_App_FundData_Result)">
       <Parameter Name="InvestorId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="SP_FundEvent" ReturnType="Collection(PivZestDevModel.SP_FundEvent_Result)">
+      <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+      <Parameter Name="FundId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SearchAdvisor_Result">
     <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
@@ -483,5 +487,17 @@
     <Property Type="Double" Name="RentabilidadAcumuladaBaseNav" Nullable="true" />
     <Property Type="Decimal" Name="DividendosAcumulados" Nullable="true" Precision="38" Scale="6" />
     <Property Type="String" Name="Moneda" Nullable="true" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SP_FundEvent_Result">
+    <Property Type="Int32" Name="FundId" Nullable="false" />
+    <Property Type="DateTime" Name="PaymentDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="ExDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Year" Nullable="true" />
+    <Property Type="Int32" Name="Month" Nullable="true" />
+    <Property Type="Decimal" Name="Dividend" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="Tax" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="Redemption" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="PeriodPerformance" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Int32" Name="Historic" Nullable="false" />
   </ComplexType>
 </Schema>

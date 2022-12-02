@@ -2,27 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
-        <div class="resumenLabel row" style="width: unset">
-            <div class="col-4" style="padding-left: 30px;">
-                Detalles
-                <div style="height: 4px; width: 30px; background: #dabe04; margin-left: 32px;"></div>
-            </div>
-            <div class="col-4" style="padding-left: 30px;">
-                <a href="ZestFundsEvents.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
-                   Eventos
-                </a>
-                <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>
-            </div>
-            <div class="col-4" style="padding-left: 30px;">
-                <a href="ZestFundsAnalisis.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
-                   Análisis
-                </a>
-                <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>
-            </div>
-        </div>
+    
+    <div class="notas_menu">
+        <a class="menu_item btn_load active" href="ZestFundsDetail.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+            Detalles
+            <span></span>
+        </a>
+                
+        <a class="menu_item btn_load" href="ZestFundsEvents.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+            Eventos
+            <span></span>
+        </a>
+                
+        <a class="menu_item btn_load" href="ZestFundsAnalisis.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+            Análisis 
+            <span></span>
+        </a>    
     </div>
-    <div class="notas_body notas_activos" style="margin-top:50px">
+
+    <div class="notas_body notas_activos" style="margin-top:0px">
         <div class="activos_header_group" style="position:sticky;top:85px">
             <div class="activos_header">
              <div style="position:absolute;bottom:20px;left:50%;color:#fff">
@@ -31,9 +29,9 @@
                 <div class="left" style="margin-right: 0.5px">
                     <asp:Literal ID="nota_nombre" runat="server" Text="Fondo Zest Estructurado"></asp:Literal>
                 </div>
-                <div class="right">
+                <%--<div class="right">
                      <div><asp:Literal ID="nota_valor" runat="server" Text="5000"></asp:Literal> <i style="font-size:10px;margin-top:5px;font-style:normal;color:#dabe04">USD</i></div>
-                </div>
+                </div>--%>
             </div>
             <div class="activos_header_desc" style="z-index: 1000; position: relative; display: block;background-color: black;">
                 <div class="row">

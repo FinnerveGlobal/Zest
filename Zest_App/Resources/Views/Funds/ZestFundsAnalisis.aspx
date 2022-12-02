@@ -2,28 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <div class="dash_header">
-        <div class="resumenLabel row" style="width: unset">
-            <div class="col-4" style="padding-left: 30px;">
-                <a href="ZestFundsDetail.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
-                   Detalles
-                </a>
-                <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>
-            </div>
-            <div class="col-4" style="padding-left: 30px;">
-                <a href="ZestFundsEvents.aspx?symbol=<%=Symbol.Replace(" ","+") %>" style="color: #333333">
-                   Eventos
-                </a>
-                <div style="height: 4px; width: 30px; background: #dabe04; display: none"></div>
-            </div>
-            <div class="col-4" style="padding-left: 30px;">
-                Análisis
-                <div style="height: 4px; width: 30px; background: #dabe04; margin-left: 29px;"></div>
-            </div>
-        </div>
-    </div>
 
-    <div class="analisis_group" style="margin-top: 50px;">
+        <div class="notas_menu">
+            <a class="menu_item btn_load" href="ZestFundsDetail.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+                Detalles
+                <span></span>
+            </a>
+                
+            <a class="menu_item btn_load" href="ZestFundsEvents.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+                Eventos
+                <span></span>
+            </a>
+                
+            <a class="menu_item btn_load active" href="ZestFundsAnalisis.aspx?symbol=<%=Symbol.Replace(" ","+") %>">
+                Análisis 
+                <span></span>
+            </a>    
+        </div>
+
+
+    <div class="analisis_group" style="margin-top: 0px;">
         <asp:Repeater ID="rpReviews" runat="server">
             <ItemTemplate>
                 <div class='<%# Container.ItemIndex == 0? "analisis active":"analisis" %>'>

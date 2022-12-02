@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\Publicar Zest Test</_PublishTargetUrl>
-    <History>True|2022-11-25T19:04:54.3934882Z;True|2022-11-25T08:18:03.1446590-05:00;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
+    <History>True|2022-11-30T18:45:56.3549398Z;True|2022-11-30T13:24:59.5155691-05:00;True|2022-11-25T14:04:54.3934882-05:00;True|2022-11-25T08:18:03.1446590-05:00;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Assets/backend/blog/css/medium-editor.css">
@@ -3075,10 +3075,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:52</publishTime>
     </File>
     <File Include="bin/Zest_App.dll">
-      <publishTime>11/25/2022 14:04:03</publishTime>
+      <publishTime>11/30/2022 13:45:41</publishTime>
     </File>
     <File Include="bin/Zest_App.pdb">
-      <publishTime>11/25/2022 14:04:03</publishTime>
+      <publishTime>11/30/2022 13:45:41</publishTime>
     </File>
     <File Include="bin/Zstandard.Net.dll">
       <publishTime>10/25/2022 08:11:52</publishTime>
@@ -3099,7 +3099,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2022 08:28:46</publishTime>
     </File>
     <File Include="Resources/Layout/app.Master">
-      <publishTime>11/10/2022 08:17:32</publishTime>
+      <publishTime>11/28/2022 08:18:23</publishTime>
     </File>
     <File Include="Resources/Layout/appAssesor.Master">
       <publishTime>10/25/2022 08:11:25</publishTime>
@@ -3258,7 +3258,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:27</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/EventosELN.aspx">
-      <publishTime>11/23/2022 08:21:50</publishTime>
+      <publishTime>11/30/2022 10:13:01</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/Resumen.aspx">
       <publishTime>11/09/2022 13:19:36</publishTime>
@@ -3269,8 +3269,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Resources/Views/Funds/ZestFunds.aspx">
       <publishTime>11/14/2022 13:29:05</publishTime>
     </File>
+    <File Include="Resources/Views/Funds/ZestFundsAnalisis.aspx">
+      <publishTime>11/30/2022 13:07:02</publishTime>
+    </File>
     <File Include="Resources/Views/Funds/ZestFundsDetail.aspx">
-      <publishTime>11/25/2022 09:22:00</publishTime>
+      <publishTime>11/30/2022 13:41:48</publishTime>
+    </File>
+    <File Include="Resources/Views/Funds/ZestFundsEvents.aspx">
+      <publishTime>11/30/2022 13:06:56</publishTime>
     </File>
     <File Include="Resources/Views/More/Algoparati.aspx">
       <publishTime>10/25/2022 08:11:27</publishTime>

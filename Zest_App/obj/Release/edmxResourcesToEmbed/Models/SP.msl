@@ -350,5 +350,21 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_FundEvent" FunctionName="PivZestDevModel.Store.SP_FundEvent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PivZestDevModel.SP_FundEvent_Result">
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="ExDate" ColumnName="ExDate" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Dividend" ColumnName="Dividend" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Redemption" ColumnName="Redemption" />
+          <ScalarProperty Name="PeriodPerformance" ColumnName="PeriodPerformance" />
+          <ScalarProperty Name="Historic" ColumnName="Historic" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

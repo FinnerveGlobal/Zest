@@ -182,6 +182,10 @@
     <Parameter Name="date_ini" Type="datetime" Mode="In" />
     <Parameter Name="date_fin" Type="datetime" Mode="In" />
   </Function>
+  <Function Name="SP_FundEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="FundId" Type="int" Mode="In" />
+  </Function>
   <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="InvestorId" Type="int" Mode="In" />
     <Parameter Name="date_ini" Type="date" Mode="In" />

@@ -479,8 +479,8 @@ C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\bin\System.Memory.xml
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\bin\System.Numerics.Vectors.xml
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.csproj.AssemblyReference.cache
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.csproj.CoreCompileInputs.cache
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.csproj.CopyComplete
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.dll
 C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.pdb
+C:\Users\Franco PUCP\Documents\GitHub\Zest\Zest_App\obj\Debug\Zest_App.csproj.AssemblyReference.cache
