@@ -57,14 +57,16 @@
                         <i style="font-style: normal">%</i>
                     </span>
                 </div>
-                <%--<div class="right" style="color: #fff">
-                    <span>
-                        <asp:Literal ID="dividendos_acumulados" runat="server"></asp:Literal>
-                        <i style="font-style: normal; color: #dabe04">USD</i>
-                    </span>
+                <div class="right" style="color: #fff">
+                    <% if (IsPositiveDividendosAcumulados) { %>
+                        <span>
+                            <asp:Literal ID="dividendos_acumulados" runat="server"></asp:Literal>
+                            <i style="font-style: normal; color: #dabe04">USD</i>
+                        </span>
+                    <%} %>
                     <br />
-                    <span>7,56% </span>
-                </div>--%>
+                    <span></span>
+                </div>
             </div>
         </div>
         <div id="dash_body" class="dash_body">
@@ -110,20 +112,13 @@
     <%}
         else
         {%>
-        <div class="dash_header">
-            <div class="resumenLabel" style="width: unset">
-                <div align="right" style="float: left">
-                    Fondos
-                    <div style="height: 4px; width: 30px; background: #dabe04">
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        <div class="dash_body">
-            <div style="color: white;text-align: center;width: auto;height: 50vh;padding-top: 10%;">
+        
+        <div class="dash_body" style="height: 100vh;">
+            <div class="d-flex justify-content-center align-items-center" style="color: white;text-align: center;width: auto;height: 75vh;">
+               <p style="display:block">
                 Aún no tienes inversiones en Fondos. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalogFund.aspx">aquí </a>
-            </div> 
+               </p>
+            </div>
         </div>
            
         

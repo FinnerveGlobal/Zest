@@ -243,6 +243,10 @@
       </CollectionType>
     </ReturnType>
   </Function>
+  <Function Name="UF_InvestorDividendsSinceBeginning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="float">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+    <Parameter Name="FundId" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="PivZestDevModelStoreContainer">
     <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ContactEmail" EntityType="Self.ContactEmail" Schema="dbo" store:Type="Tables" />

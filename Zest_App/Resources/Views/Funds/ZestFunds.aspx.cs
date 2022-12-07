@@ -21,6 +21,10 @@ namespace Zest_App.Resources.Views.Funds
 
         private bool isPositive = false;
         public bool IsPositive { get => isPositive; set => isPositive = value; }
+        public bool IsPositiveDividendosAcumulados { get => isPositiveDividendosAcumulados; set => isPositiveDividendosAcumulados = value; }
+
+        private bool isPositiveDividendosAcumulados = false;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -70,13 +74,13 @@ namespace Zest_App.Resources.Views.Funds
                 valorNominalInversion = Math.Round((decimal)(app_fundData_result.ValorNominalInversion == null ? 0 : app_fundData_result.ValorNominalInversion), 2);
                 rentabilidadAcumuladaBaseNav = Math.Round((decimal)(app_fundData_result.RentabilidadAcumuladaBaseNav == null ? 0 : app_fundData_result.RentabilidadAcumuladaBaseNav), 2);
                 dividendosAcumulados = Math.Round((decimal)(app_fundData_result.DividendosAcumulados == null ? 0 : app_fundData_result.DividendosAcumulados), 2);
-
+                isPositiveDividendosAcumulados = dividendosAcumulados > 0; // Update flag
                 valor_nominal.Text = valorNominalInversion.ToString("N2");
                 nav_del_dia.Text = naVDelDia.ToString("N2");
                 rentabilidad_acumulada.Text = rentabilidadAcumuladaBaseNav.ToString("N2");
                 System.Diagnostics.Debug.WriteLine(rentabilidadAcumuladaBaseNav);
                 isPositive = (rentabilidadAcumuladaBaseNav >= 0);
-                // dividendos_acumulados.Text = dividendosAcumulados.ToString("N2");
+                dividendos_acumulados.Text = dividendosAcumulados.ToString("N2");
 
 
                 // Linear graph

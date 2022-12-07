@@ -229,7 +229,7 @@ namespace Zest_App.Resources.Views.Dashboard
                 //ltChart.Text = chart;
 
                 //rentabilidad_resumen.Text = resumen_rent;
-                //usd_rentabilidad_resumen.Text = resumen_rent_usd ;
+                //usd_rentabilidad_resumen.Text = resumen_rent_usd;
 
                 var notas = ctx.SP_PosicionFondos(code).ToArray();
 
@@ -274,6 +274,7 @@ namespace Zest_App.Resources.Views.Dashboard
                          
                             });;
                             dataAcumulada += (decimal)(item.ValorMercado);
+
                         }
                     }
                     else

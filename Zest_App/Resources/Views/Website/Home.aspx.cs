@@ -42,13 +42,13 @@ namespace Zest_App.Resources.Views.Website
                 var resumen = (web_sections)sections.Where(o => o.nombre == "Resumen").FirstOrDefault();
                 if (resumen != null)
                 {
-                    secResumen.Visible = true;
-                    ltResumenCita.Text = resumen.desc1;
-                    ltResumenAuthor.Text = resumen.desc2;
+                    //secResumen.Visible = true;
+                    //ltResumenCita.Text = resumen.desc1;
+                    //ltResumenAuthor.Text = resumen.desc2;
                 }
                 else
                 {
-                    secResumen.Visible = false;
+                    //secResumen.Visible = false;
                 }
 
                 var cifra = (web_sections)sections.Where(o => o.nombre == "Cifras").FirstOrDefault();

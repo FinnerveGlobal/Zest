@@ -142,7 +142,7 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-                      <iframe src="https://anchor.fm/zestcapital/embed" style="width: 100%; margin-top:10%; height: 200px;border:20px #dabe04 solid;border-radius:10px" frameborder="0" scrolling="no"></iframe>
+                      <iframe src="https://anchor.fm/zestcapital/embed" style="width: 100%; margin-top:10%; height: 200px;" frameborder="0" scrolling="no"></iframe>
                   </div>
               </div>
           </div>           

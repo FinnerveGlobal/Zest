@@ -2,7 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
- 
+    <style>
+        .podcast{
+            position: relative;
+            padding: 30px 0 30px 0;
+            background-color: #F2F2F2;
+        }
+    </style> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
 
@@ -31,7 +37,16 @@
             </h4>
         </div>
     </section>
-    <section class="home-resumen" runat="server" id="secResumen" style="display: flex;display: -webkit-flex;">
+    <section class="podcast">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <iframe src="https://anchor.fm/zestcapital/embed" id="iframe-podcast" style="height: 160px;width: 100%;display: block;align-content: center" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>           
+    </section>
+    <%--<section class="home-resumen" runat="server" id="secResumen" style="display: flex;display: -webkit-flex;">
         <div class="" style="margin: auto">
             <h1 class="web_title web_black web_text_justify_center">
                 <b class="web_yellow web_header">"</b><asp:Literal ID="ltResumenCita" runat="server"></asp:Literal>
@@ -44,7 +59,7 @@
             </h1>
         </div>
 
-    </section>
+    </section>--%>
     <section class="home-cifras-clave" runat="server" id="secCifras" style="padding-bottom:70px !important">
         <div class="container">
             <div class="row">
@@ -292,15 +307,15 @@
         </div>
 
     </section>
-      <section class="publicidad">
+      <%--<section class="publicidad">
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-                      <iframe src="https://anchor.fm/zestcapital/embed" style="width: 100%; margin-top:10%; height: 200px;border:20px #dabe04 solid;border-radius:10px" frameborder="0" scrolling="no"></iframe>
+                      <iframe src="https://anchor.fm/zestcapital/embed" style="width: 100%; margin-top:10%; height: 200px;" frameborder="0" scrolling="no"></iframe>
                   </div>
               </div>
           </div>           
-       </section>
+       </section>--%>
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
@@ -663,7 +678,12 @@
             // console.log(mouse_ball);
         });
 
+        
+        let content = $("#iframe-podcast").contents().html();;
+        console.log("content", content);
 
+        let a = $("#iframe-podcast").contents().find(".styles__segmentInfo___-GPA7"); //.css("padding-top", "30px");
+        console.log("a", a);
 
     </script>
 </asp:Content>
