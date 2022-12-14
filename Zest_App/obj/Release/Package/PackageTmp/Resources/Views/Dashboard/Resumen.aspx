@@ -22,13 +22,31 @@
                
                 <asp:Literal ID="valor_resumen" runat="server"></asp:Literal> <span>USD
                 </span>
+
+                <%--<i data-toggle="tooltip" data-placement="top" title="Nav del día en $">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </i>
+
+                <i data-toggle="tooltip" data-placement="top" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </i>
+                
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+                  Tooltip with HTML
+                </button>--%>
             </div>
-            <%--<div class="right" style="color:#fff">
-                <span>
+            <div class="right" style="color:#fff">
+                <%--<span>
                     <asp:Literal ID="rentabilidad_resumen" runat="server"></asp:Literal>%
-                </span><br />
-                 <asp:Literal ID="usd_rentabilidad_resumen" runat="server"></asp:Literal> <i style="font-style:normal;color:#dabe04">USD</i>
-            </div>--%>
+                </span><br />--%>
+                 <%--<asp:Literal ID="usd_rentabilidad_resumen" runat="server"></asp:Literal> <i style="font-style:normal;color:#dabe04">USD</i>--%>
+            </div>
         </div>
     </div>
         <div id="dash_body" class="dash_body">
@@ -178,10 +196,12 @@
 
     </div>
     <% }else { %>
-        <div class="dash_body">
-            <div style="color: white;text-align: center;width: auto;height: 50vh;padding-top: 10%;">
+        <div class="dash_body" style="height: 100vh;">
+            <div class="d-flex justify-content-center align-items-center" style="color: white;text-align: center;width: auto;height: 75vh;">
+               <p style="display:block">
                 Aún no tienes inversiones en Notas. Conoce más sobre el producto <a runat="server" style="color: #d5b904" href="~/Resources/Views/Catalog/ZestCatalog.aspx">aquí </a>
-            </div> 
+               </p>
+            </div>
         </div>
     <% } %>
 
@@ -189,7 +209,19 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <%-- Include bootstrap.bundle.min.js --%>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"
+    ></script>
+
     <script>
+        // Enable tooltips everywhere
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
         //function toggle_menu() {
         //    $('#body_grafico').toggleClass('active');
         //    $('#body_cuadro').toggleClass('active');

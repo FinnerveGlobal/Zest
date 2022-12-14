@@ -63,7 +63,7 @@
         <div class="col-6" style="padding-left: 35px;">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click" CommandArgument="/files/Factsheet_Nuevo_Fondo.pdf">
+                    <asp:LinkButton ID="LinkButton1" runat="server" style="border:1px solid #dabe04;color:#dabe04;padding:5px 10px;border-top-right-radius:5px;font-size:11px;" OnClick="btnExternal_Click">
                         Ver Factsheet
                     </asp:LinkButton>
                 </ContentTemplate>           

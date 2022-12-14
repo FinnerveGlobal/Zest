@@ -86,7 +86,7 @@
                         del Periodo</th>
                     <th>Dividendos</th>
                     <th>Impuestos</th>
-                    <th>Retención</th>
+                    <th>Redención</th>
                 </tr>
             </thead>
             <tbody>

@@ -45,6 +45,8 @@ namespace Zest_App.Resources.Views.Catalog
                     fondo_custodio.Text = item.custodio;
                     fondo_riesgo.Text = item.riesgo;
                     ltDesc.Text = item.descripcion;
+
+                    LinkButton1.CommandArgument = "/files/" + item.nombre_archivo;
                 }
             }
 
