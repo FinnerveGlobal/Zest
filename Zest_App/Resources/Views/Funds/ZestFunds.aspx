@@ -11,15 +11,42 @@
             display: block;
         }
 
-            .dash_header .resumen .left p {
-                margin-bottom: 0;
-                margin-top: 0;
-            }
+        .dash_header .resumen .left p {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
 
-            .dash_header .resumen .left span {
-                color: white;
-            }
+        .dash_header .resumen .left span {
+            color: white;
+        }
+
+         /* Clases CSS para el tooltip */
+        .tooltip-inner{
+            padding: 6px 7px;
+            color: white;
+            text-align: center;
+            font-size: 0.6rem;
+            background-color: #4e4e4e;
+            border: 1px solid #fdfd5b;
+            -webkit-border-radius: 9px;
+            -moz-border-radius: 9px;
+            border-radius: 4px;
+        }
+
+        .bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before{
+            border-top-color: #fdfd5b;
+        }
+
     </style>
+    <%-- JS para los tooltips --%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 
@@ -38,10 +65,23 @@
                     <span style="display: block">
                         <asp:Literal ID="valor_nominal" runat="server"></asp:Literal>
                         <i style="font-style: normal; color: #dabe04">USD</i>
+                        
+                        <i style="display: inline-flex; margin: 0px 0px 0px 5px" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true" title="<div class='info-tooltip'>Valor Nominal <br> de la inversión</>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </i>
                     </span>
                     <p>
                         <asp:Literal ID="nav_del_dia" runat="server"></asp:Literal>
-                        <span style="display: inline-block">USD</span>
+                        <span style="display: inline-block;padding-right: 0px;">USD</span>
+                        <i style="display: inline-flex;" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true" title="<div class='info-tooltip'>NAV del día en $</>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </i>
                     </p>
                     
                     <% if (IsPositive)
@@ -55,7 +95,14 @@
                     
                         <asp:Literal ID="rentabilidad_acumulada"  runat="server"></asp:Literal>
                         <i style="font-style: normal">%</i>
+                        <i style="display: inline-flex; margin: 0px 0px 0px 5px; color: white;" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true" title="<div class='info-tooltip'>Rentabilidad <br> Acumulada</>">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </i>
                     </span>
+                            
                 </div>
                 <div class="right" style="color: #fff">
                     <% if (IsPositiveDividendosAcumulados) { %>
@@ -126,6 +173,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
+        // Enable tooltips everywhere
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+
         $(function () {
             $('.bot_menu').find('.bot_menu_item').removeClass('active');
             $('.bot_menu').find('.bot_menu_item:nth-child(2)').addClass('active');
