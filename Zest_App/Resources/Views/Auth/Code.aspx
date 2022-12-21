@@ -64,11 +64,14 @@
                 <asp:Button ID="btn_send" runat="server" Text="Ingresar" OnClick="btn_send_Click" CssClass="next text-center"  style="width:150px"  OnClientClick="pin_validate()"/>
             </div>
              <div class="pad_submit" style="margin-bottom:20px">
-                <asp:Button ID="btnSendByMail" runat="server" Text="Enviar por email" OnClick="btnSendByMail_Click" CssClass="next text-center" style="width:150px" OnClientClick="send_email(); return false;" />
+                <asp:Button ID="btnSendByMail" runat="server" Text="Enviar por email" OnClick="btnSendByMail_Click" CssClass="next text-center" style="width:150px" />
             </div>
-            <div class="pad_submit">
+            <div class="pad_submit" style="margin-bottom:20px">
+                <asp:Button ID="btnSendBySMS" runat="server" Text="Reenviar código" OnClick="btnSendBySMS_Click" CssClass="prev text-center" style="width:150px" />
+            </div>
+            <%--<div class="pad_submit">
                 <a class="prev text-center" href="Login.aspx" runat="server" style="width:150px">Reenviar código</a>
-            </div>
+            </div>--%>
 
             <div style="color: rgb(204,210,205);text-align: center;font-size: 12px;" id="count-down">
                 <p>Se ha envidado el código al <span id="count-down-option"></span> indicado</p>
@@ -77,29 +80,33 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
        <script>
         // Timer 60 seconds
-        const totalCount = 10;
-        let count = totalCount;
-        $(".pad_submit:gt(0)").hide();
-        $("#count-down p:eq(0)").hide();
-        let x = setInterval(function () {
-           count -= 1;
-           document.getElementById("count-down-number").innerHTML = count;
-           console.log(count);
-            if (count < 0) {
-                $(".pad_submit:gt(0)").show();
-                $("#count-down").hide();
-               clearInterval(x);
-           }
-        }, 1000);
+        const totalCount = 3;
 
-        function send_email(e) {
+        function initCountDown(e) {
+            let count = totalCount;
+            $(".pad_submit:gt(0)").hide();
+            $("#count-down p:eq(0)").hide();
+            let x = setInterval(function () {
+                count -= 1;
+                document.getElementById("count-down-number").innerHTML = count;
+                console.log(count);
+                    if (count < 0) {
+                    $(".pad_submit:gt(0)").show();
+                    $("#count-down").hide();
+                    clearInterval(x);
+                }
+            }, 1000);
+        }
+
+
+        function send_email_or_sms(option) {
             // Show
             count = totalCount;
             document.getElementById("count-down-number").innerHTML = count;
-            document.getElementById("count-down-option").innerHTML = "correo";
+            document.getElementById("count-down-option").innerHTML = option;
             $(".pad_submit:gt(0)").hide();
             $("#count-down p:eq(0)").show();
             $("#count-down").show();
@@ -115,6 +122,7 @@
                 }
             }, 1000);
         }
+
 
         function pad_number(e) {
 
@@ -136,4 +144,5 @@
             }
         }
        </script>
+
 </asp:Content>

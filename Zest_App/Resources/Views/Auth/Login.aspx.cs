@@ -74,7 +74,7 @@ namespace Zest_App.Resources.Views.Auth
                             }
 
 
-
+                            Session["countrycode"] = ddlCode.SelectedValue;
                             Session["code"] = code;
                             Session["telefono"] = pass;
 
