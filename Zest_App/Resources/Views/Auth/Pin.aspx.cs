@@ -128,5 +128,27 @@ namespace Zest_App.Resources.Views.Auth
             }
 
         }
+    
+        protected void btnDeleteInfo_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["userAInfo"] != null)
+            {
+                Response.Cookies["userAInfo"].Expires = DateTime.Now.AddDays(-1);
+                if (Request.Cookies["userInfo"] != null)
+                {
+                    Response.Cookies["userInfo"].Expires = DateTime.Now.AddDays(-1);
+                }
+                Response.Redirect("/Resources/Views/Auth/Home.aspx");
+            }
+            if (Request.Cookies["userInfo"] != null)
+            {
+                Response.Cookies["userInfo"].Expires = DateTime.Now.AddDays(-1);
+                if (Request.Cookies["userAInfo"] != null)
+                {
+                    Response.Cookies["userAInfo"].Expires = DateTime.Now.AddDays(-1);
+                }
+                Response.Redirect("/Resources/Views/Auth/Home.aspx");
+            }
+        }
     }
 }

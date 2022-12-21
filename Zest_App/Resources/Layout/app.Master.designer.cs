@@ -78,6 +78,15 @@ namespace Zest_App.Resources.Layout
         protected global::System.Web.UI.WebControls.Literal ltNumber;
 
         /// <summary>
+        /// Control btnLogoutAndForget.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLogoutAndForget;
+
+        /// <summary>
         /// Control btnLogout.
         /// </summary>
         /// <remarks>

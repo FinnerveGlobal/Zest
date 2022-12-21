@@ -83,7 +83,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="Script" runat="server">
        <script>
         // Timer 60 seconds
-        const totalCount = 3;
+        const totalCount = 60;
 
         function initCountDown(e) {
             let count = totalCount;

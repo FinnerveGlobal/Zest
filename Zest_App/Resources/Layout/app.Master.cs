@@ -83,6 +83,11 @@ namespace Zest_App.Resources.Layout
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
+            Response.Redirect("/Resources/Views/Auth/Home.aspx");
+        }
+
+        protected void btnLogoutAndDeleteInfo_Click(object sender, EventArgs e)
+        {
             if (Request.Cookies["userAInfo"] != null)
             {
                 Response.Cookies["userAInfo"].Expires = DateTime.Now.AddDays(-1);

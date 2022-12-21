@@ -24,14 +24,6 @@ namespace Zest_App.Resources.Views.Auth
                 // Call initCountDown first time
                 ClientScript.RegisterStartupScript(this.GetType(), "HideOnPostback", "$(function() { initCountDown(); });", true);
             }
-            else
-            {
-                string a = Request.Form[txtPIN.UniqueID];
-                //System.Diagnostics.Debug.WriteLine(a);
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "initCountDown();", true);
-                //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "initCountDown()", true);
-                //ClientScript.RegisterClientScriptBlock(GetType(), "hwa", "initCountDown();", true);
-            }
         }
 
         protected void btn_send_Click(object sender, EventArgs e)
@@ -71,11 +63,12 @@ namespace Zest_App.Resources.Views.Auth
 
         protected void btnSendByMail_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Before btnSendByMail_Click");
-            string email = Session["tmp_email"].ToString();
-            email = "franco@finnerve.com";
-            SendMail.sendMail("Código de ingreso", email, "El código de ingreso para tu app de zest es: " + Session["code"].ToString());
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('correo');", true);
+            if (Session["tmp_email"] != null)
+            {
+                string email = Session["tmp_email"].ToString();
+                SendMail.sendMail("Código de ingreso", email, "El código de ingreso para tu app de zest es: " + Session["code"].ToString());
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('correo');", true);
+            }
         }
 
         protected void btnSendBySMS_Click(object sender, EventArgs e)
@@ -89,9 +82,6 @@ namespace Zest_App.Resources.Views.Auth
                 string telefono = Session["telefono"].ToString();
                 string countrycode = Session["countrycode"].ToString();
 
-                countrycode = "+51";
-                telefono = "924942784";
-
                 System.Diagnostics.Debug.WriteLine("Sending data btnSendBySMS_Click" + code + "-" + telefono + "-" + countrycode);
 
                 try
@@ -104,7 +94,7 @@ namespace Zest_App.Resources.Views.Auth
                 }
                 finally
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('numero');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('número');", true);
                 }
 
             }

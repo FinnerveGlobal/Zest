@@ -332,11 +332,25 @@
                             <asp:Image ID="Image1" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
                         </div>
                         <ul class="m_list" style="padding-bottom:75px">
-                           <li><asp:Literal ID="ltNumber" runat="server"></asp:Literal></li>
-                    <li><a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">Enviar mensaje <i class="fas fa-chevron-right"></i></a></li>
-                    <li>
-                        <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton></li>
-                    <li runat="server" id="ltReturn"><a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">Retornar <i class="fas fa-chevron-right"></i></a></li>
+                            <li>
+                                <asp:Literal ID="ltNumber" runat="server"></asp:Literal>
+                            </li>
+                            <li>
+                                <a runat="server" href="~/Resources/Views/More/Contacto.aspx" class="btn_load">
+                                    Enviar mensaje <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="btnLogoutAndForget" runat="server" CssClass="btn_load" OnClick="btnLogoutAndDeleteInfo_Click">Cerrar y olvidar cuenta <i class="fas fa-chevron-right"></i></asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="btnLogout" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton>
+                            </li>
+                            <li runat="server" id="ltReturn">
+                                <a runat="server" href="~/Resources/Views/Assesor/ListInvestor.aspx" class="btn_load">
+                                    Retornar <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
