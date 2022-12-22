@@ -64,6 +64,9 @@ namespace Zest_App.Resources.Views.Auth
                     }
                     else
                     {
+                        //Session["redirect"] = "ASSESOR";
+                        //userAInfo["redirect"] = "ASSESOR";
+                        //Response.Redirect("~/Resources/Views/Assesor/ListInvestor.aspx");
                         Response.Redirect("~/Resources/Views/Dashboard/Resumen.aspx");
                     }
                 }

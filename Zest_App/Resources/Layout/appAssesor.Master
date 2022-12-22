@@ -50,13 +50,13 @@
         }
 
             .modal_menu .sub_menu {
-                width: 70%;
+                width: 80%;
                 max-width: 300px;
                 background: #333333;
-                border-top-left-radius: 20px;
+                border-bottom-right-radius: 20px;
                 bottom: 0;
-                right: 0;
-                position: absolute;
+                position: relative;
+                top: 3rem;
             }
 
                 .modal_menu .sub_menu .m_header {
@@ -147,6 +147,124 @@
                 transform: scale(1);
             }
         }
+
+        /* CSS Burger menu */
+        .navbar {
+            width: 100%;
+            margin-top: 0px;
+            padding: 0px !important;
+        }
+
+        .nav-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 25px;
+        }
+
+        .nav-container {
+          display: block;
+          position: relative;
+          height: 25px;
+        }
+
+        .nav-container .checkbox {
+            position: absolute;
+            display: block;
+            height: 19px;
+            width: 19px;
+            top: 5px;
+            left: 0px;
+            z-index: 5;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .nav-container .hamburger-lines {
+          display: block;
+          height: 16px;
+          width: 19px;
+          position: absolute;
+          top: 5px;
+          left: 0px;
+          z-index: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .nav-container .hamburger-lines .line {
+          display: block;
+          height: 4px;
+          width: 100%;
+          border-radius: 10px;
+          background: #fff;
+        }
+
+        .nav-container .hamburger-lines .line1 {
+          transform-origin: 0% 0%;
+          transition: transform 0.4s ease-in-out;
+        }
+
+        .nav-container .hamburger-lines .line2 {
+          transition: transform 0.2s ease-in-out;
+        }
+
+        .nav-container .hamburger-lines .line3 {
+          transform-origin: 0% 100%;
+          transition: transform 0.4s ease-in-out;
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .menu-items {
+          transform: translateX(0);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+          transform: rotate(45deg);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+          transform: scaleY(0);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+          transform: rotate(-45deg);
+        }
+
+        .nav-container input[type="checkbox"]:checked ~ .logo{
+          display: none;
+        }
+
+        .navbar .menu-items {
+          padding-top: 0px;
+          z-index: 2;
+          /*box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);*/
+          height: 90vh;
+          width: 100%;
+          transform: translate(-300%);
+          display: flex;
+          flex-direction: column;
+          margin-left: 0;
+          padding-left: 0;
+          margin-top: 0px;
+          transition: transform 0.5s ease-in-out;
+          text-align: center;
+        }
+
+        .navbar .menu-items li {
+          margin-bottom: 1.2rem;
+          font-size: 1.5rem;
+          font-weight: 500;
+        }
+
+        .nav_logo {
+          position: absolute;
+          right: 0;
+        }
+
+        .nav_logo img{
+            height: 25px;
+        }
     </style>
 </head>
 <body class="bg-black" >
@@ -199,6 +317,39 @@
         <div class="container">
             <div class="row">
                 <div id="div_Content" class="col-md-12" style="padding: 30px 30px 100px 30px">
+                    <%-- Header --%>
+                    <%--<div class="dash_header" style="width: 100%;">
+                        <div class="logo">
+                            <asp:Image ID="img_logo_true" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+                        </div>
+                    </div>--%>
+                    <div class="container nav-container navbar">
+                        <input class="checkbox" type="checkbox" name="" id="" />
+                        <div class="hamburger-lines">
+                            <span class="line line1"></span>
+                            <span class="line line2"></span>
+                            <span class="line line3"></span>
+                        </div>
+                        <div class="nav_logo">
+                            <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+                        </div>
+                        <div class="menu-items modal_menu">
+                            <div class="sub_menu">
+                                <div class="m_header">
+                                    <asp:Image ID="Image1" ImageUrl="~/Assets/img/logos/logo a pedido.svg" CssClass="m_image" runat="server" />
+                                </div>
+                                <ul class="m_list" style="padding-bottom:75px">
+                                    <li>
+                                        <asp:LinkButton ID="btnLogoutAndForget" runat="server" CssClass="btn_load" OnClick="btnLogoutAndDeleteInfo_Click">Cerrar y olvidar cuenta <i class="fas fa-chevron-right"></i></asp:LinkButton>
+                                    </li>
+                                    <li>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn_load" OnClick="btnLogout_Click">Cerrar sesión <i class="fas fa-chevron-right"></i></asp:LinkButton>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                     <asp:ContentPlaceHolder ID="content" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>

@@ -66,8 +66,17 @@ namespace Zest_App.Resources.Views.Auth
             if (Session["tmp_email"] != null)
             {
                 string email = Session["tmp_email"].ToString();
-                SendMail.sendMail("Código de ingreso", email, "El código de ingreso para tu app de zest es: " + Session["code"].ToString());
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('correo');", true);
+                try
+                {                  
+                    SendMail.sendMail("Código de ingreso", email, "El código de ingreso para tu app de zest es: " + Session["code"].ToString());
+                }catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "send_email_or_sms('correo');", true);
+                }
             }
         }
 
@@ -81,8 +90,6 @@ namespace Zest_App.Resources.Views.Auth
                 string code = Session["code"].ToString();
                 string telefono = Session["telefono"].ToString();
                 string countrycode = Session["countrycode"].ToString();
-
-                System.Diagnostics.Debug.WriteLine("Sending data btnSendBySMS_Click" + code + "-" + telefono + "-" + countrycode);
 
                 try
                 {

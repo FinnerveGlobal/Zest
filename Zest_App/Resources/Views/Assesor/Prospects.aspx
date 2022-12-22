@@ -5,9 +5,9 @@
         <asp:UpdatePanel ID="upTable" runat="server">
         <ContentTemplate>
              <div class="dash_header">
-        <div class="logo">
-            <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
-        </div>
+                <%--<div class="logo">
+                    <asp:Image ID="img_logo" ImageUrl="~/Assets/img/logos/logo a pedido.svg" runat="server" />
+                </div>--%>
         <div style="margin:20px auto">
             <asp:TextBox ID="txtSearch" AutoPostBack="true" OnTextChanged="txtSearch_TextChanged" CssClass="form-control" runat="server" style="border:1px solid #333333;background:#000;color:#fff" placeholder="Buscar ..."></asp:TextBox>
         </div>
