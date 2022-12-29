@@ -63,6 +63,23 @@
             margin-left: 5em;
         }
 
+        /* CSS para botones de la gráfica*/
+        .btn-graph{
+            color: white;
+            background-color: black;
+            border: 0px;
+            font-size: 10px;
+        }
+
+        .btn-graph.active{
+            background-color: #dabe04;
+            color: black;
+            font-weight: bolder;
+        }
+
+        .dash_portfolio{
+            margin-top: 0px;
+        }
     </style>
     <%-- JS para los tooltips --%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -152,6 +169,12 @@
             <div id="body_grafico" class="body_item1 active">
                 <asp:Literal ID="ltChart" runat="server"></asp:Literal>
             </div>
+        </div>
+        <div class="d-flex justify-content-around px-3 mt-2">
+            <asp:Button runat="server" Text="Día" CssClass="btn-graph active" />
+            <asp:Button runat="server" Text="Mes" CssClass="btn-graph" />
+            <asp:Button runat="server" Text="Año" CssClass="btn-graph" />
+            <asp:Button runat="server" Text="Desde el anio" CssClass="btn-graph" />
         </div>
         <div id="dash_portfolio" class="dash_portfolio" >
             <div class="port_header" onclick="show_portfolio()">

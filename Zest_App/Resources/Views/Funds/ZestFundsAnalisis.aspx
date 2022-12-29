@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Layout/app.Master" AutoEventWireup="true" CodeBehind="ZestFundsAnalisis.aspx.cs" Inherits="Zest_App.Resources.Views.Funds.ZestFundsAnalisis" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <a style="color:#fff;position: absolute;top:30px;left:80px;z-index: 100000;" href="ZestFunds.aspx"><i class="fas fa-chevron-left"></i></a>
+    <style>
+        .notas_menu{
+            position: static;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
 

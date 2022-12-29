@@ -92,7 +92,7 @@
             let x = setInterval(function () {
                 count -= 1;
                 document.getElementById("count-down-number").innerHTML = count;
-                console.log(count);
+                // console.log(count);
                     if (count < 0) {
                     $(".pad_submit:gt(0)").show();
                     $("#count-down").hide();
@@ -114,7 +114,7 @@
             let x = setInterval(function () {
                 count -= 1;
                 document.getElementById("count-down-number").innerHTML = count;
-                console.log(count);
+                // console.log(count);
                 if (count < 0) {
                     $(".pad_submit:gt(0)").show();
                     $("#count-down").hide();

@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Layout/app.Master" AutoEventWireup="true" CodeBehind="ZestFundsDetail.aspx.cs" Inherits="Zest_App.Resources.Views.Funds.ZestFundsDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <a style="color:#fff;position: absolute;top:30px;left:80px;z-index: 100000;" href="ZestFunds.aspx"><i class="fas fa-chevron-left"></i></a>
+    <style>
+        .notas_menu{
+            position: static;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     
@@ -39,32 +44,32 @@
                     <div class="col-6">
                         <span>Gestor</span>
                         <br />
-                        <asp:Literal ID="fondo_gestor" runat="server" Text="Zest LLC"></asp:Literal>
+                        <asp:Literal ID="fondo_gestor" runat="server"></asp:Literal>
                         <br />
                         <br />
                         <span>Auditor</span>
                         <br />
-                        <asp:Literal ID="fondo_auditor" runat="server" Text="PwC"></asp:Literal>
+                        <asp:Literal ID="fondo_auditor" runat="server"></asp:Literal>
                         <br />
                         <br />
                          <span>Moneda</span>
                         <br />
-                        <asp:Literal ID="fondo_moneda" runat="server" Text="USD"></asp:Literal>
+                        <asp:Literal ID="fondo_moneda" runat="server"></asp:Literal>
                     </div>
                     <div class="col-6">
                         <span>Administrador</span>
                         <br />
-                        <asp:Literal ID="fondo_administrador" runat="server" Text="Zest Capital Perú SAC"></asp:Literal>
+                        <asp:Literal ID="fondo_administrador" runat="server"></asp:Literal>
                         <br />
                         <br />
                         <span>Custodio</span>
                         <br />
-                        <asp:Literal ID="fondo_custodio" runat="server" Text="Pershing LLC"></asp:Literal>
+                        <asp:Literal ID="fondo_custodio" runat="server"></asp:Literal>
                         <br />
                         <br />
                         <span>Riesgo</span>
                         <br />
-                        <asp:Literal ID="fondo_riesgo" runat="server" Text="Volatibilidad"></asp:Literal>
+                        <asp:Literal ID="fondo_riesgo" runat="server"></asp:Literal>
 
                     </div>
                 </div>
