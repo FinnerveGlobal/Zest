@@ -10,18 +10,31 @@
          /* Clases CSS para el tooltip */
         .tooltip-inner{
             padding: 6px 7px;
-            color: white;
+            color: black;
             text-align: center;
             font-size: 0.6rem;
-            background-color: #4e4e4e;
-            border: 1px solid #fdfd5b;
+            background-color: #dabe04;
+            border: 1px solid #dabe04;
+            font-family: 'Open Sans';
             -webkit-border-radius: 9px;
             -moz-border-radius: 9px;
             border-radius: 4px;
         }
 
+        .tooltip.show{
+            opacity: 1 !important;
+        }
+
         .bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before{
-            border-top-color: #fdfd5b;
+            border-top-color: #dabe04;
+        }
+
+        .tooltip.bs-tooltip-top.show[x-placement^=top] .tooltip-inner{
+            margin-left: 5.5em;
+        }
+
+        .bs-tooltip-auto[x-placement^=top] .arrow, .bs-tooltip-top .arrow{
+            bottom: 1px;
         }
 
     </style>

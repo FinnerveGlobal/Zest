@@ -21,20 +21,46 @@
         }
 
          /* Clases CSS para el tooltip */
+        /* Clases CSS para el tooltip */
         .tooltip-inner{
             padding: 6px 7px;
-            color: white;
+            color: black;
             text-align: center;
             font-size: 0.6rem;
-            background-color: #4e4e4e;
-            border: 1px solid #fdfd5b;
+            background-color: #dabe04;
+            border: 1px solid #dabe04;
+            font-family: 'Open Sans';
             -webkit-border-radius: 9px;
             -moz-border-radius: 9px;
             border-radius: 4px;
         }
 
         .bs-tooltip-auto[x-placement^=top] .arrow::before, .bs-tooltip-top .arrow::before{
-            border-top-color: #fdfd5b;
+            border-top-color: #dabe04;
+        }
+
+        .tooltip.bs-tooltip-top.show[x-placement^=top] .tooltip-inner{
+            margin-left: 5.5em;
+        }
+
+        .bs-tooltip-auto[x-placement^=top] .arrow, .bs-tooltip-top .arrow{
+            bottom: 1px;
+        }
+
+        .tooltip.show{
+            opacity: 1 !important;
+        }
+
+        .bs-tooltip-auto[x-placement^=bottom] .arrow::before, .bs-tooltip-bottom .arrow::before{
+            border-bottom-color: #dabe04;
+        }
+
+        .bs-tooltip-auto[x-placement^=bottom] .arrow, .bs-tooltip-bottom .arrow{
+            top: 2px;
+        }
+
+        .tooltip.bs-tooltip-bottom.show[x-placement^=bottom] .tooltip-inner{
+            margin-left: 5em;
         }
 
     </style>
@@ -95,7 +121,7 @@
                     
                         <asp:Literal ID="rentabilidad_acumulada"  runat="server"></asp:Literal>
                         <i style="font-style: normal">%</i>
-                        <i style="display: inline-flex; margin: 0px 0px 0px 5px; color: white;" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true" title="<div class='info-tooltip'>Rentabilidad <br> Acumulada</>">
+                        <i style="display: inline-flex; margin: 0px 0px 0px 5px; color: white;" data-toggle="tooltip" data-placement="bottom" data-animation="false" data-html="true" title="<div class='info-tooltip'>Rentabilidad <br> Acumulada</>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                               <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
@@ -109,6 +135,12 @@
                         <span>
                             <asp:Literal ID="dividendos_acumulados" runat="server"></asp:Literal>
                             <i style="font-style: normal; color: #dabe04">USD</i>
+                            <i style="display: inline-flex; margin: 0px 0px 0px 5px; color: white;" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true" title="<div class='info-tooltip'>Dividendos acumulados</>">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                            </i>
                         </span>
                     <%} %>
                     <br />

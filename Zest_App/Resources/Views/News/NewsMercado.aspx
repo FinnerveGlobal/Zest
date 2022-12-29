@@ -5,6 +5,11 @@
         #div_Content{
             padding:  0px 30px 100px 30px !important;
         }
+
+        .notas_menu{
+            position: static;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
