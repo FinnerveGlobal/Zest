@@ -49,7 +49,7 @@
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <div class="dropdown-divider"></div>
-                                                    <%--<asp:LinkButton ID="btnShowPin" runat="server" OnClick="btnShowPin_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("PIN", "{0}") %>' title="Detalle"><i class="far fa-save"></i> Ver PIN</asp:LinkButton></li>--%>
+                                                    <asp:LinkButton ID="btnShowPin" runat="server" OnClick="btnShowPin_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("PIN", "{0}") %>' title="Detalle"><i class="far fa-save"></i> Ver PIN</asp:LinkButton></li>
                                                     <asp:LinkButton ID="btnRemove" runat="server" OnClick="btnRemove_Click" CssClass="dropdown-item" CommandArgument='<%# Bind("id", "{0}") %>' title="Borrar"><i class="fas fa-ban"></i> Desactivar </asp:LinkButton></li>
                                                 </div>
                                             </ItemTemplate>

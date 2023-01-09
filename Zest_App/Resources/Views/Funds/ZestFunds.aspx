@@ -170,11 +170,11 @@
                 <asp:Literal ID="ltChart" runat="server"></asp:Literal>
             </div>
         </div>
-        <div class="d-flex justify-content-around px-3 mt-2">
-            <asp:Button runat="server" Text="Día" CssClass="btn-graph active" />
-            <asp:Button runat="server" Text="Mes" CssClass="btn-graph" />
-            <asp:Button runat="server" Text="Año" CssClass="btn-graph" />
-            <asp:Button runat="server" Text="Desde el anio" CssClass="btn-graph" />
+        <div id="div-group-button" class="d-flex justify-content-around px-3 mt-2">
+            <asp:Button runat="server" Text="Día" CssClass="btn-graph" OnClick="btnDay_Click" />
+            <asp:Button runat="server" Text="Mes" CssClass="btn-graph" OnClick="btnMonth_Click" />
+            <%--<asp:Button runat="server" Text="Año" CssClass="btn-graph" OnClick="btnYear_Click"/>
+            <asp:Button runat="server" Text="Desde el Año" CssClass="btn-graph" OnClick="btnFromBeginning_Click" />--%>
         </div>
         <div id="dash_portfolio" class="dash_portfolio" >
             <div class="port_header" onclick="show_portfolio()">
@@ -250,6 +250,11 @@
                 document.getElementsByTagName("body")[0].style.overflow = 'auto';
             }
             t = !t;
+        }
+
+        function active_btn_graph(index) {
+            $('#div-group-button').find('.btn-graph').removeClass('active');
+            $('#div-group-button').find('.btn-graph:nth-child(' + index + ')').addClass('active');
         }
 
         $('.activos_item_group').click(function () {

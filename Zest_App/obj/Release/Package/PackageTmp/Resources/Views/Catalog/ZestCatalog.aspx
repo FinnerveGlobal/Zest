@@ -51,7 +51,7 @@
     </div>
 
     <br />
-    <br />
+
     <div class="catalog">
 
         <asp:Repeater ID="rpTable" runat="server">

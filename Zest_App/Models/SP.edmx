@@ -191,6 +191,15 @@
           <Parameter Name="InvestorId" Type="int" Mode="In" />
           <Parameter Name="FundId" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_InvestorFundData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InvestorFundPerformance_ByDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_InvestorFundPerformance_ByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="InvestorId" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="InvestorId" Type="int" Mode="In" />
           <Parameter Name="date_ini" Type="date" Mode="In" />
@@ -402,6 +411,15 @@
           <FunctionImport Name="SP_FundEvent" ReturnType="Collection(PivZestDevModel.SP_FundEvent_Result)">
             <Parameter Name="InvestorId" Mode="In" Type="Int32" />
             <Parameter Name="FundId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InvestorFundData" ReturnType="Collection(PivZestDevModel.SP_InvestorFundData_Result)">
+            <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InvestorFundPerformance_ByDay" ReturnType="Collection(PivZestDevModel.SP_InvestorFundPerformance_ByDay_Result)">
+            <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_InvestorFundPerformance_ByMonth" ReturnType="Collection(PivZestDevModel.SP_InvestorFundPerformance_ByMonth_Result)">
+            <Parameter Name="InvestorId" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SearchAdvisor_Result">
@@ -783,6 +801,38 @@
           <Property Type="Decimal" Name="PeriodPerformance" Nullable="true" Precision="38" Scale="6" />
           <Property Type="Int32" Name="Historic" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="SP_InvestorFundData_Result">
+          <Property Type="Int32" Name="InvestorId" Nullable="false" />
+          <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="FundId" Nullable="false" />
+          <Property Type="String" Name="Symbol" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="LegalName" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="NaVDelDia" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="ValorNominalInversion" Nullable="true" Precision="38" Scale="8" />
+          <Property Type="Double" Name="RentabilidadAcumuladaBaseNav" Nullable="true" />
+          <Property Type="Decimal" Name="DividendosAcumulados" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="String" Name="Moneda" Nullable="true" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="SP_InvestorFundPerformance_ByDay_Result">
+          <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="InvestorId" Nullable="true" />
+          <Property Type="Int32" Name="FundId" Nullable="true" />
+          <Property Type="Double" Name="Nav" Nullable="true" />
+          <Property Type="Double" Name="Deposits" Nullable="true" />
+          <Property Type="Double" Name="Withdrawal" Nullable="true" />
+          <Property Type="Double" Name="AccruedReturnFactor" Nullable="true" />
+          <Property Type="Double" Name="FundReturn" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_InvestorFundPerformance_ByMonth_Result">
+          <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="InvestorId" Nullable="true" />
+          <Property Type="Int32" Name="FundId" Nullable="true" />
+          <Property Type="Double" Name="Nav" Nullable="true" />
+          <Property Type="Double" Name="Deposits" Nullable="true" />
+          <Property Type="Double" Name="Withdrawal" Nullable="true" />
+          <Property Type="Double" Name="AccruedReturnFactor" Nullable="true" />
+          <Property Type="Double" Name="FundReturn" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1151,6 +1201,50 @@
                 <ScalarProperty Name="Redemption" ColumnName="Redemption" />
                 <ScalarProperty Name="PeriodPerformance" ColumnName="PeriodPerformance" />
                 <ScalarProperty Name="Historic" ColumnName="Historic" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InvestorFundData" FunctionName="PivZestDevModel.Store.SP_InvestorFundData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.SP_InvestorFundData_Result">
+                <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+                <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="LegalName" ColumnName="LegalName" />
+                <ScalarProperty Name="NaVDelDia" ColumnName="NaVDelDia" />
+                <ScalarProperty Name="ValorNominalInversion" ColumnName="ValorNominalInversion" />
+                <ScalarProperty Name="RentabilidadAcumuladaBaseNav" ColumnName="RentabilidadAcumuladaBaseNav" />
+                <ScalarProperty Name="DividendosAcumulados" ColumnName="DividendosAcumulados" />
+                <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InvestorFundPerformance_ByDay" FunctionName="PivZestDevModel.Store.SP_InvestorFundPerformance_ByDay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.SP_InvestorFundPerformance_ByDay_Result">
+                <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+                <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Nav" ColumnName="Nav" />
+                <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="Withdrawal" ColumnName="Withdrawal" />
+                <ScalarProperty Name="AccruedReturnFactor" ColumnName="AccruedReturnFactor" />
+                <ScalarProperty Name="FundReturn" ColumnName="FundReturn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_InvestorFundPerformance_ByMonth" FunctionName="PivZestDevModel.Store.SP_InvestorFundPerformance_ByMonth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PivZestDevModel.SP_InvestorFundPerformance_ByMonth_Result">
+                <ScalarProperty Name="HistoricalDate" ColumnName="HistoricalDate" />
+                <ScalarProperty Name="InvestorId" ColumnName="InvestorId" />
+                <ScalarProperty Name="FundId" ColumnName="FundId" />
+                <ScalarProperty Name="Nav" ColumnName="Nav" />
+                <ScalarProperty Name="Deposits" ColumnName="Deposits" />
+                <ScalarProperty Name="Withdrawal" ColumnName="Withdrawal" />
+                <ScalarProperty Name="AccruedReturnFactor" ColumnName="AccruedReturnFactor" />
+                <ScalarProperty Name="FundReturn" ColumnName="FundReturn" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

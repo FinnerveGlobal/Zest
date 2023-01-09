@@ -272,9 +272,7 @@ namespace Zest_App.Resources.Views.Dashboard
                                 dividendos = item.DividendosIntereses == null ? 0 : item.DividendosIntereses,
                                  adicional = tmp.FincomeID.ToString()
                          
-                            });;
-                            dataAcumulada += (decimal)(item.ValorMercado);
-
+                            });
                         }
                     }
                     else
@@ -299,9 +297,9 @@ namespace Zest_App.Resources.Views.Dashboard
                             dividendos = item.DividendosIntereses == null ? 0 : item.DividendosIntereses,
                             adicional = ""
 
-                        }); ;
-                        dataAcumulada += (decimal)(item.ValorMercado);
+                        });
                     }
+                    dataAcumulada += (decimal)(item.ValorMercado);
                 }
 
                 valor_resumen.Text = dataAcumulada.ToString("N2");

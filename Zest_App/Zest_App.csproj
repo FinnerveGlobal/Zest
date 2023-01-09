@@ -1424,6 +1424,15 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SP_InvestorFundData_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InvestorFundPerformance_ByDay_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_InvestorFundPerformance_ByMonth_Result.cs">
+      <DependentUpon>SP.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SP_MonthResume_Result.cs">
       <DependentUpon>SP.tt</DependentUpon>
     </Compile>

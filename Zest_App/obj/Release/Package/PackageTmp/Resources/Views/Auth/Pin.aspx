@@ -70,9 +70,9 @@
             </div>
             <div class="pad_submit">
             </div>
-            <div class="pad_submit">
-                
-                <asp:Button ID="btn_recovery" runat="server" Text="Recuperar Pin" OnClick="btnRecovery_Click" CssClass="next" />
+            <div class="pad_submit" style="padding: 0 30px;">
+                <asp:Button ID="btn_recovery" runat="server" Text="Recuperar Pin" OnClick="btnRecovery_Click" CssClass="prev text-center" />
+                <asp:Button ID="btn_log_out" runat="server" Text="Cerrar Cuenta" OnClick="btnDeleteInfo_Click" CssClass="prev text-center" />
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

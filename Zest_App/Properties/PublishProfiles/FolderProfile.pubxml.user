@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\Publicar Zest Test</_PublishTargetUrl>
-    <History>True|2022-12-12T14:59:03.7623287Z;False|2022-12-12T09:58:16.3756033-05:00;True|2022-12-06T11:32:36.2328686-05:00;True|2022-12-05T10:29:54.4729033-05:00;True|2022-12-05T09:51:26.0666579-05:00;True|2022-11-30T13:45:56.3549398-05:00;True|2022-11-30T13:24:59.5155691-05:00;True|2022-11-25T14:04:54.3934882-05:00;True|2022-11-25T08:18:03.1446590-05:00;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
+    <History>True|2023-01-09T15:18:27.9081304Z;True|2022-12-30T12:05:03.9644967-05:00;True|2022-12-12T09:59:03.7623287-05:00;False|2022-12-12T09:58:16.3756033-05:00;True|2022-12-06T11:32:36.2328686-05:00;True|2022-12-05T10:29:54.4729033-05:00;True|2022-12-05T09:51:26.0666579-05:00;True|2022-11-30T13:45:56.3549398-05:00;True|2022-11-30T13:24:59.5155691-05:00;True|2022-11-25T14:04:54.3934882-05:00;True|2022-11-25T08:18:03.1446590-05:00;True|2022-11-22T14:13:13.7225600-05:00;True|2022-11-22T14:05:14.8088322-05:00;True|2022-11-15T08:34:03.1752485-05:00;True|2022-11-14T14:16:34.6266377-05:00;True|2022-11-10T08:46:02.8632569-05:00;True|2022-11-09T11:33:25.3152418-05:00;True|2022-10-06T14:10:16.2562137-05:00;True|2022-09-26T13:14:26.2485843-05:00;True|2021-10-08T12:47:18.4483845-05:00;True|2021-10-08T12:46:44.0676629-05:00;True|2021-10-08T12:35:14.8623918-05:00;True|2021-10-07T01:25:00.5417822-05:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Assets/backend/blog/css/medium-editor.css">
@@ -2439,10 +2439,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:11</publishTime>
     </File>
     <File Include="Assets/img/menu/funds 0.svg">
-      <publishTime>11/09/2022 13:53:13</publishTime>
+      <publishTime>12/20/2022 14:05:30</publishTime>
     </File>
     <File Include="Assets/img/menu/funds 1.svg">
-      <publishTime>11/08/2022 15:13:46</publishTime>
+      <publishTime>12/20/2022 14:05:30</publishTime>
     </File>
     <File Include="Assets/img/menu/list 0.svg">
       <publishTime>10/25/2022 08:11:11</publishTime>
@@ -3075,10 +3075,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:52</publishTime>
     </File>
     <File Include="bin/Zest_App.dll">
-      <publishTime>12/12/2022 14:38:19</publishTime>
+      <publishTime>01/09/2023 10:17:57</publishTime>
     </File>
     <File Include="bin/Zest_App.pdb">
-      <publishTime>12/12/2022 14:38:19</publishTime>
+      <publishTime>01/09/2023 10:17:57</publishTime>
     </File>
     <File Include="bin/Zstandard.Net.dll">
       <publishTime>10/25/2022 08:11:52</publishTime>
@@ -3093,37 +3093,37 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:19</publishTime>
     </File>
     <File Include="Models/DB.edmx.diagram">
-      <publishTime>11/18/2022 11:33:48</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Models/SP.edmx.diagram">
-      <publishTime>11/15/2022 08:28:46</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Layout/app.Master">
-      <publishTime>12/12/2022 12:58:53</publishTime>
+      <publishTime>01/02/2023 10:39:44</publishTime>
     </File>
     <File Include="Resources/Layout/appAssesor.Master">
-      <publishTime>10/25/2022 08:11:25</publishTime>
+      <publishTime>12/22/2022 13:34:42</publishTime>
     </File>
     <File Include="Resources/Layout/auth.Master">
-      <publishTime>10/25/2022 08:11:25</publishTime>
+      <publishTime>12/21/2022 09:04:47</publishTime>
     </File>
     <File Include="Resources/Layout/backend.Master">
-      <publishTime>11/18/2022 08:14:34</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Layout/web.Master">
-      <publishTime>12/05/2022 11:15:08</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Assesor/ListInvestor.aspx">
-      <publishTime>10/25/2022 08:11:26</publishTime>
+      <publishTime>12/22/2022 09:35:06</publishTime>
     </File>
     <File Include="Resources/Views/Assesor/Messages.aspx">
-      <publishTime>10/25/2022 08:11:26</publishTime>
+      <publishTime>12/22/2022 11:01:02</publishTime>
     </File>
     <File Include="Resources/Views/Assesor/Prospects.aspx">
-      <publishTime>10/25/2022 08:11:26</publishTime>
+      <publishTime>12/22/2022 11:00:29</publishTime>
     </File>
     <File Include="Resources/Views/Auth/Code.aspx">
-      <publishTime>10/25/2022 09:33:31</publishTime>
+      <publishTime>12/29/2022 10:33:32</publishTime>
     </File>
     <File Include="Resources/Views/Auth/Home.aspx">
       <publishTime>10/25/2022 08:11:26</publishTime>
@@ -3135,7 +3135,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:26</publishTime>
     </File>
     <File Include="Resources/Views/Auth/Pin.aspx">
-      <publishTime>10/25/2022 09:33:31</publishTime>
+      <publishTime>12/22/2022 08:41:22</publishTime>
     </File>
     <File Include="Resources/Views/Auth/Pin_security.aspx">
       <publishTime>10/25/2022 08:11:26</publishTime>
@@ -3162,13 +3162,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/05/2022 11:03:33</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Catalog.aspx">
-      <publishTime>11/25/2022 13:19:04</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/CatalogFunds.aspx">
-      <publishTime>12/12/2022 14:27:56</publishTime>
+      <publishTime>12/20/2022 14:05:32</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/CatalogFunds_item.aspx">
-      <publishTime>11/22/2022 10:22:44</publishTime>
+      <publishTime>12/20/2022 14:05:32</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Catalog_item.aspx">
       <publishTime>10/25/2022 08:11:26</publishTime>
@@ -3180,7 +3180,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:26</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Investors.aspx">
-      <publishTime>10/25/2022 08:11:26</publishTime>
+      <publishTime>12/30/2022 11:35:21</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Logos.aspx">
       <publishTime>10/25/2022 08:11:26</publishTime>
@@ -3195,7 +3195,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:26</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/NewsUpload.aspx">
-      <publishTime>10/25/2022 09:33:31</publishTime>
+      <publishTime>12/20/2022 14:05:32</publishTime>
     </File>
     <File Include="Resources/Views/Backend/Zestapp/Reviews.aspx">
       <publishTime>10/25/2022 08:11:26</publishTime>
@@ -3234,49 +3234,49 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:27</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestCatalog.aspx">
-      <publishTime>11/10/2022 10:50:42</publishTime>
+      <publishTime>12/29/2022 13:26:56</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestCatalogFund.aspx">
-      <publishTime>11/21/2022 10:03:35</publishTime>
+      <publishTime>12/29/2022 13:27:16</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestItem.aspx">
-      <publishTime>11/21/2022 11:23:16</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Catalog/ZestItemFund.aspx">
-      <publishTime>12/12/2022 14:23:33</publishTime>
+      <publishTime>12/20/2022 14:05:33</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/ActivosCLN.aspx">
-      <publishTime>12/07/2022 11:37:41</publishTime>
+      <publishTime>12/29/2022 13:03:02</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/ActivosELN.aspx">
-      <publishTime>12/07/2022 11:38:10</publishTime>
+      <publishTime>12/29/2022 13:01:04</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/AnalisisELN.aspx">
-      <publishTime>12/07/2022 11:38:17</publishTime>
+      <publishTime>12/29/2022 13:02:05</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/EventosCLN.aspx">
-      <publishTime>12/07/2022 11:38:26</publishTime>
+      <publishTime>12/29/2022 13:02:16</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/EventosELN.aspx">
-      <publishTime>12/07/2022 11:38:38</publishTime>
+      <publishTime>12/29/2022 13:02:31</publishTime>
     </File>
     <File Include="Resources/Views/Dashboard/Resumen.aspx">
-      <publishTime>12/12/2022 14:37:00</publishTime>
+      <publishTime>12/29/2022 10:00:35</publishTime>
     </File>
     <File Include="Resources/Views/Funds/Fund.aspx">
       <publishTime>11/03/2022 14:49:34</publishTime>
     </File>
     <File Include="Resources/Views/Funds/ZestFunds.aspx">
-      <publishTime>12/07/2022 11:07:38</publishTime>
+      <publishTime>01/09/2023 10:11:23</publishTime>
     </File>
     <File Include="Resources/Views/Funds/ZestFundsAnalisis.aspx">
-      <publishTime>12/07/2022 11:35:09</publishTime>
+      <publishTime>12/29/2022 13:08:31</publishTime>
     </File>
     <File Include="Resources/Views/Funds/ZestFundsDetail.aspx">
-      <publishTime>12/07/2022 11:35:29</publishTime>
+      <publishTime>12/29/2022 14:40:10</publishTime>
     </File>
     <File Include="Resources/Views/Funds/ZestFundsEvents.aspx">
-      <publishTime>12/12/2022 10:35:23</publishTime>
+      <publishTime>12/29/2022 13:20:27</publishTime>
     </File>
     <File Include="Resources/Views/More/Algoparati.aspx">
       <publishTime>10/25/2022 08:11:27</publishTime>
@@ -3285,16 +3285,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:27</publishTime>
     </File>
     <File Include="Resources/Views/More/externalPdfViewer.aspx">
-      <publishTime>11/24/2022 09:30:41</publishTime>
+      <publishTime>12/20/2022 14:05:33</publishTime>
     </File>
     <File Include="Resources/Views/More/externalPdfViewerEmbedVer.aspx">
-      <publishTime>11/11/2022 10:33:38</publishTime>
+      <publishTime>12/20/2022 14:05:33</publishTime>
     </File>
     <File Include="Resources/Views/More/externalPdfViewerIframeVer.aspx">
-      <publishTime>11/11/2022 10:24:17</publishTime>
+      <publishTime>12/20/2022 14:05:33</publishTime>
     </File>
     <File Include="Resources/Views/More/externalPdfViewerObjectVer.aspx">
-      <publishTime>11/11/2022 10:32:53</publishTime>
+      <publishTime>12/20/2022 14:05:34</publishTime>
     </File>
     <File Include="Resources/Views/More/externalViewer.aspx">
       <publishTime>10/25/2022 08:11:27</publishTime>
@@ -3303,16 +3303,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:27</publishTime>
     </File>
     <File Include="Resources/Views/More/pdfViewerNew.aspx">
-      <publishTime>11/24/2022 10:03:49</publishTime>
+      <publishTime>12/20/2022 14:05:34</publishTime>
     </File>
     <File Include="Resources/Views/News/NewsCorp.aspx">
-      <publishTime>11/15/2022 13:04:53</publishTime>
+      <publishTime>12/29/2022 12:01:48</publishTime>
     </File>
     <File Include="Resources/Views/News/NewsMercado.aspx">
-      <publishTime>11/15/2022 13:00:14</publishTime>
+      <publishTime>12/29/2022 09:47:13</publishTime>
     </File>
     <File Include="Resources/Views/News/NewsZest.aspx">
-      <publishTime>10/25/2022 10:26:46</publishTime>
+      <publishTime>12/29/2022 09:47:41</publishTime>
     </File>
     <File Include="Resources/Views/Website/Aboutus.aspx">
       <publishTime>10/25/2022 08:11:28</publishTime>
@@ -3321,19 +3321,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:28</publishTime>
     </File>
     <File Include="Resources/Views/Website/Efinanciera.aspx">
-      <publishTime>12/05/2022 13:37:58</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Website/EfinancieraEntry.aspx">
-      <publishTime>10/25/2022 08:11:28</publishTime>
+      <publishTime>12/29/2022 12:01:51</publishTime>
     </File>
     <File Include="Resources/Views/Website/Events.aspx">
-      <publishTime>10/25/2022 09:33:31</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Website/FaQ.aspx">
       <publishTime>10/25/2022 08:11:28</publishTime>
     </File>
     <File Include="Resources/Views/Website/Home.aspx">
-      <publishTime>12/05/2022 10:15:12</publishTime>
+      <publishTime>12/20/2022 14:05:35</publishTime>
     </File>
     <File Include="Resources/Views/Website/Legalfundation.aspx">
       <publishTime>10/25/2022 08:11:28</publishTime>
@@ -3345,7 +3345,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/25/2022 08:11:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/05/2022 09:50:55</publishTime>
+      <publishTime>01/09/2023 10:18:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

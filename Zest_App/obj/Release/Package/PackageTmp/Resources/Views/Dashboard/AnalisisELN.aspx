@@ -5,6 +5,9 @@
        .analisis.active{
            background:#282828;
        }
+       .notas_menu{
+            position: static;
+        }
     </style>
     <a style="color:#fff;position: absolute;top:30px;left:80px;z-index: 100000;" href="Resumen.aspx"><i class="fas fa-chevron-left"></i></a>
 </asp:Content>

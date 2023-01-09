@@ -120,6 +120,15 @@
       <Parameter Name="InvestorId" Mode="In" Type="Int32" />
       <Parameter Name="FundId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="SP_InvestorFundData" ReturnType="Collection(PivZestDevModel.SP_InvestorFundData_Result)">
+      <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InvestorFundPerformance_ByDay" ReturnType="Collection(PivZestDevModel.SP_InvestorFundPerformance_ByDay_Result)">
+      <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InvestorFundPerformance_ByMonth" ReturnType="Collection(PivZestDevModel.SP_InvestorFundPerformance_ByMonth_Result)">
+      <Parameter Name="InvestorId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="SearchAdvisor_Result">
     <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
@@ -499,5 +508,37 @@
     <Property Type="Decimal" Name="Redemption" Nullable="true" Precision="38" Scale="6" />
     <Property Type="Decimal" Name="PeriodPerformance" Nullable="true" Precision="38" Scale="6" />
     <Property Type="Int32" Name="Historic" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_InvestorFundData_Result">
+    <Property Type="Int32" Name="InvestorId" Nullable="false" />
+    <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="FundId" Nullable="false" />
+    <Property Type="String" Name="Symbol" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="LegalName" Nullable="false" MaxLength="200" />
+    <Property Type="Decimal" Name="NaVDelDia" Nullable="true" Precision="38" Scale="6" />
+    <Property Type="Decimal" Name="ValorNominalInversion" Nullable="true" Precision="38" Scale="8" />
+    <Property Type="Double" Name="RentabilidadAcumuladaBaseNav" Nullable="true" />
+    <Property Type="Decimal" Name="DividendosAcumulados" Nullable="false" Precision="38" Scale="6" />
+    <Property Type="String" Name="Moneda" Nullable="true" MaxLength="3" />
+  </ComplexType>
+  <ComplexType Name="SP_InvestorFundPerformance_ByDay_Result">
+    <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="InvestorId" Nullable="true" />
+    <Property Type="Int32" Name="FundId" Nullable="true" />
+    <Property Type="Double" Name="Nav" Nullable="true" />
+    <Property Type="Double" Name="Deposits" Nullable="true" />
+    <Property Type="Double" Name="Withdrawal" Nullable="true" />
+    <Property Type="Double" Name="AccruedReturnFactor" Nullable="true" />
+    <Property Type="Double" Name="FundReturn" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_InvestorFundPerformance_ByMonth_Result">
+    <Property Type="DateTime" Name="HistoricalDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="InvestorId" Nullable="true" />
+    <Property Type="Int32" Name="FundId" Nullable="true" />
+    <Property Type="Double" Name="Nav" Nullable="true" />
+    <Property Type="Double" Name="Deposits" Nullable="true" />
+    <Property Type="Double" Name="Withdrawal" Nullable="true" />
+    <Property Type="Double" Name="AccruedReturnFactor" Nullable="true" />
+    <Property Type="Double" Name="FundReturn" Nullable="true" />
   </ComplexType>
 </Schema>

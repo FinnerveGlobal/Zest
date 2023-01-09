@@ -186,6 +186,15 @@
     <Parameter Name="InvestorId" Type="int" Mode="In" />
     <Parameter Name="FundId" Type="int" Mode="In" />
   </Function>
+  <Function Name="SP_InvestorFundData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_InvestorFundPerformance_ByDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_InvestorFundPerformance_ByMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvestorId" Type="int" Mode="In" />
+  </Function>
   <Function Name="SP_MonthResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="InvestorId" Type="int" Mode="In" />
     <Parameter Name="date_ini" Type="date" Mode="In" />

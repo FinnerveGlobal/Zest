@@ -341,5 +341,32 @@ namespace Zest_App.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_FundEvent_Result>("SP_FundEvent", investorIdParameter, fundIdParameter);
         }
+    
+        public virtual ObjectResult<SP_InvestorFundData_Result> SP_InvestorFundData(Nullable<int> investorId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_InvestorFundData_Result>("SP_InvestorFundData", investorIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_InvestorFundPerformance_ByDay_Result> SP_InvestorFundPerformance_ByDay(Nullable<int> investorId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_InvestorFundPerformance_ByDay_Result>("SP_InvestorFundPerformance_ByDay", investorIdParameter);
+        }
+    
+        public virtual ObjectResult<SP_InvestorFundPerformance_ByMonth_Result> SP_InvestorFundPerformance_ByMonth(Nullable<int> investorId)
+        {
+            var investorIdParameter = investorId.HasValue ?
+                new ObjectParameter("InvestorId", investorId) :
+                new ObjectParameter("InvestorId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_InvestorFundPerformance_ByMonth_Result>("SP_InvestorFundPerformance_ByMonth", investorIdParameter);
+        }
     }
 }
